@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZS</name>
+    </assembly>
+    <members>
+        <member name="T:ZS.ZSCmd">
+            <summary>
+            Provides methods to execute command line instructions from Small Basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSCmd.Execute(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a command in the command line and returns the output.
+            </summary>
+            <param name="command">The command to execute.</param>
+            <returns>The output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.CopyFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Copies a file from source to destination using command line.
+            </summary>
+            <param name="source">Source file path.</param>
+            <param name="destination">Destination file path.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.MoveFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Moves a file from source to destination using command line.
+            </summary>
+            <param name="source">Source file path.</param>
+            <param name="destination">Destination file path.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.DeleteFile(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Deletes a file using command line.
+            </summary>
+            <param name="filePath">File path to delete.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.Rename(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Renames a file or directory using command line.
+            </summary>
+            <param name="oldPath">Current path of the file or directory.</param>
+            <param name="newPath">New path to rename to.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.CreateDirectory(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Creates a directory using command line.
+            </summary>
+            <param name="directoryPath">Directory path to create.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.RemoveDirectory(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Removes a directory using command line.
+            </summary>
+            <param name="directoryPath">Directory path to remove.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.ListDirectoryContents(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Lists contents of a directory using command line.
+            </summary>
+            <param name="directoryPath">Directory path to list.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.ChangeDirectory(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Changes current directory using command line.
+            </summary>
+            <param name="directoryPath">Directory path to change to.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.PingHost(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Pings a host using command line.
+            </summary>
+            <param name="host">Host to ping.</param>
+            <returns>Output of the command execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.ExecuteCommand(System.String)">
+            <summary>
+            Executes a command using the command line and captures the output.
+            </summary>
+            <param name="command">The command to execute.</param>
+            <returns>The output of the command execution.</returns>
+        </member>
+        <member name="T:ZS.ZSKeyboard">
+            <summary>
+            The ZSKeyboard extension provides functionalities to interact with keyboard inputs.
+            It includes methods for checking the state of modifier keys (Alt, Shift, Ctrl, Windows) and sending key presses programmatically.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.LastKeyPressed">
+            <summary>
+            Gets the last key pressed by the user.
+            </summary>
+            <returns>The last key pressed as a string.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsAltDown">
+            <summary>
+            Checks if the Alt key is currently pressed down.
+            </summary>
+            <returns>True if the Alt key is pressed, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsShiftDown">
+            <summary>
+            Checks if the Shift key is currently pressed down.
+            </summary>
+            <returns>True if the Shift key is pressed, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsCtrlDown">
+            <summary>
+            Checks if the Ctrl key is currently pressed down.
+            </summary>
+            <returns>True if the Ctrl key is pressed, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsWindowsKeyDown">
+            <summary>
+            Checks if the Windows key is currently pressed down.
+            </summary>
+            <returns>True if the Windows key is pressed, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SendKey(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sends a key press to the system.
+            </summary>
+            <param name="key">The key to send.</param>
+        </member>
+        <member name="T:ZS.ZSText">
+            <summary>
+            Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.
+            </summary>   
+        </member>
+        <member name="M:ZS.ZSText.ToUpper(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Converts the input text to uppercase.
+            </summary>
+            <param name="input">The text to be converted.</param>
+            <returns>The uppercase version of the input text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.ToLower(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Converts the input text to lowercase.
+            </summary>
+            <param name="input">The text to be converted.</param>
+            <returns>The lowercase version of the input text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Substring(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Extracts a substring from the input text.
+            </summary>
+            <param name="input">The text to extract from.</param>
+            <param name="startIndex">The starting index of the substring.</param>
+            <param name="length">The length of the substring.</param>
+            <returns>The extracted substring.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Contains(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if the input text contains the specified value.
+            </summary>
+            <param name="input">The text to search in.</param>
+            <param name="value">The value to search for.</param>
+            <returns>True if the input text contains the value, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSText.IndexOf(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Finds the index of the specified value in the input text.
+            </summary>
+            <param name="input">The text to search in.</param>
+            <param name="value">The value to find.</param>
+            <returns>The index of the value in the input text, or -1 if not found.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Replace(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Replaces occurrences of a specified value in the input text with another value.
+            </summary>
+            <param name="input">The text to be modified.</param>
+            <param name="oldValue">The value to be replaced.</param>
+            <param name="newValue">The value to replace with.</param>
+            <returns>The modified text with replacements.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Length(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the length of the input text.
+            </summary>
+            <param name="input">The text to measure.</param>
+            <returns>The length of the input text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Trim(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Trims leading and trailing whitespace from the input text.
+            </summary>
+            <param name="input">The text to be trimmed.</param>
+            <returns>The trimmed text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Split(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Splits the input text into an array of substrings based on a delimiter.
+            </summary>
+            <param name="input">The text to be split.</param>
+            <param name="delimiter">The delimiter to split by.</param>
+            <returns>An array of substrings.</returns>
+        </member>
+        <member name="M:ZS.ZSText.ToCamelCase(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Converts a string to camelCase format.
+            </summary>
+            <param name="input">The input text to convert.</param>
+            <returns>The input text in camelCase format.</returns>
+        </member>
+        <member name="M:ZS.ZSText.Reverse(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Reverses the input text.
+            </summary>
+            <param name="input">The text to be reversed.</param>
+            <returns>The reversed text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.ToTitleCase(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Converts the first letter of each word in the input text to uppercase.
+            </summary>
+            <param name="input">The text to be converted.</param>
+            <returns>The converted text with each word's first letter in uppercase.</returns>
+        </member>
+        <member name="M:ZS.ZSText.StartsWith(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if the input text starts with the specified value.
+            </summary>
+            <param name="input">The text to check.</param>
+            <param name="value">The value to check for.</param>
+            <returns>True if the input text starts with the value, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSText.EndsWith(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if the input text ends with the specified value.
+            </summary>
+            <param name="input">The text to check.</param>
+            <param name="value">The value to check for.</param>
+            <returns>True if the input text ends with the value, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSText.HtmlEncode(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Encodes the input text into HTML entities.
+            </summary>
+            <param name="input">The text to be encoded.</param>
+            <returns>The HTML-encoded text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.HtmlDecode(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Decodes the input text from HTML entities.
+            </summary>
+            <param name="input">The HTML-encoded text to be decoded.</param>
+            <returns>The decoded text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.UrlEncode(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Encodes the input text into URL format.
+            </summary>
+            <param name="input">The text to be URL-encoded.</param>
+            <returns>The URL-encoded text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.UrlDecode(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Decodes the input text from URL format.
+            </summary>
+            <param name="input">The URL-encoded text to be decoded.</param>
+            <returns>The decoded text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.CountOccurrences(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Counts the occurrences of a substring within the input text.
+            </summary>
+            <param name="text">The text to search within.</param>
+            <param name="substring">The substring to count.</param>
+            <returns>The number of occurrences of the substring in the text.</returns>
+        </member>
+        <member name="M:ZS.ZSText.StartsWithPrefix(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if the input text starts with the specified prefix.
+            </summary>
+            <param name="text">The text to check.</param>
+            <param name="prefix">The prefix to check against.</param>
+            <returns>True if the text starts with the prefix, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSText.EndsWithSuffix(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if the input text ends with the specified suffix.
+            </summary>
+            <param name="text">The text to check.</param>
+            <param name="suffix">The suffix to check against.</param>
+            <returns>True if the text ends with the suffix, otherwise false.</returns>
+        </member>
+        <member name="P:ZS.ZSText.NewLine">
+            <summary>
+            Gets the newline character "\n".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Comma">
+            <summary>
+            Gets the comma character ",".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Tab">
+            <summary>
+            Gets the tab character "\t".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Colon">
+            <summary>
+            Gets the colon character ":".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Semicolon">
+            <summary>
+            Gets the semicolon character ";".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Dash">
+            <summary>
+            Gets the dash character "-".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Underscore">
+            <summary>
+            Gets the underscore character "_".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.Period">
+            <summary>
+            Gets the period character ".".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.QuestionMark">
+            <summary>
+            Gets the question mark character "?".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.ExclamationMark">
+            <summary>
+            Gets the exclamation mark character "!".
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.QuotationMark">
+            <summary>
+            Gets the quotation mark character '"'.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.SingleQuote">
+            <summary>
+            Gets the single quote character '\''.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.ParenthesesOpen">
+            <summary>
+            Gets the parentheses opening character '('.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.ParenthesesClose">
+            <summary>
+            Gets the parentheses closing character ')'.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.BracketOpen">
+            <summary>
+            Gets the square bracket opening character '['.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.BracketClose">
+            <summary>
+            Gets the square bracket closing character ']'.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.BraceOpen">
+            <summary>
+            Gets the curly brace opening character '{'.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSText.BraceClose">
+            <summary>
+            Gets the curly brace closing character '}'.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:ZS.ZSText.AngleBracketOpen" -->
+        <member name="P:ZS.ZSText.AngleBracketClose">
+            <summary>
+            Gets the angle bracket closing character '>'.
+            </summary>
+        </member>
+        <member name="T:ZS.ZSProcess">
+            <summary>
+            Provides functions for managing processes.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSProcess.StartProcess(System.String,System.String)">
+            <summary>
+            Starts a new process with the specified executable path and arguments.
+            </summary>
+            <param name="path">The full path to the executable file.</param>
+            <param name="arguments">The arguments to pass to the process.</param>
+            <returns>The process ID if successful, or false if there was an error.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetProcessID(System.String)">
+            <summary>
+            Retrieves the process ID of the first running process with the specified name.
+            </summary>
+            <param name="processName">The name of the process to find.</param>
+            <returns>The process ID if found, or false if not found or there was an error.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.SendArgumentsToProcess(System.Int32,System.String)">
+            <summary>
+            Sends arguments to a running process identified by its process ID.
+            </summary>
+            <param name="processID">The ID of the process.</param>
+            <param name="arguments">The arguments to send to the process.</param>
+        </member>
+        <member name="M:ZS.ZSProcess.TerminateProcess(System.Int32)">
+            <summary>
+            Terminates a running process identified by its process ID.
+            </summary>
+            <param name="processID">The ID of the process to terminate.</param>
+        </member>
+        <member name="M:ZS.ZSProcess.IsProcessRunning(System.Int32)">
+            <summary>
+            Checks if a process identified by its process ID is currently running.
+            </summary>
+            <param name="processID">The ID of the process to check.</param>
+            <returns>True if the process is running, false otherwise or if there was an error.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.WaitForProcess(System.Int32,System.Int32)">
+            <summary>
+            Waits for a process identified by its process ID to terminate within a specified timeout period.
+            </summary>
+            <param name="processID">The ID of the process to wait for.</param>
+            <param name="timeout">The maximum time to wait (in milliseconds).</param>
+            <returns>True if the process terminates within the timeout, false otherwise or if there was an error.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetMainWindowHandle(System.Int32)">
+            <summary>
+            Gets the main window handle of a process identified by its process ID.
+            </summary>
+            <param name="processID">The ID of the process.</param>
+            <returns>The main window handle (HWND) of the process, or false if there was an error.</returns>
+        </member>
+    </members>
+</doc>
