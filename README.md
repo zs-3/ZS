@@ -10,3 +10,7 @@ Small Basic Website : https://smallbasic-publicwebsite.azurewebsites.net/
 LitDev Website For Many Important Resources : https://litdev.uk/
 
 Small Basic Forum : https://litdev.uk/mybb/
+
+For Any Issue Please Report It In Issue Tab
+
+Disussion Is Also Available 
