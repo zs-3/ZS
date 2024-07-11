@@ -95,12 +95,6 @@
             It includes methods for checking the state of modifier keys (Alt, Shift, Ctrl, Windows) and sending key presses programmatically.
             </summary>
         </member>
-        <member name="M:ZS.ZSKeyboard.LastKeyPressed">
-            <summary>
-            Gets the last key pressed by the user.
-            </summary>
-            <returns>The last key pressed as a string.</returns>
-        </member>
         <member name="M:ZS.ZSKeyboard.IsAltDown">
             <summary>
             Checks if the Alt key is currently pressed down.
@@ -131,10 +125,176 @@
             </summary>
             <param name="key">The key to send.</param>
         </member>
+        <member name="M:ZS.ZSKeyboard.ToggleCapsLock">
+            <summary>
+            Toggles the state of the Caps Lock key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SendKeyCombination(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates pressing a combination of keys.
+            </summary>
+            <param name="keyCombination">The key combination to press (e.g., "^C" for Ctrl+C, "%{F4}" for Alt+F4).</param>
+            <example>
+            "^C" = Ctrl+C
+            "%F4" = Alt+F4
+            "+A" = Shift+A
+            "{DEL}" = Delete key
+            "{ENTER}" = Enter key
+            "{TAB}" = Tab key
+            "{ESC}" = Escape key
+            "{BACKSPACE}" = Backspace key
+            </example>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsCapsLockOn">
+            <summary>
+            Checks if the Caps Lock is currently on.
+            </summary>
+            <returns>True if Caps Lock is on, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsNumLockOn">
+            <summary>
+            Checks if the Num Lock is currently on.
+            </summary>
+            <returns>True if Num Lock is on, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.IsScrollLockOn">
+            <summary>
+            Checks if the Scroll Lock is currently on.
+            </summary>
+            <returns>True if Scroll Lock is on, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.TypeText(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates typing a string of text.
+            </summary>
+            <param name="text">The text to type.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SetKeyboardLayout(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sets the keyboard layout.
+            </summary>
+            <param name="layout">The keyboard layout (e.g., "00000409" for US layout).</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateKeyDown(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates pressing down a key.
+            </summary>
+            <param name="key">The key to press down.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateKeyUp(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="key">The key to release.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.Wait(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Waits for a specified amount of time.
+            </summary>
+            <param name="milliseconds">The amount of time to wait in milliseconds.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.PressAndReleaseKey(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates pressing and releasing a key.
+            </summary>
+            <param name="key">The key to press and release.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.PressKeyMultipleTimes(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Simulates pressing a key multiple times.
+            </summary>
+            <param name="key">The key to press.</param>
+            <param name="times">The number of times to press the key.</param>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateEnterKeyPress">
+            <summary>
+            Simulates pressing the Enter key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateEscapeKeyPress">
+            <summary>
+            Simulates pressing the Escape key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateTabKeyPress">
+            <summary>
+            Simulates pressing the Tab key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateBackspaceKeyPress">
+            <summary>
+            Simulates pressing the Backspace key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.SimulateDeleteKeyPress">
+            <summary>
+            Simulates pressing the Delete key.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetKeyState(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the current state of a specified key.
+            </summary>
+            <param name="key">The key to check the state for (e.g., "A", "B", "1", "2").</param>
+            <returns>True if the key is pressed, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetKeyboardLayout">
+            <summary>
+            Retrieves the current keyboard layout.
+            </summary>
+            <returns>The current keyboard layout as a string.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetActiveKeyboardLayoutLanguage">
+            <summary>
+            Retrieves the language of the active keyboard layout.
+            </summary>
+            <returns>The language of the active keyboard layout as a string.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetKeyboardState">
+            <summary>
+            Retrieves the current state of all keyboard keys.
+            </summary>
+            <returns>An array of booleans indicating the state of each key.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetActiveKeyboardLayoutId">
+            <summary>
+            Retrieves the identifier of the active keyboard layout.
+            </summary>
+            <returns>The identifier of the active keyboard layout as an integer.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetCurrentKeyboardLayoutLanguageCode">
+            <summary>
+            Retrieves the language code (LCID) of the current keyboard layout.
+            </summary>
+            <returns>The language code (LCID) of the current keyboard layout.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.ClearLastKeyPressed">
+            <summary>
+            Clears the last recorded key press.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetKeyboardLayoutsCount">
+            <summary>
+            Retrieves the number of installed keyboard layouts.
+            </summary>
+            <returns>The number of installed keyboard layouts.</returns>
+        </member>
+        <member name="M:ZS.ZSKeyboard.GetCurrentKeyboardLayoutId">
+            <summary>
+            Retrieves the identifier (HKL) of the current keyboard layout.
+            </summary>
+            <returns>The identifier (HKL) of the current keyboard layout.</returns>
+        </member>
+        <member name="P:ZS.ZSKeyboard.LastKeyPressed">
+            <summary>
+            Gets the last key pressed by the user.
+            </summary>
+        </member>
         <member name="T:ZS.ZSText">
             <summary>
             Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.
-            </summary>   
+            </summary>
         </member>
         <member name="M:ZS.ZSText.ToUpper(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
@@ -390,61 +550,6 @@
             <summary>
             Gets the angle bracket closing character '>'.
             </summary>
-        </member>
-        <member name="T:ZS.ZSProcess">
-            <summary>
-            Provides functions for managing processes.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSProcess.StartProcess(System.String,System.String)">
-            <summary>
-            Starts a new process with the specified executable path and arguments.
-            </summary>
-            <param name="path">The full path to the executable file.</param>
-            <param name="arguments">The arguments to pass to the process.</param>
-            <returns>The process ID if successful, or false if there was an error.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetProcessID(System.String)">
-            <summary>
-            Retrieves the process ID of the first running process with the specified name.
-            </summary>
-            <param name="processName">The name of the process to find.</param>
-            <returns>The process ID if found, or false if not found or there was an error.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.SendArgumentsToProcess(System.Int32,System.String)">
-            <summary>
-            Sends arguments to a running process identified by its process ID.
-            </summary>
-            <param name="processID">The ID of the process.</param>
-            <param name="arguments">The arguments to send to the process.</param>
-        </member>
-        <member name="M:ZS.ZSProcess.TerminateProcess(System.Int32)">
-            <summary>
-            Terminates a running process identified by its process ID.
-            </summary>
-            <param name="processID">The ID of the process to terminate.</param>
-        </member>
-        <member name="M:ZS.ZSProcess.IsProcessRunning(System.Int32)">
-            <summary>
-            Checks if a process identified by its process ID is currently running.
-            </summary>
-            <param name="processID">The ID of the process to check.</param>
-            <returns>True if the process is running, false otherwise or if there was an error.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.WaitForProcess(System.Int32,System.Int32)">
-            <summary>
-            Waits for a process identified by its process ID to terminate within a specified timeout period.
-            </summary>
-            <param name="processID">The ID of the process to wait for.</param>
-            <param name="timeout">The maximum time to wait (in milliseconds).</param>
-            <returns>True if the process terminates within the timeout, false otherwise or if there was an error.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetMainWindowHandle(System.Int32)">
-            <summary>
-            Gets the main window handle of a process identified by its process ID.
-            </summary>
-            <param name="processID">The ID of the process.</param>
-            <returns>The main window handle (HWND) of the process, or false if there was an error.</returns>
         </member>
     </members>
 </doc>

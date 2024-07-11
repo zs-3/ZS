@@ -189,10 +189,8 @@ namespace ZS
 		/// <summary>
 		/// Gets the last key pressed by the user.
 		/// </summary>
-		/// <returns>The last key pressed as a string.</returns>
-		public static Primitive LastKeyPressed()
-		{
-			return lastKeyPressed;
+		public static Primitive LastKeyPressed {
+			get { return lastKeyPressed; }
 		}
 
 		/// <summary>
@@ -240,6 +238,126 @@ namespace ZS
 			SendKeys.SendWait(key.ToString());
 		}
 
+		/// <summary>
+		/// Toggles the state of the Caps Lock key.
+		/// </summary>
+		public static void ToggleCapsLock()
+		{
+			SendKeys.SendWait("{CAPSLOCK}");
+		}
+
+		/// <summary>
+		/// Simulates pressing a combination of keys.
+		/// </summary>
+		/// <param name="keyCombination">The key combination to press (e.g., "^C" for Ctrl+C, "%{F4}" for Alt+F4).</param>
+		/// <example>
+		/// "^C" = Ctrl+C
+		/// "%F4" = Alt+F4
+		/// "+A" = Shift+A
+		/// "{DEL}" = Delete key
+		/// "{ENTER}" = Enter key
+		/// "{TAB}" = Tab key
+		/// "{ESC}" = Escape key
+		/// "{BACKSPACE}" = Backspace key
+		/// </example>
+		public static void SendKeyCombination(Primitive keyCombination)
+		{
+			SendKeys.SendWait(keyCombination.ToString());
+		}
+
+		/// <summary>
+		/// Checks if the Caps Lock is currently on.
+		/// </summary>
+		/// <returns>True if Caps Lock is on, otherwise false.</returns>
+		public static Primitive IsCapsLockOn()
+		{
+			return Control.IsKeyLocked(Keys.CapsLock);
+		}
+
+		/// <summary>
+		/// Checks if the Num Lock is currently on.
+		/// </summary>
+		/// <returns>True if Num Lock is on, otherwise false.</returns>
+		public static Primitive IsNumLockOn()
+		{
+			return Control.IsKeyLocked(Keys.NumLock);
+		}
+
+		/// <summary>
+		/// Checks if the Scroll Lock is currently on.
+		/// </summary>
+		/// <returns>True if Scroll Lock is on, otherwise false.</returns>
+		public static Primitive IsScrollLockOn()
+		{
+			return Control.IsKeyLocked(Keys.Scroll);
+		}
+
+		/// <summary>
+		/// Simulates typing a string of text.
+		/// </summary>
+		/// <param name="text">The text to type.</param>
+		public static void TypeText(Primitive text)
+		{
+			SendKeys.SendWait(text.ToString());
+		}
+
+		/// <summary>
+		/// Sets the keyboard layout.
+		/// </summary>
+		/// <param name="layout">The keyboard layout (e.g., "00000409" for US layout).</param>
+		public static void SetKeyboardLayout(Primitive layout)
+		{
+			LoadKeyboardLayout(layout.ToString(), KLF_ACTIVATE);
+		}
+
+		/// <summary>
+		/// Simulates pressing down a key.
+		/// </summary>
+		/// <param name="key">The key to press down.</param>
+		public static void SimulateKeyDown(Primitive key)
+		{
+			SendKeys.SendWait("{" + key + " down}");
+		}
+
+		/// <summary>
+		/// Simulates releasing a key.
+		/// </summary>
+		/// <param name="key">The key to release.</param>
+		public static void SimulateKeyUp(Primitive key)
+		{
+			SendKeys.SendWait("{" + key + " up}");
+		}
+
+		/// <summary>
+		/// Waits for a specified amount of time.
+		/// </summary>
+		/// <param name="milliseconds">The amount of time to wait in milliseconds.</param>
+		public static void Wait(Primitive milliseconds)
+		{
+			System.Threading.Thread.Sleep(milliseconds);
+		}
+
+		/// <summary>
+		/// Simulates pressing and releasing a key.
+		/// </summary>
+		/// <param name="key">The key to press and release.</param>
+		public static void PressAndReleaseKey(Primitive key)
+		{
+			SendKeys.SendWait("{" + key + "}");
+		}
+
+		/// <summary>
+		/// Simulates pressing a key multiple times.
+		/// </summary>
+		/// <param name="key">The key to press.</param>
+		/// <param name="times">The number of times to press the key.</param>
+		public static void PressKeyMultipleTimes(Primitive key, Primitive times)
+		{
+			for (int i = 0; i < times; i++) {
+				SendKeys.SendWait(key.ToString());
+			}
+		}
+
 		private static void Form_KeyDown(object sender, KeyEventArgs e)
 		{
 			lastKeyPressed = e.KeyCode.ToString();
@@ -256,11 +374,168 @@ namespace ZS
 			isCtrlDown = e.Control;
 			isWindowsKeyDown = (e.KeyCode == Keys.LWin || e.KeyCode == Keys.RWin);
 		}
+
+		[DllImport("user32.dll")]
+		private static extern IntPtr LoadKeyboardLayout(string pwszKLID, uint Flags);
+
+		private const uint KLF_ACTIVATE = 0x00000001;
+		
+		/// <summary>
+		/// Simulates pressing the Enter key.
+		/// </summary>
+		public static void SimulateEnterKeyPress()
+		{
+			SendKeys.SendWait("{ENTER}");
+		}
+
+		/// <summary>
+		/// Simulates pressing the Escape key.
+		/// </summary>
+		public static void SimulateEscapeKeyPress()
+		{
+			SendKeys.SendWait("{ESC}");
+		}
+
+		/// <summary>
+		/// Simulates pressing the Tab key.
+		/// </summary>
+		public static void SimulateTabKeyPress()
+		{
+			SendKeys.SendWait("{TAB}");
+		}
+
+		/// <summary>
+		/// Simulates pressing the Backspace key.
+		/// </summary>
+		public static void SimulateBackspaceKeyPress()
+		{
+			SendKeys.SendWait("{BACKSPACE}");
+		}
+
+		/// <summary>
+		/// Simulates pressing the Delete key.
+		/// </summary>
+		public static void SimulateDeleteKeyPress()
+		{
+			SendKeys.SendWait("{DEL}");
+		}
+
+		/// <summary>
+		/// Gets the current state of a specified key.
+		/// </summary>
+		/// <param name="key">The key to check the state for (e.g., "A", "B", "1", "2").</param>
+		/// <returns>True if the key is pressed, otherwise false.</returns>
+		public static bool GetKeyState(Primitive key)
+		{
+			int vKey;
+
+			if (key is int) {
+				vKey = (int)key;
+			} else if (key is string) {
+				if (!int.TryParse((string)key, out vKey)) {
+					throw new ArgumentException("Invalid key format. Key must be a valid integer or string representation of an integer.");
+				}
+			} else {
+				throw new ArgumentException("Invalid key type. Key must be either an integer or a string.");
+			}
+
+			return (GetAsyncKeyState(vKey) & 0x8000) != 0;
+		}
+
+		[DllImport("user32.dll")]
+		private static extern short GetAsyncKeyState(int vKey);
+
+
+		/// <summary>
+		/// Retrieves the current keyboard layout.
+		/// </summary>
+		/// <returns>The current keyboard layout as a string.</returns>
+		public static string GetKeyboardLayout()
+		{
+			return InputLanguage.CurrentInputLanguage.Culture.DisplayName;
+		}
+
+
+		/// <summary>
+		/// Retrieves the language of the active keyboard layout.
+		/// </summary>
+		/// <returns>The language of the active keyboard layout as a string.</returns>
+		public static string GetActiveKeyboardLayoutLanguage()
+		{
+			return InputLanguage.CurrentInputLanguage.LayoutName;
+		}
+
+		/// <summary>
+		/// Retrieves the current state of all keyboard keys.
+		/// </summary>
+		/// <returns>An array of booleans indicating the state of each key.</returns>
+		public static bool[] GetKeyboardState()
+		{
+			bool[] keyStates = new bool[256];
+
+			for (int i = 0; i < 256; i++) {
+				keyStates[i] = (GetAsyncKeyState(i) & 0x8000) != 0;
+			}
+
+			return keyStates;
+		}
+
+
+		/// <summary>
+		/// Retrieves the identifier of the active keyboard layout.
+		/// </summary>
+		/// <returns>The identifier of the active keyboard layout as an integer.</returns>
+		public static int GetActiveKeyboardLayoutId()
+		{
+			return InputLanguage.CurrentInputLanguage.Handle.ToInt32();
+		}
+
+		/// <summary>
+		/// Retrieves the language code (LCID) of the current keyboard layout.
+		/// </summary>
+		/// <returns>The language code (LCID) of the current keyboard layout.</returns>
+		public static int GetCurrentKeyboardLayoutLanguageCode()
+		{
+			return InputLanguage.CurrentInputLanguage.Culture.LCID;
+		}
+
+
+
+		/// <summary>
+		/// Clears the last recorded key press.
+		/// </summary>
+		public static void ClearLastKeyPressed()
+		{
+			lastKeyPressed = null; // Or set it to an empty string if preferred
+		}
+
+
+		/// <summary>
+		/// Retrieves the number of installed keyboard layouts.
+		/// </summary>
+		/// <returns>The number of installed keyboard layouts.</returns>
+		public static int GetKeyboardLayoutsCount()
+		{
+			return InputLanguage.InstalledInputLanguages.Count;
+		}
+
+		
+		/// <summary>
+		/// Retrieves the identifier (HKL) of the current keyboard layout.
+		/// </summary>
+		/// <returns>The identifier (HKL) of the current keyboard layout.</returns>
+		public static IntPtr GetCurrentKeyboardLayoutId()
+		{
+			return InputLanguage.CurrentInputLanguage.Handle;
+		}
+		
+		
 	}
-    
+
+	
 	/// <summary>
 	/// Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.
-	/// </summary>   
+	/// </summary>
 	[SmallBasicType]
 	public static class ZSText
 	{
@@ -494,7 +769,7 @@ namespace ZS
 		{
 			return System.Web.HttpUtility.UrlDecode(input.ToString());
 		}
-	
+		
 		/// <summary>
 		/// Counts the occurrences of a substring within the input text.
 		/// </summary>
@@ -515,7 +790,7 @@ namespace ZS
 
 			return count;
 		}
-	
+		
 		/// <summary>
 		/// Checks if the input text starts with the specified prefix.
 		/// </summary>
@@ -529,7 +804,7 @@ namespace ZS
 
 			return inputText.StartsWith(checkPrefix);
 		}
-	
+		
 		/// <summary>
 		/// Checks if the input text ends with the specified suffix.
 		/// </summary>
@@ -543,8 +818,8 @@ namespace ZS
 
 			return inputText.EndsWith(checkSuffix);
 		}
-	
-	
+		
+		
 		/// <summary>
 		/// Gets the newline character "\n".
 		/// </summary>
@@ -685,128 +960,8 @@ namespace ZS
 			get { return ">"; }
 		}
 
+		
+	}
 	
-	}
-    
-	/// <summary>
-	/// Provides functions for managing processes.
-	/// </summary>
-	[SmallBasicType]
-	public static class ZSProcess
-	{
-		/// <summary>
-		/// Starts a new process with the specified executable path and arguments.
-		/// </summary>
-		/// <param name="path">The full path to the executable file.</param>
-		/// <param name="arguments">The arguments to pass to the process.</param>
-		/// <returns>The process ID if successful, or false if there was an error.</returns>
-		public static Primitive StartProcess(string path, string arguments)
-		{
-			try {
-				System.Diagnostics.Process process = new System.Diagnostics.Process();
-				process.StartInfo.FileName = path;
-				process.StartInfo.Arguments = arguments;
-				process.Start();
-				return process.Id;
-			} catch (Exception ex) {
-				throw new Exception("Error starting process: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Retrieves the process ID of the first running process with the specified name.
-		/// </summary>
-		/// <param name="processName">The name of the process to find.</param>
-		/// <returns>The process ID if found, or false if not found or there was an error.</returns>
-		public static Primitive GetProcessID(string processName)
-		{
-			try {
-				System.Diagnostics.Process[] processes = System.Diagnostics.Process.GetProcessesByName(processName);
-				if (processes.Length > 0)
-					return processes[0].Id;
-				else
-					return false;
-			} catch (Exception ex) {
-				throw new Exception("Error getting process ID: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Sends arguments to a running process identified by its process ID.
-		/// </summary>
-		/// <param name="processID">The ID of the process.</param>
-		/// <param name="arguments">The arguments to send to the process.</param>
-		public static void SendArgumentsToProcess(int processID, string arguments)
-		{
-			try {
-				System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processID);
-				// Implement sending arguments to the process as needed
-			} catch (Exception ex) {
-				throw new Exception("Error sending arguments to process: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Terminates a running process identified by its process ID.
-		/// </summary>
-		/// <param name="processID">The ID of the process to terminate.</param>
-		public static void TerminateProcess(int processID)
-		{
-			try {
-				System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processID);
-				process.Kill();
-			} catch (Exception ex) {
-				throw new Exception("Error terminating process: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Checks if a process identified by its process ID is currently running.
-		/// </summary>
-		/// <param name="processID">The ID of the process to check.</param>
-		/// <returns>True if the process is running, false otherwise or if there was an error.</returns>
-		public static Primitive IsProcessRunning(int processID)
-		{
-			try {
-				System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processID);
-				return !process.HasExited;
-			} catch (Exception ex) {
-				throw new Exception("Error checking if process is running: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Waits for a process identified by its process ID to terminate within a specified timeout period.
-		/// </summary>
-		/// <param name="processID">The ID of the process to wait for.</param>
-		/// <param name="timeout">The maximum time to wait (in milliseconds).</param>
-		/// <returns>True if the process terminates within the timeout, false otherwise or if there was an error.</returns>
-		public static Primitive WaitForProcess(int processID, int timeout)
-		{
-			try {
-				System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processID);
-				return process.WaitForExit(timeout);
-			} catch (Exception ex) {
-				throw new Exception("Error waiting for process to exit: " + ex.Message);
-			}
-		}
-
-		/// <summary>
-		/// Gets the main window handle of a process identified by its process ID.
-		/// </summary>
-		/// <param name="processID">The ID of the process.</param>
-		/// <returns>The main window handle (HWND) of the process, or false if there was an error.</returns>
-		public static Primitive GetMainWindowHandle(int processID)
-		{
-			try {
-				System.Diagnostics.Process process = System.Diagnostics.Process.GetProcessById(processID);
-				return process.MainWindowHandle.ToInt32();
-			} catch (Exception ex) {
-				throw new Exception("Error getting main window handle: " + ex.Message);
-			}
-		}
-	}
-
-
-    
+	
 }
