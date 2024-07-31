@@ -29,13 +29,23 @@ The ZSKeyboard extension provides functionalities to interact with keyboard inpu
 **ZSMath :** 
 Provides System.Math Functions For Small Basic.
 
+**ZSPath :**
+Provides System.IO.Path Functions in small basic.
+
+**ZSPowerShell :**
+Provides methods for running PowerShell commands.
+
 **ZSProcess :**
 Provides methods and properties for managing processes.
 This class allows you to start new processes, manage process information, and interact with running processes.
 It includes functionalities for:
 - Starting processes with or without arguments
 - Retrieving process IDs and names
-- Getting and setting process-related information such as file path, arguments, priority, and more
+- Getting and setting process-related information such as file path, arguments, priority, and more.
+
+**ZSProcessInfo :**
+Provides ProcessInfo Functions from Small Basic.
+First Set All the setting then call the method ZSProcessInfo.Start()
 
 **ZSText :**
 Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.
