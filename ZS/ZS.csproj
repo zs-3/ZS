@@ -84,12 +84,14 @@
     <Compile Include="Image.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Math.cs" />
+    <Compile Include="Path.cs" />
+    <Compile Include="PowerShell.cs" />
     <Compile Include="Process.cs" />
+    <Compile Include="ProcessInfo.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Globalization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Console.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

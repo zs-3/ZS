@@ -995,6 +995,148 @@
             Represents the ratio of the circumference of a circle to its diameter, specified by the constant, PI.
             </summary>
         </member>
+        <member name="T:ZS.ZSPath">
+            <summary>
+            Provides System.IO.Path Functions in small basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSPath.ChangeExtension(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Changes the extension of a path string.
+            </summary>
+            <param name="path">The path information to modify.</param>
+            <param name="extension">The new extension. Specify null to remove an existing extension from path.</param>
+            <returns>The modified path information.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.Combine(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Combines two strings into a path.
+            </summary>
+            <param name="path1">The first path to combine.</param>
+            <param name="path2">The second path to combine.</param>
+            <returns>The combined paths.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.Combine3(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Combines three strings into a path.
+            </summary>
+            <param name="path1">The first path to combine.</param>
+            <param name="path2">The second path to combine.</param>
+            <param name="path3">The third path to combine.</param>
+            <returns>The combined paths.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.Combine4(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Combines four strings into a path.
+            </summary>
+            <param name="path1">The first path to combine.</param>
+            <param name="path2">The second path to combine.</param>
+            <param name="path3">The third path to combine.</param>
+            <param name="path4">The fourth path to combine.</param>
+            <returns>The combined paths.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetDirectoryName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the directory information for the specified path string.
+            </summary>
+            <param name="path">The path of a file or directory.</param>
+            <returns>The directory information.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetExtension(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the extension of the specified path string.
+            </summary>
+            <param name="path">The path string from which to get the extension.</param>
+            <returns>The extension of the specified path.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetFileName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the file name and extension of the specified path string.
+            </summary>
+            <param name="path">The path string from which to obtain the file name and extension.</param>
+            <returns>The characters after the last directory character in path.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetFileNameWithoutExtension(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the file name of the specified path string without the extension.
+            </summary>
+            <param name="path">The path of the file.</param>
+            <returns>The string returned by GetFileName, minus the last period and all characters following it.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetFullPath(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the absolute path for the specified path string.
+            </summary>
+            <param name="path">The file or directory for which to obtain absolute path information.</param>
+            <returns>The fully qualified location of path.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetInvalidFileNameChars">
+            <summary>
+            Returns an array containing the characters that are not allowed in file names.
+            </summary>
+            <returns>An array containing the characters that are not allowed in file names.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetInvalidPathChars">
+            <summary>
+            Returns an array containing the characters that are not allowed in path names.
+            </summary>
+            <returns>An array containing the characters that are not allowed in path names.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetPathRoot(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the root directory information of the specified path.
+            </summary>
+            <param name="path">The path from which to obtain root directory information.</param>
+            <returns>A string containing the root directory of path.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetRandomFileName">
+            <summary>
+            Returns a random file name.
+            </summary>
+            <returns>A random file name.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetTempFileName">
+            <summary>
+            Creates a uniquely named, zero-byte temporary file on disk and returns the full path of that file.
+            </summary>
+            <returns>The full path of the temporary file.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.GetTempPath">
+            <summary>
+            Returns the path of the current system's temporary folder.
+            </summary>
+            <returns>The path to the temporary folder.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.HasExtension(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Determines whether a path includes a file name extension.
+            </summary>
+            <param name="path">The path to search for an extension.</param>
+            <returns>true if the path includes a file name extension; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSPath.IsPathRooted(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets a value indicating whether the specified path string contains a root.
+            </summary>
+            <param name="path">The path to test.</param>
+            <returns>true if path contains a root; otherwise, false.</returns>
+        </member>
+        <member name="T:ZS.ZSPowerShell">
+            <summary>
+            Provides methods for running PowerShell commands.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSPowerShell.Run(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a PowerShell command and returns the result.
+            </summary>
+            <param name="command">The PowerShell command to execute.</param>
+            <returns>A string containing the output and errors from the PowerShell command.</returns>
+            <remarks>
+            This method starts a new PowerShell process to execute the specified command. 
+            Output and errors are combined into a single string.
+            </remarks>
+        </member>
         <member name="T:ZS.ZSProcess">
             <summary>
             Provides methods and properties for managing processes.
@@ -1133,6 +1275,126 @@
             To disable window creation: <br />
             ZSProcess.CreateNoWindow = true
             </example>
+        </member>
+        <member name="T:ZSProcessInfo">
+            <summary>
+            Provides ProcessInfo Functions from Small Basic.
+            First Set All the setting then call the method ZSProcessInfo.Start()
+            </summary>
+        </member>
+        <member name="M:ZSProcessInfo.Start">
+            <summary>
+            Starts the process using the specified settings.
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.Arguments">
+            <summary>
+            Gets or sets the set of command-line arguments to use when starting the application.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.CreateNoWindow">
+            <summary>
+            Gets or sets a value indicating whether to start the process in a new window.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.Domain">
+            <summary>
+            Gets or sets the domain to use when starting the process.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.UseShellExecute">
+            <summary>
+            Gets or sets a value indicating whether to use the operating system shell to start the process.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.FileName">
+            <summary>
+            Gets or sets the application or document to start.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.RedirectStandardError">
+            <summary>
+            Gets or sets a value indicating whether the error output of an application is written to the StandardError stream.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.RedirectStandardInput">
+            <summary>
+            Gets or sets a value indicating whether the input for an application is read from the StandardInput stream.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.RedirectStandardOutput">
+            <summary>
+            Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.UserName">
+            <summary>
+            Gets or sets the user name to use when starting the process.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.Password">
+            <summary>
+            Gets or sets the password for the user name when starting the process.
+            Note: For security reasons, setting passwords is not directly supported in this wrapper.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.Verb">
+            <summary>
+            Gets or sets the verb to use when opening the application or document specified by the FileName property.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.WindowStyle">
+            <summary>
+            Gets or sets the Window style to use for the process.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.WorkingDirectory">
+            <summary>
+            Gets or sets the working directory for the process to be started.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.StandardOutputEncoding">
+            <summary>
+            Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.EnvironmentVariables">
+            <summary>
+            Gets or sets the environment variables that apply to this process and its child processes.
+            Use a semicolon (;) to separate multiple variables.
+            Example: "Path=C:\Windows\System32;TEMP=C:\Temp"
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.ErrorDialog">
+            <summary>
+            Gets or sets a value indicating whether an error dialog box is displayed to the user if the process cannot be started.
+            Setting For ZSProcess.Start()
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.LoadUserProfile">
+            <summary>
+            Gets or sets a value indicating whether the Windows user profile should be loaded.
+            </summary>
+        </member>
+        <member name="P:ZSProcessInfo.PasswordInClearText">
+            <summary>
+            Gets or sets the password in clear text to use when starting the process.
+            </summary>
         </member>
         <member name="T:ZS.ZSText">
             <summary>
@@ -2238,148 +2500,6 @@
         <member name="P:ZS.ZSGlobalization.KoreanDate">
             <summary>
             Gets the current date in the Korean calendar.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSConsole.Write(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Writes the specified string value to the console.
-            </summary>
-            <param name="text">The string value to write to the console.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.WriteLine(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Writes the specified string value to the console, followed by the current line terminator.
-            </summary>
-            <param name="text">The string value to write to the console.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.ReadLine">
-            <summary>
-            Reads the next line of characters from the standard input stream.
-            </summary>
-            <returns>The next line of characters from the input stream, or null if no more lines are available.</returns>
-        </member>
-        <member name="M:ZS.ZSConsole.Read">
-            <summary>
-            Reads the next character from the standard input stream.
-            </summary>
-            <returns>The next character from the input stream, or -1 if no more characters are available.</returns>
-        </member>
-        <member name="M:ZS.ZSConsole.Clear">
-            <summary>
-            Clears the console buffer and corresponding console window of display information.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSConsole.Beep">
-            <summary>
-            Plays the sound of a beep through the console speaker.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSConsole.Beep(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Plays the sound of a beep of a specified frequency and duration through the console speaker.
-            </summary>
-            <param name="frequency">The frequency of the beep, ranging from 37 to 32767 hertz.</param>
-            <param name="duration">The duration of the beep in milliseconds.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.SetCursorPosition(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Sets the position of the cursor.
-            </summary>
-            <param name="left">The column position of the cursor.</param>
-            <param name="top">The row position of the cursor.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.SetBufferSize(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Sets the size of the buffer area.
-            </summary>
-            <param name="width">The width of the buffer area.</param>
-            <param name="height">The height of the buffer area.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.SetWindowSize(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Sets the size of the console window.
-            </summary>
-            <param name="width">The width of the console window.</param>
-            <param name="height">The height of the console window.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.ResetColor">
-            <summary>
-            Sets the foreground and background console colors to their defaults.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSConsole.BufferLineCount">
-            <summary>
-            Gets the number of lines of buffer space.
-            </summary>
-            <returns>The number of lines of buffer space.</returns>
-        </member>
-        <member name="M:ZS.ZSConsole.WriteFormat(Microsoft.SmallBasic.Library.Primitive,System.Object[])">
-            <summary>
-            Writes a formatted string to the console.
-            </summary>
-            <param name="format">A composite format string.</param>
-            <param name="args">An array of objects to write using format.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.WriteLineObjects(System.Object[])">
-            <summary>
-            Writes the text representation of the specified array of objects to the console, followed by the current line terminator.
-            </summary>
-            <param name="args">An array of objects to write.</param>
-        </member>
-        <member name="M:ZS.ZSConsole.ReadKey">
-            <summary>
-            Reads the next character or function key pressed by the user. The pressed key is displayed in the console window.
-            </summary>
-            <returns>A System.ConsoleKeyInfo object describing the System.ConsoleKey constant and Unicode character, if any, that correspond to the pressed console key.</returns>
-        </member>
-        <member name="P:ZS.ZSConsole.Title">
-            <summary>
-            Gets or sets the title of the console window.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.CursorLeft">
-            <summary>
-            Gets or sets the column position of the cursor within the buffer area.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.CursorTop">
-            <summary>
-            Gets or sets the row position of the cursor within the buffer area.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.CursorVisible">
-            <summary>
-            Gets or sets a value indicating whether the cursor is visible.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.BufferHeight">
-            <summary>
-            Gets or sets the height of the buffer area.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.BufferWidth">
-            <summary>
-            Gets or sets the width of the buffer area.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.WindowHeight">
-            <summary>
-            Gets or sets the height of the console window.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.WindowWidth">
-            <summary>
-            Gets or sets the width of the console window.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.ForegroundColor">
-            <summary>
-            Gets or sets the foreground color of the console.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSConsole.BackgroundColor">
-            <summary>
-            Gets or sets the background color of the console.
             </summary>
         </member>
     </members>
