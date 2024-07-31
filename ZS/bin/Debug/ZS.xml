@@ -89,6 +89,522 @@
             <param name="command">The command to execute.</param>
             <returns>The output of the command execution.</returns>
         </member>
+        <member name="T:ZS.ZSDialog">
+            <summary>
+            Provides various dialog utilities such as message boxes, input dialogs, file dialogs, and color dialogs.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowMessageBox(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a message box with the specified text.
+            </summary>
+            <param name="text">The text to display in the message box.</param>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowInputDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a custom input dialog with the specified prompt text.
+            </summary>
+            <param name="prompt">The prompt text to display in the input dialog.</param>
+            <returns>The text entered by the user.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowOpenFileDialog">
+            <summary>
+            Shows a file open dialog and returns the selected file path.
+            </summary>
+            <returns>The path of the selected file.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowSaveFileDialog">
+            <summary>
+            Shows a file save dialog and returns the selected file path.
+            </summary>
+            <returns>The path of the file to save.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowColorDialog">
+            <summary>
+            Shows a color dialog and returns the selected color as a string.
+            </summary>
+            <returns>The selected color in hexadecimal format (e.g., #FF0000 for red).</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowYesNoDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a Yes/No dialog with the specified question text.
+            </summary>
+            <param name="question">The question text to display in the dialog.</param>
+            <returns>Returns "Yes" if Yes is clicked, otherwise returns "No".</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowFolderBrowserDialog">
+            <summary>
+            Shows a folder browser dialog and returns the selected folder path.
+            </summary>
+            <returns>The path of the selected folder.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowErrorDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows an error dialog with the specified error message.
+            </summary>
+            <param name="errorMessage">The error message to display in the dialog.</param>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowWarningDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a warning dialog with the specified warning message.
+            </summary>
+            <param name="warningMessage">The warning message to display in the dialog.</param>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowInformationDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows an information dialog with the specified information message.
+            </summary>
+            <param name="informationMessage">The information message to display in the dialog.</param>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowCustomMessageBox(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a custom message box with specified text, title, and buttons.
+            </summary>
+            <param name="text">The text to display in the message box.</param>
+            <param name="title">The title of the message box.</param>
+            <param name="buttons">The buttons to display in the message box (OK, OKCancel, YesNo).</param>
+            <returns>The text of the button that was clicked.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowProgressDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a progress dialog with a specified message and duration.
+            </summary>
+            <param name="message">The message to display in the progress dialog.</param>
+            <param name="durationInSeconds">The duration in seconds for which the progress dialog should be displayed.</param>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowFontDialog">
+            <summary>
+            Shows a font dialog and returns the selected font as a string.
+            </summary>
+            <returns>The selected font in the format "FontName, Size, Style".</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowTimePickerDialog">
+            <summary>
+            Shows a time picker dialog and returns the selected time.
+            </summary>
+            <returns>The selected time in the format "HH:mm:ss".</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowDatePickerDialog">
+            <summary>
+            Shows a date picker dialog and returns the selected date.
+            </summary>
+            <returns>The selected date in the format "yyyy-MM-dd".</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowConfirmationDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a confirmation dialog with specified text and title.
+            </summary>
+            <param name="text">The text to display in the confirmation dialog.</param>
+            <param name="title">The title of the confirmation dialog.</param>
+            <returns>Returns true if Yes is clicked, otherwise returns false.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowCustomColorDialog">
+            <summary>
+            Shows a color dialog and returns the selected color as a string in the format "R,G,B".
+            </summary>
+            <returns>The selected color or an empty string if canceled.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowMultiSelectOpenFileDialog(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows an open file dialog with multi-select enabled and returns the selected file paths.
+            </summary>
+            <param name="filter">The file types filter in the format "Display Name1|Pattern1|Display Name2|Pattern2|...".</param>
+            <returns>A semicolon-separated list of selected file paths or an empty string if canceled.</returns>
+            <remarks>
+            Filters should be specified in pairs where:
+            - Display Name: The name shown in the dialog's filter dropdown.
+            - Pattern: The file pattern to filter files by extension (e.g., "*.txt", "*.jpg").
+            Multiple filters can be separated by vertical bars ('|'). For example:
+            "Text Files|*.txt|All Files|*.*"
+            </remarks>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowMultiLineInputBox(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows an input box with a multi-line text box for larger input.
+            </summary>
+            <param name="prompt">The prompt to display in the input box.</param>
+            <param name="title">The title of the input box.</param>
+            <returns>The user input or an empty string if canceled.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowPasswordInputDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Shows a password input dialog and returns the entered password.
+            </summary>
+            <param name="prompt">The prompt to display in the input dialog.</param>
+            <param name="title">The title of the input dialog.</param>
+            <returns>The entered password or an empty string if canceled.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowInputDialogWithOptions(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive[])">
+            <summary>
+            Shows an input dialog with options and returns the selected option.
+            </summary>
+            <param name="prompt">The prompt to display in the input dialog.</param>
+            <param name="title">The title of the input dialog.</param>
+            <param name="options">The list of options to choose from.</param>
+            <returns>The selected option or an empty string if canceled.</returns>
+        </member>
+        <member name="M:ZS.ZSDialog.ShowImageFileDialog">
+            <summary>
+            Shows a file dialog to select an image file and returns the selected file path.
+            </summary>
+            <returns>The path of the selected image file or an empty string if canceled.</returns>
+        </member>
+        <member name="T:ZS.ZSEnvironment">
+            <summary>
+            Provides System.Environment Functions For Small Basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSEnvironment.Exit(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Terminates the process and gives the exit code to the operating system.
+            </summary>
+            <param name="exitCode">The exit code to pass to the operating system.</param>
+        </member>
+        <member name="M:ZS.ZSEnvironment.GetCommandLineArgs">
+            <summary>
+            Returns the command-line arguments for the process.
+            </summary>
+            <returns>An array of strings representing the command-line arguments.</returns>
+        </member>
+        <member name="M:ZS.ZSEnvironment.GetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the value of an environment variable.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <returns>The value of the environment variable.</returns>
+        </member>
+        <member name="M:ZS.ZSEnvironment.GetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,System.EnvironmentVariableTarget)">
+            <summary>
+            Retrieves the value of an environment variable, using the specified target.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <param name="target">The target for the environment variable.</param>
+            <returns>The value of the environment variable.</returns>
+        </member>
+        <member name="M:ZS.ZSEnvironment.GetLogicalDrives">
+            <summary>
+            Returns the names of the logical drives on the current machine.
+            </summary>
+            <returns>An array of strings representing the names of the logical drives.</returns>
+        </member>
+        <member name="M:ZS.ZSEnvironment.GetResourceString(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the value of a resource string by its key.Currently WILL Give Nothing
+            </summary>
+            <param name="key">The key of the resource string.</param>
+            <returns>The value of the resource string.</returns>
+        </member>
+        <member name="M:ZS.ZSEnvironment.SetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sets the value of an environment variable.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <param name="value">The value to set for the environment variable.</param>
+        </member>
+        <member name="M:ZS.ZSEnvironment.SetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,System.EnvironmentVariableTarget)">
+            <summary>
+            Sets the value of an environment variable, using the specified target.
+            </summary>
+            <param name="variable">The name of the environment variable.</param>
+            <param name="value">The value to set for the environment variable.</param>
+            <param name="target">The target for the environment variable.</param>
+        </member>
+        <member name="P:ZS.ZSEnvironment.CommandLine">
+            <summary>
+            Gets the command line for the application.
+            </summary>
+            <return>The command line arguments for the application.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.CurrentDirectory">
+            <summary>
+            Gets or sets the fully qualified path of the current working directory.
+            </summary>
+            <return>The path of the current working directory.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.MachineName">
+            <summary>
+            Gets the name of the machine on which the application is running.
+            </summary>
+            <return>The name of the machine.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.NewLine">
+            <summary>
+            Gets a string representing the newline character(s) used by the current environment.
+            </summary>
+            <return>The newline characters used by the current environment.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.OSVersion">
+            <summary>
+            Gets an OperatingSystem object that describes the current platform.
+            </summary>
+            <return>The current platform as a string.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.ProcessorCount">
+            <summary>
+            Gets the number of processors on the current machine.
+            </summary>
+            <return>The number of processors.</return>
+        </member>
+        <member name="P:ZS.ZSEnvironment.StackTrace">
+            <summary>
+            Gets a string representation of the current call stack.
+            </summary>
+            <value>The current call stack as a string.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.SystemDirectory">
+            <summary>
+            Gets the full path of the system directory.
+            </summary>
+            <value>The path to the system directory.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.TickCount">
+            <summary>
+            Gets the number of milliseconds elapsed since the system started.
+            </summary>
+            <value>The number of milliseconds since the system started.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.UserDomainName">
+            <summary>
+            Gets the domain name of the current user.
+            </summary>
+            <value>The domain name of the current user.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.UserName">
+            <summary>
+            Gets the user name of the current thread.
+            </summary>
+            <value>The user name of the current thread.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.Version">
+            <summary>
+            Gets the version of the common language runtime (CLR) that is installed on the operating system.
+            </summary>
+            <value>The version of the CLR.</value>
+        </member>
+        <member name="P:ZS.ZSEnvironment.WorkingSet">
+            <summary>
+            Gets the amount of physical memory allocated for the process.
+            </summary>
+            <value>The amount of physical memory allocated for the process, in bytes.</value>
+        </member>
+        <member name="T:ZS.ZSFile">
+            <summary>
+            Provides File Functions For Small Basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSFile.ReadFile(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Reads the content of a file.
+            </summary>
+            <param name="filePath">The path of the file to read.</param>
+            <returns>The content of the file.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.WriteFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Writes content to a file.
+            </summary>
+            <param name="filePath">The path of the file to write to.</param>
+            <param name="content">The content to write.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.CopyFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Copies a file to a new location.
+            </summary>
+            <param name="sourcePath">The path of the file to copy.</param>
+            <param name="destinationPath">The path where the file will be copied to.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.DeleteFile(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Deletes a file.
+            </summary>
+            <param name="filePath">The path of the file to delete.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.FileExists(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if a file exists.
+            </summary>
+            <param name="filePath">The path of the file to check.</param>
+            <returns>True if the file exists; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.MoveFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Moves a file to a new location.
+            </summary>
+            <param name="sourcePath">The path of the file to move.</param>
+            <param name="destinationPath">The path where the file will be moved to.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.CreateDirectory(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Creates a directory.
+            </summary>
+            <param name="directoryPath">The path of the directory to create.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.ListFiles(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Lists all files in a directory.
+            </summary>
+            <param name="directoryPath">The path of the directory to list files from.</param>
+            <returns>A comma-separated string of file paths.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.RenameFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Renames a file.
+            </summary>
+            <param name="currentFilePath">The current path of the file to rename.</param>
+            <param name="newFilePath">The new path and name for the file.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.DirectoryExists(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checks if a directory exists.
+            </summary>
+            <param name="directoryPath">The path of the directory to check.</param>
+            <returns>True if the directory exists; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.DeleteDirectory(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Deletes a directory.
+            </summary>
+            <param name="directoryPath">The path of the directory to delete.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.MoveDirectory(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Moves a directory to a new location.
+            </summary>
+            <param name="sourcePath">The current path of the directory to move.</param>
+            <param name="destinationPath">The new path for the directory.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetLastWriteTime(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the last write time of a file.
+            </summary>
+            <param name="filePath">The path of the file to retrieve the last write time from.</param>
+            <returns>A string representation of the last write time; or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileSize(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the size of a file.
+            </summary>
+            <param name="filePath">The path of the file to get the size of.</param>
+            <returns>The size of the file in bytes, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileExtension(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the extension of a file.
+            </summary>
+            <param name="filePath">The path of the file to get the extension of.</param>
+            <returns>The extension of the file, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.CreateTextFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Creates a text file with specified content.
+            </summary>
+            <param name="filePath">The path of the file to create.</param>
+            <param name="content">The content to write to the file.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.AppendToFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Appends content to an existing file.
+            </summary>
+            <param name="filePath">The path of the file to append to.</param>
+            <param name="content">The content to append.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileCreationTime(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the creation time of a file.
+            </summary>
+            <param name="filePath">The path of the file to retrieve the creation time from.</param>
+            <returns>A string representation of the creation time, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.ReadAllLines(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Reads all lines from a file.
+            </summary>
+            <param name="filePath">The path of the file to read from.</param>
+            <returns>A list of all lines in the file, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileAttributes(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the attributes of a file.
+            </summary>
+            <param name="filePath">The path of the file to get the attributes of.</param>
+            <returns>The attributes of the file, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileLastAccessTime(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the last access time of a file.
+            </summary>
+            <param name="filePath">The path of the file to retrieve the last access time from.</param>
+            <returns>A string representation of the last access time, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.DeleteDirectory(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Deletes a directory and optionally all its contents.
+            </summary>
+            <param name="directoryPath">The path of the directory to delete.</param>
+            <param name="recursive">True to delete the directory, its subdirectories, and all files; otherwise, false.</param>
+            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
+        </member>
+        <member name="M:ZS.ZSFile.GetFileName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Retrieves the file name and extension of a file path.
+            </summary>
+            <param name="filePath">The path of the file to retrieve the name from.</param>
+            <returns>The file name and extension, or an error message if an exception occurs.</returns>
+        </member>
+        <member name="T:ZS.ZSImage">
+            <summary>
+            Provides Image Functions For Small Basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSImage.IsImageInImage(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Determines if a sub-image is present within a main image.
+            </summary>
+            <param name="mainImagePath">The file path of the main image.</param>
+            <param name="subImagePath">The file path of the sub-image.</param>
+            <returns>True if the sub-image is found within the main image, otherwise false.</returns>
+        </member>
+        <member name="M:ZS.ZSImage.CaptureScreen(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Captures the entire screen and saves it as a PNG file.
+            </summary>
+            <param name="filePath">The file path where the screenshot will be saved.</param>
+            <returns>True if the screen capture was successful; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSImage.ResizeImage(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Resizes an image to the specified width and height.
+            </summary>
+            <param name="inputFilePath">The file path of the input image.</param>
+            <param name="outputFilePath">The file path where the resized image will be saved.</param>
+            <param name="width">The width of the resized image.</param>
+            <param name="height">The height of the resized image.</param>
+            <returns>True if the image resizing was successful; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSImage.GetImageWidth(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the width of an image.
+            </summary>
+            <param name="filePath">The file path of the image.</param>
+            <returns>The width of the image.</returns>
+        </member>
+        <member name="M:ZS.ZSImage.GetImageHeight(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the height of an image.
+            </summary>
+            <param name="filePath">The file path of the image.</param>
+            <returns>The height of the image.</returns>
+        </member>
         <member name="T:ZS.ZSKeyboard">
             <summary>
             The ZSKeyboard extension provides functionalities to interact with keyboard inputs.
@@ -290,6 +806,333 @@
             <summary>
             Gets the last key pressed by the user.
             </summary>
+        </member>
+        <member name="T:ZS.ZSMath">
+            <summary>
+            Provides System.Math Functions For Small Basic.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSMath.Abs(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the absolute value of a specified number.
+            </summary>
+            <param name="value">A number whose absolute value is to be found.</param>
+            <returns>The absolute value of the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Acos(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the angle whose cosine is the specified number.
+            </summary>
+            <param name="d">A number representing a cosine, where d must be greater than or equal to -1, but less than or equal to 1.</param>
+            <returns>The angle, measured in radians, whose cosine is the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Asin(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the angle whose sine is the specified number.
+            </summary>
+            <param name="d">A number representing a sine, where d must be greater than or equal to -1, but less than or equal to 1.</param>
+            <returns>The angle, measured in radians, whose sine is the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Atan(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the angle whose tangent is the specified number.
+            </summary>
+            <param name="d">A number representing a tangent.</param>
+            <returns>The angle, measured in radians, whose tangent is the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Atan2(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the angle whose tangent is the quotient of two specified numbers.
+            </summary>
+            <param name="y">The y-coordinate of a point.</param>
+            <param name="x">The x-coordinate of a point.</param>
+            <returns>The angle, measured in radians, whose tangent is the quotient of two specified numbers.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Ceiling(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the smallest integer greater than or equal to the specified number.
+            </summary>
+            <param name="a">A number.</param>
+            <returns>The smallest integer greater than or equal to the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Cos(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the cosine of the specified angle.
+            </summary>
+            <param name="d">An angle, measured in radians.</param>
+            <returns>The cosine of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Cosh(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the hyperbolic cosine of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic cosine of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Exp(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns e raised to the specified power.
+            </summary>
+            <param name="d">A number specifying a power.</param>
+            <returns>The number e raised to the specified power.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Floor(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the largest integer less than or equal to the specified number.
+            </summary>
+            <param name="d">A number.</param>
+            <returns>The largest integer less than or equal to the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.IEEERemainder(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the remainder resulting from the division of a specified number by another specified number.
+            </summary>
+            <param name="x">A dividend.</param>
+            <param name="y">A divisor.</param>
+            <returns>A number equal to x - (y * Q), where Q is the quotient of x / y rounded to the nearest integer.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Log(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the natural (base e) logarithm of a specified number.
+            </summary>
+            <param name="d">A number whose logarithm is to be found.</param>
+            <returns>The natural (base e) logarithm of the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Log10(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the base 10 logarithm of a specified number.
+            </summary>
+            <param name="d">A number whose logarithm is to be found.</param>
+            <returns>The base 10 logarithm of the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Max(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the larger of two specified numbers.
+            </summary>
+            <param name="val1">The first of two numbers to compare.</param>
+            <param name="val2">The second of two numbers to compare.</param>
+            <returns>The larger of the two numbers.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Min(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the smaller of two specified numbers.
+            </summary>
+            <param name="val1">The first of two numbers to compare.</param>
+            <param name="val2">The second of two numbers to compare.</param>
+            <returns>The smaller of the two numbers.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Pow(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns a specified number raised to the specified power.
+            </summary>
+            <param name="x">A double-precision floating-point number to be raised to a power.</param>
+            <param name="y">A double-precision floating-point number that specifies a power.</param>
+            <returns>The number x raised to the power y.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Round(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Rounds a specified number to the nearest integer.
+            </summary>
+            <param name="a">A number to be rounded.</param>
+            <returns>The integer nearest to the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Sign(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns a value indicating the sign of a number.
+            </summary>
+            <param name="value">A signed number.</param>
+            <returns>A number indicating the sign of the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Sin(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the sine of the specified angle.
+            </summary>
+            <param name="a">An angle, measured in radians.</param>
+            <returns>The sine of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Sinh(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the hyperbolic sine of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic sine of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Sqrt(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the square root of a specified number.
+            </summary>
+            <param name="d">A number.</param>
+            <returns>The square root of the specified number.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Tan(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the tangent of the specified angle.
+            </summary>
+            <param name="a">An angle, measured in radians.</param>
+            <returns>The tangent of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Tanh(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the hyperbolic tangent of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic tangent of the specified angle.</returns>
+        </member>
+        <member name="M:ZS.ZSMath.Truncate(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Calculates the integral part of a specified number.
+            </summary>
+            <param name="d">A number to truncate.</param>
+            <returns>The integral part of the specified number.</returns>
+        </member>
+        <member name="P:ZS.ZSMath.E">
+            <summary>
+            Represents the natural logarithmic base, specified by the constant, e.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSMath.PI">
+            <summary>
+            Represents the ratio of the circumference of a circle to its diameter, specified by the constant, PI.
+            </summary>
+        </member>
+        <member name="T:ZS.ZSProcess">
+            <summary>
+            Provides methods and properties for managing processes.
+            This class allows you to start new processes, manage process information, and interact with running processes.
+            It includes functionalities for:
+            - Starting processes with or without arguments
+            - Retrieving process IDs and names
+            - Getting and setting process-related information such as file path, arguments, priority, and more
+            </summary>
+        </member>
+        <member name="M:ZS.ZSProcess.StartProcess(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Starts a new process with the specified executable file path.
+            </summary>
+            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\notepad.exe"</param>
+        </member>
+        <member name="M:ZS.ZSProcess.StartProcessWithArgs(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Starts a new process with the specified executable file path and arguments.
+            </summary>
+            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\cmd.exe"</param>
+            <param name="arguments">The arguments to pass to the executable file. Example: "/c echo Hello World"</param>
+        </member>
+        <member name="M:ZS.ZSProcess.StartProcessWithInfo(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Starts a new process with the specified ProcessStartInfo.
+            </summary>
+            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\notepad.exe"</param>
+            <param name="arguments">The arguments to pass to the executable file. Example: ""</param>
+        </member>
+        <member name="M:ZS.ZSProcess.GetProcessIds">
+            <summary>
+            Gets a list of process IDs for all running processes on the local machine.
+            </summary>
+            <returns>A comma-separated string of process IDs. Example: "1234,5678"</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetProcessName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the process name for a specified process ID.
+            </summary>
+            <param name="id">The process ID. Example: 1234</param>
+            <returns>The process name. Example: "notepad"</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetProcessId">
+            <summary>
+            Gets the process ID of the currently managed process.
+            </summary>
+            <returns>The process ID. Example: 1234</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetStartTime">
+            <summary>
+            Gets the start time of the currently managed process.
+            </summary>
+            <returns>The start time of the process. Example: "2024-07-24 14:30:00"</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetExitTime">
+            <summary>
+            Gets the exit time of the currently managed process.
+            </summary>
+            <returns>The exit time of the process. Example: "2024-07-24 15:00:00"</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.HasExited">
+            <summary>
+            Gets a value indicating whether the currently managed process has exited.
+            </summary>
+            <returns>true if the process has exited; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetMainWindowTitle">
+            <summary>
+            Gets the title of the main window of the currently managed process.
+            </summary>
+            <returns>The main window title. Example: "Untitled - Notepad"</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.IsResponding">
+            <summary>
+            Gets a value indicating whether the currently managed process is responding.
+            </summary>
+            <returns>true if the process is responding; otherwise, false.</returns>
+        </member>
+        <member name="M:ZS.ZSProcess.GetTotalProcessorTime">
+            <summary>
+            Gets the total processor time for the currently managed process.
+            </summary>
+            <returns>The total processor time. Example: "00:00:01.2345678"</returns>
+        </member>
+        <member name="P:ZS.ZSProcess.FilePath">
+            <summary>
+            Gets or sets the file path of the application to start.
+            </summary>
+            <example>
+            To set the file path: <br />
+            ZSProcess.FilePath = "C:\\Windows\\System32\\notepad.exe"
+            </example>
+        </member>
+        <member name="P:ZS.ZSProcess.Arguments">
+            <summary>
+            Gets or sets the arguments to pass to the executable file.
+            </summary>
+            <example>
+            To set arguments: <br />
+            ZSProcess.Arguments = "/c echo Hello World"
+            </example>
+        </member>
+        <member name="P:ZS.ZSProcess.UseShellExecute">
+            <summary>
+            Gets or sets a value that indicates whether to use the operating system shell to start the process.
+            </summary>
+            <example>
+            To enable shell execution: <br />
+            ZSProcess.UseShellExecute = true
+            </example>
+        </member>
+        <member name="P:ZS.ZSProcess.RedirectStandardOutput">
+            <summary>
+            Gets or sets a value that determines whether to redirect standard input, output, and error streams.
+            </summary>
+            <example>
+            To enable redirection: <br />
+            ZSProcess.RedirectStandardOutput = true
+            </example>
+        </member>
+        <member name="P:ZS.ZSProcess.PriorityClass">
+            <summary>
+            Gets or sets the value of the process priority.
+            </summary>
+            <example>
+            To set priority class: <br />
+            ZSProcess.PriorityClass = "High"
+            </example>
+        </member>
+        <member name="P:ZS.ZSProcess.CreateNoWindow">
+            <summary>
+            Gets or sets a value that indicates whether to create a new window for the process.
+            </summary>
+            <example>
+            To disable window creation: <br />
+            ZSProcess.CreateNoWindow = true
+            </example>
         </member>
         <member name="T:ZS.ZSText">
             <summary>
@@ -550,384 +1393,6 @@
             <summary>
             Gets the angle bracket closing character '>'.
             </summary>
-        </member>
-        <member name="T:ZS.ZSDialog">
-            <summary>
-            Provides various dialog utilities such as message boxes, input dialogs, file dialogs, and color dialogs.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowMessageBox(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a message box with the specified text.
-            </summary>
-            <param name="text">The text to display in the message box.</param>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowInputDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a custom input dialog with the specified prompt text.
-            </summary>
-            <param name="prompt">The prompt text to display in the input dialog.</param>
-            <returns>The text entered by the user.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowOpenFileDialog">
-            <summary>
-            Shows a file open dialog and returns the selected file path.
-            </summary>
-            <returns>The path of the selected file.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowSaveFileDialog">
-            <summary>
-            Shows a file save dialog and returns the selected file path.
-            </summary>
-            <returns>The path of the file to save.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowColorDialog">
-            <summary>
-            Shows a color dialog and returns the selected color as a string.
-            </summary>
-            <returns>The selected color in hexadecimal format (e.g., #FF0000 for red).</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowYesNoDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a Yes/No dialog with the specified question text.
-            </summary>
-            <param name="question">The question text to display in the dialog.</param>
-            <returns>Returns "Yes" if Yes is clicked, otherwise returns "No".</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowFolderBrowserDialog">
-            <summary>
-            Shows a folder browser dialog and returns the selected folder path.
-            </summary>
-            <returns>The path of the selected folder.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowErrorDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows an error dialog with the specified error message.
-            </summary>
-            <param name="errorMessage">The error message to display in the dialog.</param>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowWarningDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a warning dialog with the specified warning message.
-            </summary>
-            <param name="warningMessage">The warning message to display in the dialog.</param>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowInformationDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows an information dialog with the specified information message.
-            </summary>
-            <param name="informationMessage">The information message to display in the dialog.</param>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowCustomMessageBox(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a custom message box with specified text, title, and buttons.
-            </summary>
-            <param name="text">The text to display in the message box.</param>
-            <param name="title">The title of the message box.</param>
-            <param name="buttons">The buttons to display in the message box (OK, OKCancel, YesNo).</param>
-            <returns>The text of the button that was clicked.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowProgressDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a progress dialog with a specified message and duration.
-            </summary>
-            <param name="message">The message to display in the progress dialog.</param>
-            <param name="durationInSeconds">The duration in seconds for which the progress dialog should be displayed.</param>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowFontDialog">
-            <summary>
-            Shows a font dialog and returns the selected font as a string.
-            </summary>
-            <returns>The selected font in the format "FontName, Size, Style".</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowTimePickerDialog">
-            <summary>
-            Shows a time picker dialog and returns the selected time.
-            </summary>
-            <returns>The selected time in the format "HH:mm:ss".</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowDatePickerDialog">
-            <summary>
-            Shows a date picker dialog and returns the selected date.
-            </summary>
-            <returns>The selected date in the format "yyyy-MM-dd".</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowConfirmationDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a confirmation dialog with specified text and title.
-            </summary>
-            <param name="text">The text to display in the confirmation dialog.</param>
-            <param name="title">The title of the confirmation dialog.</param>
-            <returns>Returns true if Yes is clicked, otherwise returns false.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowCustomColorDialog">
-            <summary>
-            Shows a color dialog and returns the selected color as a string in the format "R,G,B".
-            </summary>
-            <returns>The selected color or an empty string if canceled.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowMultiSelectOpenFileDialog(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows an open file dialog with multi-select enabled and returns the selected file paths.
-            </summary>
-            <param name="filter">The file types filter in the format "Display Name1|Pattern1|Display Name2|Pattern2|...".</param>
-            <returns>A semicolon-separated list of selected file paths or an empty string if canceled.</returns>
-            <remarks>
-            Filters should be specified in pairs where:
-            - Display Name: The name shown in the dialog's filter dropdown.
-            - Pattern: The file pattern to filter files by extension (e.g., "*.txt", "*.jpg").
-            Multiple filters can be separated by vertical bars ('|'). For example:
-            "Text Files|*.txt|All Files|*.*"
-            </remarks>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowMultiLineInputBox(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows an input box with a multi-line text box for larger input.
-            </summary>
-            <param name="prompt">The prompt to display in the input box.</param>
-            <param name="title">The title of the input box.</param>
-            <returns>The user input or an empty string if canceled.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowPasswordInputDialog(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Shows a password input dialog and returns the entered password.
-            </summary>
-            <param name="prompt">The prompt to display in the input dialog.</param>
-            <param name="title">The title of the input dialog.</param>
-            <returns>The entered password or an empty string if canceled.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowInputDialogWithOptions(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive[])">
-            <summary>
-            Shows an input dialog with options and returns the selected option.
-            </summary>
-            <param name="prompt">The prompt to display in the input dialog.</param>
-            <param name="title">The title of the input dialog.</param>
-            <param name="options">The list of options to choose from.</param>
-            <returns>The selected option or an empty string if canceled.</returns>
-        </member>
-        <member name="M:ZS.ZSDialog.ShowImageFileDialog">
-            <summary>
-            Shows a file dialog to select an image file and returns the selected file path.
-            </summary>
-            <returns>The path of the selected image file or an empty string if canceled.</returns>
-        </member>
-        <member name="T:ZS.ZSImage">
-            <summary>
-            Provides Image Functions For Small Basic.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSImage.IsImageInImage(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Determines if a sub-image is present within a main image.
-            </summary>
-            <param name="mainImagePath">The file path of the main image.</param>
-            <param name="subImagePath">The file path of the sub-image.</param>
-            <returns>True if the sub-image is found within the main image, otherwise false.</returns>
-        </member>
-        <member name="M:ZS.ZSImage.CaptureScreen(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Captures the entire screen and saves it as a PNG file.
-            </summary>
-            <param name="filePath">The file path where the screenshot will be saved.</param>
-            <returns>True if the screen capture was successful; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSImage.ResizeImage(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Resizes an image to the specified width and height.
-            </summary>
-            <param name="inputFilePath">The file path of the input image.</param>
-            <param name="outputFilePath">The file path where the resized image will be saved.</param>
-            <param name="width">The width of the resized image.</param>
-            <param name="height">The height of the resized image.</param>
-            <returns>True if the image resizing was successful; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSImage.GetImageWidth(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Gets the width of an image.
-            </summary>
-            <param name="filePath">The file path of the image.</param>
-            <returns>The width of the image.</returns>
-        </member>
-        <member name="M:ZS.ZSImage.GetImageHeight(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Gets the height of an image.
-            </summary>
-            <param name="filePath">The file path of the image.</param>
-            <returns>The height of the image.</returns>
-        </member>
-        <member name="T:ZS.ZSFile">
-            <summary>
-            Provides File Functions For Small Basic.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSFile.ReadFile(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Reads the content of a file.
-            </summary>
-            <param name="filePath">The path of the file to read.</param>
-            <returns>The content of the file.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.WriteFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Writes content to a file.
-            </summary>
-            <param name="filePath">The path of the file to write to.</param>
-            <param name="content">The content to write.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.CopyFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Copies a file to a new location.
-            </summary>
-            <param name="sourcePath">The path of the file to copy.</param>
-            <param name="destinationPath">The path where the file will be copied to.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.DeleteFile(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Deletes a file.
-            </summary>
-            <param name="filePath">The path of the file to delete.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.FileExists(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Checks if a file exists.
-            </summary>
-            <param name="filePath">The path of the file to check.</param>
-            <returns>True if the file exists; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.MoveFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Moves a file to a new location.
-            </summary>
-            <param name="sourcePath">The path of the file to move.</param>
-            <param name="destinationPath">The path where the file will be moved to.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.CreateDirectory(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Creates a directory.
-            </summary>
-            <param name="directoryPath">The path of the directory to create.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.ListFiles(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Lists all files in a directory.
-            </summary>
-            <param name="directoryPath">The path of the directory to list files from.</param>
-            <returns>A comma-separated string of file paths.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.RenameFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Renames a file.
-            </summary>
-            <param name="currentFilePath">The current path of the file to rename.</param>
-            <param name="newFilePath">The new path and name for the file.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.DirectoryExists(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Checks if a directory exists.
-            </summary>
-            <param name="directoryPath">The path of the directory to check.</param>
-            <returns>True if the directory exists; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.DeleteDirectory(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Deletes a directory.
-            </summary>
-            <param name="directoryPath">The path of the directory to delete.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.MoveDirectory(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Moves a directory to a new location.
-            </summary>
-            <param name="sourcePath">The current path of the directory to move.</param>
-            <param name="destinationPath">The new path for the directory.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetLastWriteTime(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the last write time of a file.
-            </summary>
-            <param name="filePath">The path of the file to retrieve the last write time from.</param>
-            <returns>A string representation of the last write time; or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileSize(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the size of a file.
-            </summary>
-            <param name="filePath">The path of the file to get the size of.</param>
-            <returns>The size of the file in bytes, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileExtension(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the extension of a file.
-            </summary>
-            <param name="filePath">The path of the file to get the extension of.</param>
-            <returns>The extension of the file, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.CreateTextFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Creates a text file with specified content.
-            </summary>
-            <param name="filePath">The path of the file to create.</param>
-            <param name="content">The content to write to the file.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.AppendToFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Appends content to an existing file.
-            </summary>
-            <param name="filePath">The path of the file to append to.</param>
-            <param name="content">The content to append.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileCreationTime(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the creation time of a file.
-            </summary>
-            <param name="filePath">The path of the file to retrieve the creation time from.</param>
-            <returns>A string representation of the creation time, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.ReadAllLines(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Reads all lines from a file.
-            </summary>
-            <param name="filePath">The path of the file to read from.</param>
-            <returns>A list of all lines in the file, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileAttributes(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the attributes of a file.
-            </summary>
-            <param name="filePath">The path of the file to get the attributes of.</param>
-            <returns>The attributes of the file, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileLastAccessTime(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the last access time of a file.
-            </summary>
-            <param name="filePath">The path of the file to retrieve the last access time from.</param>
-            <returns>A string representation of the last access time, or an error message if an exception occurs.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.DeleteDirectory(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Deletes a directory and optionally all its contents.
-            </summary>
-            <param name="directoryPath">The path of the directory to delete.</param>
-            <param name="recursive">True to delete the directory, its subdirectories, and all files; otherwise, false.</param>
-            <returns>"Success" if the operation was successful; otherwise, an error message.</returns>
-        </member>
-        <member name="M:ZS.ZSFile.GetFileName(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the file name and extension of a file path.
-            </summary>
-            <param name="filePath">The path of the file to retrieve the name from.</param>
-            <returns>The file name and extension, or an error message if an exception occurs.</returns>
         </member>
         <member name="T:ZS.ZSUtilities">
             <summary>
@@ -1660,471 +2125,6 @@
             <param name="hexColor">The hexadecimal color string (e.g., "#RRGGBB").</param>
             <returns>An array containing the RGB values.</returns>
         </member>
-        <member name="T:ZS.ZSEnvironment">
-            <summary>
-            Provides System.Environment Functions For Small Basic.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSEnvironment.Exit(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Terminates the process and gives the exit code to the operating system.
-            </summary>
-            <param name="exitCode">The exit code to pass to the operating system.</param>
-        </member>
-        <member name="M:ZS.ZSEnvironment.GetCommandLineArgs">
-            <summary>
-            Returns the command-line arguments for the process.
-            </summary>
-            <returns>An array of strings representing the command-line arguments.</returns>
-        </member>
-        <member name="M:ZS.ZSEnvironment.GetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the value of an environment variable.
-            </summary>
-            <param name="variable">The name of the environment variable.</param>
-            <returns>The value of the environment variable.</returns>
-        </member>
-        <member name="M:ZS.ZSEnvironment.GetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,System.EnvironmentVariableTarget)">
-            <summary>
-            Retrieves the value of an environment variable, using the specified target.
-            </summary>
-            <param name="variable">The name of the environment variable.</param>
-            <param name="target">The target for the environment variable.</param>
-            <returns>The value of the environment variable.</returns>
-        </member>
-        <member name="M:ZS.ZSEnvironment.GetLogicalDrives">
-            <summary>
-            Returns the names of the logical drives on the current machine.
-            </summary>
-            <returns>An array of strings representing the names of the logical drives.</returns>
-        </member>
-        <member name="M:ZS.ZSEnvironment.GetResourceString(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Retrieves the value of a resource string by its key.Currently WILL Give Nothing
-            </summary>
-            <param name="key">The key of the resource string.</param>
-            <returns>The value of the resource string.</returns>
-        </member>
-        <member name="M:ZS.ZSEnvironment.SetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Sets the value of an environment variable.
-            </summary>
-            <param name="variable">The name of the environment variable.</param>
-            <param name="value">The value to set for the environment variable.</param>
-        </member>
-        <member name="M:ZS.ZSEnvironment.SetEnvironmentVariable(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,System.EnvironmentVariableTarget)">
-            <summary>
-            Sets the value of an environment variable, using the specified target.
-            </summary>
-            <param name="variable">The name of the environment variable.</param>
-            <param name="value">The value to set for the environment variable.</param>
-            <param name="target">The target for the environment variable.</param>
-        </member>
-        <member name="P:ZS.ZSEnvironment.CommandLine">
-            <summary>
-            Gets the command line for the application.
-            </summary>
-            <return>The command line arguments for the application.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.CurrentDirectory">
-            <summary>
-            Gets or sets the fully qualified path of the current working directory.
-            </summary>
-            <return>The path of the current working directory.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.MachineName">
-            <summary>
-            Gets the name of the machine on which the application is running.
-            </summary>
-            <return>The name of the machine.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.NewLine">
-            <summary>
-            Gets a string representing the newline character(s) used by the current environment.
-            </summary>
-            <return>The newline characters used by the current environment.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.OSVersion">
-            <summary>
-            Gets an OperatingSystem object that describes the current platform.
-            </summary>
-            <return>The current platform as a string.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.ProcessorCount">
-            <summary>
-            Gets the number of processors on the current machine.
-            </summary>
-            <return>The number of processors.</return>
-        </member>
-        <member name="P:ZS.ZSEnvironment.StackTrace">
-            <summary>
-            Gets a string representation of the current call stack.
-            </summary>
-            <value>The current call stack as a string.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.SystemDirectory">
-            <summary>
-            Gets the full path of the system directory.
-            </summary>
-            <value>The path to the system directory.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.TickCount">
-            <summary>
-            Gets the number of milliseconds elapsed since the system started.
-            </summary>
-            <value>The number of milliseconds since the system started.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.UserDomainName">
-            <summary>
-            Gets the domain name of the current user.
-            </summary>
-            <value>The domain name of the current user.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.UserName">
-            <summary>
-            Gets the user name of the current thread.
-            </summary>
-            <value>The user name of the current thread.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.Version">
-            <summary>
-            Gets the version of the common language runtime (CLR) that is installed on the operating system.
-            </summary>
-            <value>The version of the CLR.</value>
-        </member>
-        <member name="P:ZS.ZSEnvironment.WorkingSet">
-            <summary>
-            Gets the amount of physical memory allocated for the process.
-            </summary>
-            <value>The amount of physical memory allocated for the process, in bytes.</value>
-        </member>
-        <member name="T:ZS.ZSMath">
-            <summary>
-            Provides System.Math Functions For Small Basic.
-            </summary>
-        </member>
-        <member name="M:ZS.ZSMath.Abs(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the absolute value of a specified number.
-            </summary>
-            <param name="value">A number whose absolute value is to be found.</param>
-            <returns>The absolute value of the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Acos(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the angle whose cosine is the specified number.
-            </summary>
-            <param name="d">A number representing a cosine, where d must be greater than or equal to -1, but less than or equal to 1.</param>
-            <returns>The angle, measured in radians, whose cosine is the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Asin(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the angle whose sine is the specified number.
-            </summary>
-            <param name="d">A number representing a sine, where d must be greater than or equal to -1, but less than or equal to 1.</param>
-            <returns>The angle, measured in radians, whose sine is the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Atan(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the angle whose tangent is the specified number.
-            </summary>
-            <param name="d">A number representing a tangent.</param>
-            <returns>The angle, measured in radians, whose tangent is the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Atan2(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the angle whose tangent is the quotient of two specified numbers.
-            </summary>
-            <param name="y">The y-coordinate of a point.</param>
-            <param name="x">The x-coordinate of a point.</param>
-            <returns>The angle, measured in radians, whose tangent is the quotient of two specified numbers.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Ceiling(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the smallest integer greater than or equal to the specified number.
-            </summary>
-            <param name="a">A number.</param>
-            <returns>The smallest integer greater than or equal to the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Cos(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the cosine of the specified angle.
-            </summary>
-            <param name="d">An angle, measured in radians.</param>
-            <returns>The cosine of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Cosh(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the hyperbolic cosine of the specified angle.
-            </summary>
-            <param name="value">An angle, measured in radians.</param>
-            <returns>The hyperbolic cosine of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Exp(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns e raised to the specified power.
-            </summary>
-            <param name="d">A number specifying a power.</param>
-            <returns>The number e raised to the specified power.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Floor(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the largest integer less than or equal to the specified number.
-            </summary>
-            <param name="d">A number.</param>
-            <returns>The largest integer less than or equal to the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.IEEERemainder(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the remainder resulting from the division of a specified number by another specified number.
-            </summary>
-            <param name="x">A dividend.</param>
-            <param name="y">A divisor.</param>
-            <returns>A number equal to x - (y * Q), where Q is the quotient of x / y rounded to the nearest integer.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Log(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the natural (base e) logarithm of a specified number.
-            </summary>
-            <param name="d">A number whose logarithm is to be found.</param>
-            <returns>The natural (base e) logarithm of the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Log10(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the base 10 logarithm of a specified number.
-            </summary>
-            <param name="d">A number whose logarithm is to be found.</param>
-            <returns>The base 10 logarithm of the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Max(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the larger of two specified numbers.
-            </summary>
-            <param name="val1">The first of two numbers to compare.</param>
-            <param name="val2">The second of two numbers to compare.</param>
-            <returns>The larger of the two numbers.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Min(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the smaller of two specified numbers.
-            </summary>
-            <param name="val1">The first of two numbers to compare.</param>
-            <param name="val2">The second of two numbers to compare.</param>
-            <returns>The smaller of the two numbers.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Pow(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns a specified number raised to the specified power.
-            </summary>
-            <param name="x">A double-precision floating-point number to be raised to a power.</param>
-            <param name="y">A double-precision floating-point number that specifies a power.</param>
-            <returns>The number x raised to the power y.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Round(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Rounds a specified number to the nearest integer.
-            </summary>
-            <param name="a">A number to be rounded.</param>
-            <returns>The integer nearest to the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Sign(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns a value indicating the sign of a number.
-            </summary>
-            <param name="value">A signed number.</param>
-            <returns>A number indicating the sign of the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Sin(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the sine of the specified angle.
-            </summary>
-            <param name="a">An angle, measured in radians.</param>
-            <returns>The sine of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Sinh(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the hyperbolic sine of the specified angle.
-            </summary>
-            <param name="value">An angle, measured in radians.</param>
-            <returns>The hyperbolic sine of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Sqrt(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the square root of a specified number.
-            </summary>
-            <param name="d">A number.</param>
-            <returns>The square root of the specified number.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Tan(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the tangent of the specified angle.
-            </summary>
-            <param name="a">An angle, measured in radians.</param>
-            <returns>The tangent of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Tanh(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Returns the hyperbolic tangent of the specified angle.
-            </summary>
-            <param name="value">An angle, measured in radians.</param>
-            <returns>The hyperbolic tangent of the specified angle.</returns>
-        </member>
-        <member name="M:ZS.ZSMath.Truncate(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Calculates the integral part of a specified number.
-            </summary>
-            <param name="d">A number to truncate.</param>
-            <returns>The integral part of the specified number.</returns>
-        </member>
-        <member name="P:ZS.ZSMath.E">
-            <summary>
-            Represents the natural logarithmic base, specified by the constant, e.
-            </summary>
-        </member>
-        <member name="P:ZS.ZSMath.PI">
-            <summary>
-            Represents the ratio of the circumference of a circle to its diameter, specified by the constant, PI.
-            </summary>
-        </member>
-        <member name="T:ZS.ZSProcess">
-            <summary>
-            Provides methods and properties for managing processes.
-            This class allows you to start new processes, manage process information, and interact with running processes.
-            It includes functionalities for:
-            - Starting processes with or without arguments
-            - Retrieving process IDs and names
-            - Getting and setting process-related information such as file path, arguments, priority, and more
-            </summary>
-        </member>
-        <member name="M:ZS.ZSProcess.StartProcess(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Starts a new process with the specified executable file path.
-            </summary>
-            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\notepad.exe"</param>
-        </member>
-        <member name="M:ZS.ZSProcess.StartProcessWithArgs(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Starts a new process with the specified executable file path and arguments.
-            </summary>
-            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\cmd.exe"</param>
-            <param name="arguments">The arguments to pass to the executable file. Example: "/c echo Hello World"</param>
-        </member>
-        <member name="M:ZS.ZSProcess.StartProcessWithInfo(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Starts a new process with the specified ProcessStartInfo.
-            </summary>
-            <param name="filePath">The path of the executable file to start. Example: "C:\\Windows\\System32\\notepad.exe"</param>
-            <param name="arguments">The arguments to pass to the executable file. Example: ""</param>
-        </member>
-        <member name="M:ZS.ZSProcess.GetProcessIds">
-            <summary>
-            Gets a list of process IDs for all running processes on the local machine.
-            </summary>
-            <returns>A comma-separated string of process IDs. Example: "1234,5678"</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetProcessName(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Gets the process name for a specified process ID.
-            </summary>
-            <param name="id">The process ID. Example: 1234</param>
-            <returns>The process name. Example: "notepad"</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetProcessId">
-            <summary>
-            Gets the process ID of the currently managed process.
-            </summary>
-            <returns>The process ID. Example: 1234</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetStartTime">
-            <summary>
-            Gets the start time of the currently managed process.
-            </summary>
-            <returns>The start time of the process. Example: "2024-07-24 14:30:00"</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetExitTime">
-            <summary>
-            Gets the exit time of the currently managed process.
-            </summary>
-            <returns>The exit time of the process. Example: "2024-07-24 15:00:00"</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.HasExited">
-            <summary>
-            Gets a value indicating whether the currently managed process has exited.
-            </summary>
-            <returns>true if the process has exited; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetMainWindowTitle">
-            <summary>
-            Gets the title of the main window of the currently managed process.
-            </summary>
-            <returns>The main window title. Example: "Untitled - Notepad"</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.IsResponding">
-            <summary>
-            Gets a value indicating whether the currently managed process is responding.
-            </summary>
-            <returns>true if the process is responding; otherwise, false.</returns>
-        </member>
-        <member name="M:ZS.ZSProcess.GetTotalProcessorTime">
-            <summary>
-            Gets the total processor time for the currently managed process.
-            </summary>
-            <returns>The total processor time. Example: "00:00:01.2345678"</returns>
-        </member>
-        <member name="P:ZS.ZSProcess.FilePath">
-            <summary>
-            Gets or sets the file path of the application to start.
-            </summary>
-            <example>
-            To set the file path: <br />
-            ZSProcess.FilePath = "C:\\Windows\\System32\\notepad.exe"
-            </example>
-        </member>
-        <member name="P:ZS.ZSProcess.Arguments">
-            <summary>
-            Gets or sets the arguments to pass to the executable file.
-            </summary>
-            <example>
-            To set arguments: <br />
-            ZSProcess.Arguments = "/c echo Hello World"
-            </example>
-        </member>
-        <member name="P:ZS.ZSProcess.UseShellExecute">
-            <summary>
-            Gets or sets a value that indicates whether to use the operating system shell to start the process.
-            </summary>
-            <example>
-            To enable shell execution: <br />
-            ZSProcess.UseShellExecute = true
-            </example>
-        </member>
-        <member name="P:ZS.ZSProcess.RedirectStandardOutput">
-            <summary>
-            Gets or sets a value that determines whether to redirect standard input, output, and error streams.
-            </summary>
-            <example>
-            To enable redirection: <br />
-            ZSProcess.RedirectStandardOutput = true
-            </example>
-        </member>
-        <member name="P:ZS.ZSProcess.PriorityClass">
-            <summary>
-            Gets or sets the value of the process priority.
-            </summary>
-            <example>
-            To set priority class: <br />
-            ZSProcess.PriorityClass = "High"
-            </example>
-        </member>
-        <member name="P:ZS.ZSProcess.CreateNoWindow">
-            <summary>
-            Gets or sets a value that indicates whether to create a new window for the process.
-            </summary>
-            <example>
-            To disable window creation: <br />
-            ZSProcess.CreateNoWindow = true
-            </example>
-        </member>
         <member name="T:ZS.ZSGlobalization">
             <summary>
             Provides methods and properties for working with globalization, including culture information, date and time formatting, number formatting, and text information.
@@ -2238,6 +2238,148 @@
         <member name="P:ZS.ZSGlobalization.KoreanDate">
             <summary>
             Gets the current date in the Korean calendar.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSConsole.Write(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Writes the specified string value to the console.
+            </summary>
+            <param name="text">The string value to write to the console.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.WriteLine(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Writes the specified string value to the console, followed by the current line terminator.
+            </summary>
+            <param name="text">The string value to write to the console.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.ReadLine">
+            <summary>
+            Reads the next line of characters from the standard input stream.
+            </summary>
+            <returns>The next line of characters from the input stream, or null if no more lines are available.</returns>
+        </member>
+        <member name="M:ZS.ZSConsole.Read">
+            <summary>
+            Reads the next character from the standard input stream.
+            </summary>
+            <returns>The next character from the input stream, or -1 if no more characters are available.</returns>
+        </member>
+        <member name="M:ZS.ZSConsole.Clear">
+            <summary>
+            Clears the console buffer and corresponding console window of display information.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSConsole.Beep">
+            <summary>
+            Plays the sound of a beep through the console speaker.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSConsole.Beep(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Plays the sound of a beep of a specified frequency and duration through the console speaker.
+            </summary>
+            <param name="frequency">The frequency of the beep, ranging from 37 to 32767 hertz.</param>
+            <param name="duration">The duration of the beep in milliseconds.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.SetCursorPosition(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sets the position of the cursor.
+            </summary>
+            <param name="left">The column position of the cursor.</param>
+            <param name="top">The row position of the cursor.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.SetBufferSize(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sets the size of the buffer area.
+            </summary>
+            <param name="width">The width of the buffer area.</param>
+            <param name="height">The height of the buffer area.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.SetWindowSize(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sets the size of the console window.
+            </summary>
+            <param name="width">The width of the console window.</param>
+            <param name="height">The height of the console window.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.ResetColor">
+            <summary>
+            Sets the foreground and background console colors to their defaults.
+            </summary>
+        </member>
+        <member name="M:ZS.ZSConsole.BufferLineCount">
+            <summary>
+            Gets the number of lines of buffer space.
+            </summary>
+            <returns>The number of lines of buffer space.</returns>
+        </member>
+        <member name="M:ZS.ZSConsole.WriteFormat(Microsoft.SmallBasic.Library.Primitive,System.Object[])">
+            <summary>
+            Writes a formatted string to the console.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="args">An array of objects to write using format.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.WriteLineObjects(System.Object[])">
+            <summary>
+            Writes the text representation of the specified array of objects to the console, followed by the current line terminator.
+            </summary>
+            <param name="args">An array of objects to write.</param>
+        </member>
+        <member name="M:ZS.ZSConsole.ReadKey">
+            <summary>
+            Reads the next character or function key pressed by the user. The pressed key is displayed in the console window.
+            </summary>
+            <returns>A System.ConsoleKeyInfo object describing the System.ConsoleKey constant and Unicode character, if any, that correspond to the pressed console key.</returns>
+        </member>
+        <member name="P:ZS.ZSConsole.Title">
+            <summary>
+            Gets or sets the title of the console window.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.CursorLeft">
+            <summary>
+            Gets or sets the column position of the cursor within the buffer area.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.CursorTop">
+            <summary>
+            Gets or sets the row position of the cursor within the buffer area.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.CursorVisible">
+            <summary>
+            Gets or sets a value indicating whether the cursor is visible.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.BufferHeight">
+            <summary>
+            Gets or sets the height of the buffer area.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.BufferWidth">
+            <summary>
+            Gets or sets the width of the buffer area.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.WindowHeight">
+            <summary>
+            Gets or sets the height of the console window.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.WindowWidth">
+            <summary>
+            Gets or sets the width of the console window.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.ForegroundColor">
+            <summary>
+            Gets or sets the foreground color of the console.
+            </summary>
+        </member>
+        <member name="P:ZS.ZSConsole.BackgroundColor">
+            <summary>
+            Gets or sets the background color of the console.
             </summary>
         </member>
     </members>
