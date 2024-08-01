@@ -4,6 +4,28 @@
         <name>ZS</name>
     </assembly>
     <members>
+        <member name="T:ZSArguments">
+            <summary>
+            The Arguments object provides operations to access the command-line arguments that were passed at the start of this program.
+            This class has been taken from Small Basic version 0.2.
+            </summary>
+        </member>
+        <member name="M:ZSArguments.GetArgument(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Returns the specified argument.
+            </summary>
+            <param name="index">
+            Index of the argument.
+            </param>
+            <returns>
+            The command-line argument at the specified index.
+            </returns>
+        </member>
+        <member name="P:ZSArguments.Count">
+            <summary>
+            Gets the number of command-line arguments passed to this program.
+            </summary>
+        </member>
         <member name="T:ZS.ZSCmd">
             <summary>
             Provides methods to execute command line instructions from Small Basic.
@@ -1121,6 +1143,45 @@
             <param name="path">The path to test.</param>
             <returns>true if path contains a root; otherwise, false.</returns>
         </member>
+        <member name="T:ZSPlatform">
+            <summary>
+            The Platform object provides a way to generically invoke other .NET libraries.
+            This class has been taken from Small Basic version 0.2.
+            </summary>
+        </member>
+        <member name="M:ZSPlatform.CreateInstance(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Creates an instance of a specified .NET type.
+            For Example : System.DateTime
+            </summary>
+            <param name="typeName">The fully qualified name of the type.</param>
+            <returns>A unique identifier for the created instance or "ERROR" if creation fails.</returns>
+        </member>
+        <member name="M:ZSPlatform.InvokeInstanceMethod(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Invokes a method on an instance of a .NET type.
+            </summary>
+            <param name="instanceId">The unique identifier of the instance.</param>
+            <param name="methodName">The name of the method to invoke.</param>
+            <param name="argumentsStackName">The name of the stack containing the method arguments.</param>
+            <returns>The result of the method invocation or "ERROR" if invocation fails.</returns>
+        </member>
+        <member name="M:ZSPlatform.InvokeStaticMethod(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Invokes a static method on a .NET type.
+            </summary>
+            <param name="typeName">The fully qualified name of the type.</param>
+            <param name="methodName">The name of the method to invoke.</param>
+            <param name="argumentsStackName">The name of the stack containing the method arguments.</param>
+            <returns>The result of the method invocation or "ERROR" if invocation fails.</returns>
+        </member>
+        <member name="M:ZSPlatform.GenerateNewName(System.String)">
+            <summary>
+            Generates a new unique name with a specified prefix.
+            </summary>
+            <param name="prefix">The prefix for the generated name.</param>
+            <returns>A new unique name.</returns>
+        </member>
         <member name="T:ZS.ZSPowerShell">
             <summary>
             Provides methods for running PowerShell commands.
@@ -1136,6 +1197,20 @@
             This method starts a new PowerShell process to execute the specified command. 
             Output and errors are combined into a single string.
             </remarks>
+        </member>
+        <member name="M:ZS.ZSPowerShell.RunPowerShellScriptFromArray(Microsoft.SmallBasic.Library.Primitive[])">
+            <summary>
+            Executes a PowerShell script provided as an array of strings.
+            </summary>
+            <param name="scriptLines">Array of strings, each representing a line of the PowerShell script.</param>
+            <returns>A string containing the output and errors from the PowerShell script execution.</returns>
+        </member>
+        <member name="M:ZS.ZSPowerShell.RunPowerShellFile(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a PowerShell script file and returns the output.
+            </summary>
+            <param name="filePath">The path to the PowerShell script file.</param>
+            <returns>A string containing the output and errors from the PowerShell script execution.</returns>
         </member>
         <member name="T:ZS.ZSProcess">
             <summary>
@@ -1287,6 +1362,21 @@
             Starts the process using the specified settings.
             </summary>
         </member>
+        <member name="M:ZSProcessInfo.GetOutput(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Gets the output of the process by its ID.
+            Returns the standard output if available, otherwise returns an error message.
+            </summary>
+            <param name="processId">The ID of the process.</param>
+            <returns>A string containing the process output or an error message.</returns>
+        </member>
+        <member name="M:ZSProcessInfo.StartAndGetOutput">
+            <summary>
+            Starts the process using the specified settings and returns the standard output.
+            Returns the standard output if the process starts and completes successfully, otherwise returns the error message.
+            </summary>
+            <returns>A string containing the process output or an error message.</returns>
+        </member>
         <member name="P:ZSProcessInfo.Arguments">
             <summary>
             Gets or sets the set of command-line arguments to use when starting the application.
@@ -1393,7 +1483,7 @@
         </member>
         <member name="P:ZSProcessInfo.PasswordInClearText">
             <summary>
-            Gets or sets the password in clear text to use when starting the process.
+            Sets the password in clear text to use when starting the process.
             </summary>
         </member>
         <member name="T:ZS.ZSText">

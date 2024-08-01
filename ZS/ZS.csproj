@@ -56,6 +56,9 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing">
       <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Drawing.dll</HintPath>
     </Reference>
@@ -77,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Argument.cs" />
     <Compile Include="Cmd.cs" />
     <Compile Include="Dialog.cs" />
     <Compile Include="Environment.cs" />
@@ -85,6 +89,7 @@
     <Compile Include="Keyboard.cs" />
     <Compile Include="Math.cs" />
     <Compile Include="Path.cs" />
+    <Compile Include="Platform.cs" />
     <Compile Include="PowerShell.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="ProcessInfo.cs" />

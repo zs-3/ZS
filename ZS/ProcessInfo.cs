@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.SmallBasic.Library;
+using System.Security;
 
 
 /// <summary>
@@ -11,6 +12,7 @@ using Microsoft.SmallBasic.Library;
 public static class ZSProcessInfo
 {
 	private static ProcessStartInfo startInfo = new ProcessStartInfo();
+	private static System.Collections.Generic.Dictionary<int, Process> processes = new System.Collections.Generic.Dictionary<int, Process>();
 
 	/// <summary>
 	/// Gets or sets the set of command-line arguments to use when starting the application.
@@ -173,11 +175,38 @@ public static class ZSProcessInfo
 	{
 		try {
 			Process process = Process.Start(startInfo);
+			processes[process.Id] = process;
 			return process.Id.ToString();
 		} catch (Exception ex) {
 			return ex.TargetSite + " : " + ex.Message;
 		}
 	}
+	
+	/// <summary>
+	/// Gets the output of the process by its ID.
+	/// Returns the standard output if available, otherwise returns an error message.
+	/// </summary>
+	/// <param name="processId">The ID of the process.</param>
+	/// <returns>A string containing the process output or an error message.</returns>
+	public static Primitive GetOutput(Primitive processId)
+	{
+		try {
+			int id = processId;
+			if (processes.ContainsKey(id)) {
+				Process process = processes[id];
+				if (process.HasExited) {
+					return process.StandardOutput.ReadToEnd();
+				} else {
+					return "Error: Process is still running.";
+				}
+			} else {
+				return "Error: Invalid process ID.";
+			}
+		} catch (Exception ex) {
+			return "Error: " + ex.Message;
+		}
+	}
+
 	
 	/// <summary>
 	/// Gets or sets a value indicating whether the Windows user profile should be loaded.
@@ -188,9 +217,56 @@ public static class ZSProcessInfo
 	}
 
 	/// <summary>
-	/// Gets or sets the password in clear text to use when starting the process.
+    /// Sets the password in clear text to use when starting the process.
+    /// </summary>
+    public static Primitive PasswordInClearText
+    {
+        set
+        {
+                startInfo.Password = ConvertToSecureString(value);   
+        }
+    }
+
+    private static SecureString ConvertToSecureString(string plainText)
+    {
+        if (plainText == null)
+            throw new ArgumentNullException("plainText");
+        
+        SecureString secureString = new SecureString();
+        foreach (char c in plainText)
+        {
+            secureString.AppendChar(c);
+        }
+        secureString.MakeReadOnly();
+        return secureString;
+    }
+	
+	/// <summary>
+	/// Starts the process using the specified settings and returns the standard output.
+	/// Returns the standard output if the process starts and completes successfully, otherwise returns the error message.
 	/// </summary>
-	public static Primitive PasswordInClearText {
-		set { startInfo.PasswordInClearText = value; }
-	}	
+	/// <returns>A string containing the process output or an error message.</returns>
+	public static Primitive StartAndGetOutput()
+	{
+		try {
+			startInfo.RedirectStandardOutput = true;
+			startInfo.RedirectStandardError = true;
+			startInfo.UseShellExecute = false;
+			
+            
+			using (Process process = Process.Start(startInfo)) {
+				process.WaitForExit();
+				if (process.ExitCode == 0) {
+					return process.StandardOutput.ReadToEnd();
+				} else {
+					return process.StandardError.ReadToEnd();
+				}
+			}
+		} catch (Exception ex) {
+			return "Error: " + ex.Message;
+		}
+	}
+	
+	
+
 }
