@@ -5,6 +5,10 @@ This Is A Extension For Microsoft Small Basic Written In CSahrp Using SharpDevel
 
 List Of All Objects Currently Present In Extension:
 
+**ZSArguments :**
+The Arguments object provides operations to access the command-line arguments that were passed at the start of this program.
+This class has been taken from Small Basic version 0.2.
+
 **ZSCmd :**  
 Provides methods to execute command line instructions from Small Basic.
 
@@ -32,6 +36,10 @@ Provides System.Math Functions For Small Basic.
 **ZSPath :**
 Provides System.IO.Path Functions in small basic.
 
+**ZSPlatform :**
+The Platform object provides a way to generically invoke other .NET libraries.
+This class has been taken from Small Basic version 0.2.
+
 **ZSPowerShell :**
 Provides methods for running PowerShell commands.
 
@@ -46,6 +54,9 @@ It includes functionalities for:
 **ZSProcessInfo :**
 Provides ProcessInfo Functions from Small Basic.
 First Set All the setting then call the method ZSProcessInfo.Start()
+
+**ZSTest :**
+Just For Testing.
 
 **ZSText :**
 Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.
