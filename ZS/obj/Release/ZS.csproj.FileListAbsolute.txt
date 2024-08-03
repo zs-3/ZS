@@ -3,3 +3,4 @@ C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Release\ZS.xml
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Release\SmallBasicLibrary.dll
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Release\SmallBasicLibrary.xml
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Release\ZS.dll
+C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Release\ZS.csprojResolveAssemblyReference.cache

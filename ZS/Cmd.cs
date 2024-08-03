@@ -32,6 +32,81 @@ namespace ZS
 	[SmallBasicType]
 	public static class ZSCmd
 	{
+		
+		/// <summary>
+		/// Executes a batch script directly from a single string.
+		/// </summary>
+		/// <param name="script">The batch script to execute.</param>
+		/// <returns>A string containing the output and errors from the batch script execution.</returns>
+		public static Primitive RunBatchScript(Primitive script)
+		{
+			try {
+				using (Process process = new Process()) {
+					process.StartInfo.FileName = "cmd.exe";
+					process.StartInfo.Arguments = "/c \"" + script + "\"";
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.RedirectStandardError = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.Start();
+					string output = process.StandardOutput.ReadToEnd();
+					string error = process.StandardError.ReadToEnd();
+
+					process.WaitForExit();
+
+					return new Primitive("Output:\n" + output + "\nError:\n" + error);
+				}
+			} catch (Exception ex) {
+				return new Primitive("Exception:\n" + ex.Message);
+			}
+		}
+		
+		/// <summary>
+		/// Executes a batch script provided as an array of strings.
+		/// Saves the script in a temporary file, runs it, returns the output, and deletes the script file.
+		/// </summary>
+		/// <param name="scriptLines">Array of strings, each representing a line of the batch script.</param>
+		/// <returns>A string containing the output and errors from the batch script execution.</returns>
+		public static Primitive RunBatchScriptFromArray(Primitive scriptLines)
+		{
+			string tempFilePath = Path.Combine(Path.GetTempPath(), "tempScript.bat");
+
+			try {
+				// Combine script lines into a single script and write to temp file
+				using (StreamWriter writer = new StreamWriter(tempFilePath)) {
+					int count = (int)scriptLines.GetItemCount();
+					for (int i = 1; i <= count; i++) {
+						writer.WriteLine(scriptLines[i].ToString());
+					}
+				}
+
+				using (Process process = new Process()) {
+					process.StartInfo.FileName = "cmd.exe";
+					process.StartInfo.Arguments = "/c \"" + tempFilePath + "\"";
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.RedirectStandardError = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.Start();
+					string output = process.StandardOutput.ReadToEnd();
+					string error = process.StandardError.ReadToEnd();
+
+					process.WaitForExit();
+
+					return new Primitive("Output:\n" + output + "\nError:\n" + error);
+				}
+			} catch (Exception ex) {
+				return new Primitive("Exception:\n" + ex.Message);
+			} finally {
+				// Delete the temporary batch script file
+				if (System.IO.File.Exists(tempFilePath)) {
+					System.IO.File.Delete(tempFilePath);
+				}
+			}
+		}
+		
 		/// <summary>
 		/// Executes a command in the command line and returns the output.
 		/// </summary>

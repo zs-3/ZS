@@ -31,6 +31,21 @@
             Provides methods to execute command line instructions from Small Basic.
             </summary>
         </member>
+        <member name="M:ZS.ZSCmd.RunBatchScript(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a batch script directly from a single string.
+            </summary>
+            <param name="script">The batch script to execute.</param>
+            <returns>A string containing the output and errors from the batch script execution.</returns>
+        </member>
+        <member name="M:ZS.ZSCmd.RunBatchScriptFromArray(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a batch script provided as an array of strings.
+            Saves the script in a temporary file, runs it, returns the output, and deletes the script file.
+            </summary>
+            <param name="scriptLines">Array of strings, each representing a line of the batch script.</param>
+            <returns>A string containing the output and errors from the batch script execution.</returns>
+        </member>
         <member name="M:ZS.ZSCmd.Execute(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Executes a command in the command line and returns the output.
@@ -1186,6 +1201,13 @@
             Provides methods for running PowerShell commands.
             </summary>
         </member>
+        <member name="M:ZS.ZSPowerShell.RunPowerShellScript(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Executes a PowerShell script directly from a single string.
+            </summary>
+            <param name="script">The PowerShell script to execute.</param>
+            <returns>A string containing the output and errors from the PowerShell script execution.</returns>
+        </member>
         <member name="M:ZS.ZSPowerShell.Run(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Executes a PowerShell command and returns the result.
@@ -1211,7 +1233,7 @@
             <param name="filePath">The path to the PowerShell script file.</param>
             <returns>A string containing the output and errors from the PowerShell script execution.</returns>
         </member>
-        <member name="M:ZS.ZSPowerShell.RunPowerShellScript(Microsoft.SmallBasic.Library.Primitive)">
+        <member name="M:ZS.ZSPowerShell.RunPowerShell(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Executes a PowerShell script provided as an array of strings.
             Saves the script in a temporary file, runs it, returns the output, and deletes the script file.
@@ -1358,18 +1380,18 @@
             ZSProcess.CreateNoWindow = true
             </example>
         </member>
-        <member name="T:ZSProcessInfo">
+        <member name="T:ZS.ZSProcessInfo">
             <summary>
             Provides ProcessInfo Functions from Small Basic.
             First Set All the setting then call the method ZSProcessInfo.Start()
             </summary>
         </member>
-        <member name="M:ZSProcessInfo.Start">
+        <member name="M:ZS.ZSProcessInfo.Start">
             <summary>
             Starts the process using the specified settings.
             </summary>
         </member>
-        <member name="M:ZSProcessInfo.GetOutput(Microsoft.SmallBasic.Library.Primitive)">
+        <member name="M:ZS.ZSProcessInfo.GetOutput(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Gets the output of the process by its ID.
             Returns the standard output if available, otherwise returns an error message.
@@ -1377,99 +1399,99 @@
             <param name="processId">The ID of the process.</param>
             <returns>A string containing the process output or an error message.</returns>
         </member>
-        <member name="M:ZSProcessInfo.StartAndGetOutput">
+        <member name="M:ZS.ZSProcessInfo.StartAndGetOutput">
             <summary>
             Starts the process using the specified settings and returns the standard output.
             Returns the standard output if the process starts and completes successfully, otherwise returns the error message.
             </summary>
             <returns>A string containing the process output or an error message.</returns>
         </member>
-        <member name="P:ZSProcessInfo.Arguments">
+        <member name="P:ZS.ZSProcessInfo.Arguments">
             <summary>
             Gets or sets the set of command-line arguments to use when starting the application.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.CreateNoWindow">
+        <member name="P:ZS.ZSProcessInfo.CreateNoWindow">
             <summary>
             Gets or sets a value indicating whether to start the process in a new window.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.Domain">
+        <member name="P:ZS.ZSProcessInfo.Domain">
             <summary>
             Gets or sets the domain to use when starting the process.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.UseShellExecute">
+        <member name="P:ZS.ZSProcessInfo.UseShellExecute">
             <summary>
             Gets or sets a value indicating whether to use the operating system shell to start the process.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.FileName">
+        <member name="P:ZS.ZSProcessInfo.FileName">
             <summary>
             Gets or sets the application or document to start.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.RedirectStandardError">
+        <member name="P:ZS.ZSProcessInfo.RedirectStandardError">
             <summary>
             Gets or sets a value indicating whether the error output of an application is written to the StandardError stream.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.RedirectStandardInput">
+        <member name="P:ZS.ZSProcessInfo.RedirectStandardInput">
             <summary>
             Gets or sets a value indicating whether the input for an application is read from the StandardInput stream.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.RedirectStandardOutput">
+        <member name="P:ZS.ZSProcessInfo.RedirectStandardOutput">
             <summary>
             Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.UserName">
+        <member name="P:ZS.ZSProcessInfo.UserName">
             <summary>
             Gets or sets the user name to use when starting the process.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.Password">
+        <member name="P:ZS.ZSProcessInfo.Password">
             <summary>
             Gets or sets the password for the user name when starting the process.
             Note: For security reasons, setting passwords is not directly supported in this wrapper.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.Verb">
+        <member name="P:ZS.ZSProcessInfo.Verb">
             <summary>
             Gets or sets the verb to use when opening the application or document specified by the FileName property.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.WindowStyle">
+        <member name="P:ZS.ZSProcessInfo.WindowStyle">
             <summary>
             Gets or sets the Window style to use for the process.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.WorkingDirectory">
+        <member name="P:ZS.ZSProcessInfo.WorkingDirectory">
             <summary>
             Gets or sets the working directory for the process to be started.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.StandardOutputEncoding">
+        <member name="P:ZS.ZSProcessInfo.StandardOutputEncoding">
             <summary>
             Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.EnvironmentVariables">
+        <member name="P:ZS.ZSProcessInfo.EnvironmentVariables">
             <summary>
             Gets or sets the environment variables that apply to this process and its child processes.
             Use a semicolon (;) to separate multiple variables.
@@ -1477,18 +1499,18 @@
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.ErrorDialog">
+        <member name="P:ZS.ZSProcessInfo.ErrorDialog">
             <summary>
             Gets or sets a value indicating whether an error dialog box is displayed to the user if the process cannot be started.
             Setting For ZSProcess.Start()
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.LoadUserProfile">
+        <member name="P:ZS.ZSProcessInfo.LoadUserProfile">
             <summary>
             Gets or sets a value indicating whether the Windows user profile should be loaded.
             </summary>
         </member>
-        <member name="P:ZSProcessInfo.PasswordInClearText">
+        <member name="P:ZS.ZSProcessInfo.PasswordInClearText">
             <summary>
             Gets or sets the password in clear text to use when starting the process.
             </summary>

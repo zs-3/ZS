@@ -11,6 +11,36 @@ namespace ZS
 	[SmallBasicType]
 	public static class ZSPowerShell
 	{
+		
+		/// <summary>
+		/// Executes a PowerShell script directly from a single string.
+		/// </summary>
+		/// <param name="script">The PowerShell script to execute.</param>
+		/// <returns>A string containing the output and errors from the PowerShell script execution.</returns>
+		public static Primitive RunPowerShellScript(Primitive script)
+		{
+			try {
+				using (Process process = new Process()) {
+					process.StartInfo.FileName = "powershell.exe";
+					process.StartInfo.Arguments = "-NoProfile -ExecutionPolicy Bypass -Command \"" + script + "\"";
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.RedirectStandardError = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.Start();
+					string output = process.StandardOutput.ReadToEnd();
+					string error = process.StandardError.ReadToEnd();
+
+					process.WaitForExit();
+
+					return new Primitive("Output:\n" + output + "\nError:\n" + error);
+				}
+			} catch (Exception ex) {
+				return new Primitive("Exception:\n" + ex.Message);
+			}
+		}
+		
 		/// <summary>
 		/// Executes a PowerShell command and returns the result.
 		/// </summary>
@@ -128,7 +158,7 @@ namespace ZS
 		/// </summary>
 		/// <param name="scriptLines">Array of strings, each representing a line of the PowerShell script.</param>
 		/// <returns>A string containing the output and errors from the PowerShell script execution.</returns>
-		public static Primitive RunPowerShellScript(Primitive scriptLines)
+		public static Primitive RunPowerShell(Primitive scriptLines)
 		{
 			string tempFilePath = Path.Combine(Path.GetTempPath(), "tempScript.ps1");
 

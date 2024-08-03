@@ -75,6 +75,7 @@ namespace ZS
         /// <param name="methodName">The name of the method to invoke.</param>
         /// <param name="argumentsStackName">The name of the stack containing the method arguments.</param>
         /// <returns>The result of the method invocation or "ERROR" if invocation fails.</returns>
+        [HideFromIntellisense]
         public static Primitive InvokeStaticMethod(Primitive typeName, Primitive methodName, Primitive argumentsStackName)
         {
             try
