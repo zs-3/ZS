@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.SmallBasic.Library;
 using System.Diagnostics;
+using System.IO;
 
 namespace ZS
 {
@@ -8,7 +9,7 @@ namespace ZS
 	/// Provides methods for running PowerShell commands.
 	/// </summary>
 	[SmallBasicType]
-	public class ZSPowerShell
+	public static class ZSPowerShell
 	{
 		/// <summary>
 		/// Executes a PowerShell command and returns the result.
@@ -50,13 +51,16 @@ namespace ZS
 		/// </summary>
 		/// <param name="scriptLines">Array of strings, each representing a line of the PowerShell script.</param>
 		/// <returns>A string containing the output and errors from the PowerShell script execution.</returns>
-		public static Primitive RunPowerShellScriptFromArray(Primitive[] scriptLines)
+		public static Primitive RunPowerShellScriptFromArray(Primitive scriptLines)
 		{
 			try {
 				// Combine script lines into a single script
 				string script = string.Empty;
-				foreach (Primitive line in scriptLines) {
-					script += line.ToString() + Environment.NewLine;
+				int count = (int)scriptLines.GetItemCount();
+
+				for (int i = 1; i <= count; i++) {
+					string line = scriptLines[i].ToString();
+					script += line + Environment.NewLine;
 				}
 
 				using (Process process = new Process()) {
@@ -73,10 +77,10 @@ namespace ZS
 
 					process.WaitForExit();
 
-					return "Output:\n" + output + "\nError:\n" + error;
+					return new Primitive("Output:\n" + output + "\nError:\n" + error);
 				}
 			} catch (Exception ex) {
-				return "Exception:\n" + ex.Message;
+				return new Primitive("Exception:\n" + ex.Message);
 			}
 		}
 	
@@ -118,6 +122,50 @@ namespace ZS
 			}
 		}
 	
+		/// <summary>
+		/// Executes a PowerShell script provided as an array of strings.
+		/// Saves the script in a temporary file, runs it, returns the output, and deletes the script file.
+		/// </summary>
+		/// <param name="scriptLines">Array of strings, each representing a line of the PowerShell script.</param>
+		/// <returns>A string containing the output and errors from the PowerShell script execution.</returns>
+		public static Primitive RunPowerShellScript(Primitive scriptLines)
+		{
+			string tempFilePath = Path.Combine(Path.GetTempPath(), "tempScript.ps1");
+
+			try {
+				// Combine script lines into a single script and write to temp file
+				using (StreamWriter writer = new StreamWriter(tempFilePath)) {
+					int count = (int)scriptLines.GetItemCount();
+					for (int i = 1; i <= count; i++) {
+						writer.WriteLine(scriptLines[i].ToString());
+					}
+				}
+
+				using (Process process = new Process()) {
+					process.StartInfo.FileName = "powershell.exe";
+					process.StartInfo.Arguments = "-NoProfile -ExecutionPolicy Bypass -File \"" + tempFilePath + "\"";
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.RedirectStandardError = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.Start();
+					string output = process.StandardOutput.ReadToEnd();
+					string error = process.StandardError.ReadToEnd();
+
+					process.WaitForExit();
+
+					return new Primitive("Output:\n" + output + "\nError:\n" + error);
+				}
+			} catch (Exception ex) {
+				return new Primitive("Exception:\n" + ex.Message);
+			} finally {
+				// Delete the temporary PowerShell script file
+				if (System.IO.File.Exists(tempFilePath)) {
+					System.IO.File.Delete(tempFilePath);
+				}
+			}
+		}
 		
 	
 	

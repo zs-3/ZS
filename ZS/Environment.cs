@@ -33,7 +33,7 @@ namespace ZS
 	/// Provides System.Environment Functions For Small Basic.
 	/// </summary>
 	[SmallBasicType]
-	public class ZSEnvironment
+	public static class ZSEnvironment
 	{
 		/// <summary>
 		/// Gets the command line for the application.
@@ -162,9 +162,9 @@ namespace ZS
 		/// Gets the amount of physical memory allocated for the process.
 		/// </summary>
 		/// <value>The amount of physical memory allocated for the process, in bytes.</value>
-		public static long WorkingSet {
+		public static Primitive WorkingSet {
 			get {
-				return Environment.WorkingSet;
+				return Environment.WorkingSet.ToString();
 			}
 		}
 
@@ -178,12 +178,14 @@ namespace ZS
 		}
 
 		/// <summary>
-		/// Returns the command-line arguments for the process.
+		/// Returns the command-line arguments for the process as a single string with arguments separated by a delimiter.
 		/// </summary>
-		/// <returns>An array of strings representing the command-line arguments.</returns>
-		public static string[] GetCommandLineArgs()
+		/// <returns>A string representing the command-line arguments, separated by commas.</returns>
+		public static Primitive GetCommandLineArgs()
 		{
-			return Environment.GetCommandLineArgs();
+			string[] args = Environment.GetCommandLineArgs();
+			string result = string.Join(",", args);
+			return result;
 		}
 
 		/// <summary>
@@ -213,9 +215,9 @@ namespace ZS
 		/// Returns the names of the logical drives on the current machine.
 		/// </summary>
 		/// <returns>An array of strings representing the names of the logical drives.</returns>
-		public static string[] GetLogicalDrives()
+		public static Primitive GetLogicalDrives()
 		{
-			return Environment.GetLogicalDrives();
+			return Environment.GetLogicalDrives().ToString();
 		}
 
 		/// <summary>

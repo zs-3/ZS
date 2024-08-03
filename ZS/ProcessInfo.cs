@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.SmallBasic.Library;
-using System.Security;
 
 
 /// <summary>
@@ -217,29 +216,11 @@ public static class ZSProcessInfo
 	}
 
 	/// <summary>
-    /// Sets the password in clear text to use when starting the process.
-    /// </summary>
-    public static Primitive PasswordInClearText
-    {
-        set
-        {
-                startInfo.Password = ConvertToSecureString(value);   
-        }
-    }
-
-    private static SecureString ConvertToSecureString(string plainText)
-    {
-        if (plainText == null)
-            throw new ArgumentNullException("plainText");
-        
-        SecureString secureString = new SecureString();
-        foreach (char c in plainText)
-        {
-            secureString.AppendChar(c);
-        }
-        secureString.MakeReadOnly();
-        return secureString;
-    }
+	/// Gets or sets the password in clear text to use when starting the process.
+	/// </summary>
+	public static Primitive PasswordInClearText {
+		set { startInfo.PasswordInClearText = value; }
+	}
 	
 	/// <summary>
 	/// Starts the process using the specified settings and returns the standard output.
@@ -253,7 +234,7 @@ public static class ZSProcessInfo
 			startInfo.RedirectStandardError = true;
 			startInfo.UseShellExecute = false;
 			
-            
+        
 			using (Process process = Process.Start(startInfo)) {
 				process.WaitForExit();
 				if (process.ExitCode == 0) {

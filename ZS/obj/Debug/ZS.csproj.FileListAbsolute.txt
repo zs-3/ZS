@@ -4,8 +4,3 @@ C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\SmallBasicLibrary.
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Debug\ZS.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Debug\ZS.dll
 C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\ZS.xml
-C:\Users\Dr Saajid\Downloads\ZS\ZS\obj\Debug\ZS.csprojResolveAssemblyReference.cache
-C:\Users\Dr Saajid\Downloads\ZS\ZS\obj\Debug\ZS.dll
-C:\Users\Dr Saajid\Downloads\ZS\ZS\bin\Debug\ZS.xml
-C:\Users\Dr Saajid\Downloads\ZS\ZS\bin\Debug\ZS.dll
-C:\Users\Dr Saajid\Downloads\ZS\ZS\bin\Debug\SmallBasicLibrary.xml
