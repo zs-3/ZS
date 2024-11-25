@@ -9,6 +9,7 @@ using Microsoft.SmallBasic.Library;
 using System.Windows.Forms;
 using System.Web;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Net.NetworkInformation;
@@ -35,6 +36,9 @@ namespace ZS
 	[SmallBasicType]
 	public static class ZSText
 	{
+		
+		
+		
 		/// <summary>
 		/// Converts the input text to uppercase.
 		/// </summary>
@@ -133,6 +137,23 @@ namespace ZS
 		public static Primitive Split(Primitive input, Primitive delimiter)
 		{
 			string[] parts = input.ToString().Split(new string[] { delimiter.ToString() }, StringSplitOptions.None);
+			Primitive array = new Primitive();
+			for (int i = 0; i < parts.Length; i++) {
+				array[i + 1] = parts[i];
+			}
+			return array;
+		}
+		
+		/// <summary>
+		/// Splits the input text into an array of substrings based on a delimiter.
+		/// Removes The Empty.
+		/// </summary>
+		/// <param name="input">The text to be split.</param>
+		/// <param name="delimiter">The delimiter to split by.</param>
+		/// <returns>An array of substrings.</returns>
+		public static Primitive SplitWithoutEmpty(Primitive input, Primitive delimiter)
+		{
+			string[] parts = input.ToString().Split(new string[] { delimiter.ToString() }, StringSplitOptions.RemoveEmptyEntries);
 			Primitive array = new Primitive();
 			for (int i = 0; i < parts.Length; i++) {
 				array[i + 1] = parts[i];

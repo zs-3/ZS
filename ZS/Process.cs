@@ -41,7 +41,8 @@ namespace ZS
 	public static class ZSProcess
 	{
 		private static Process process = new Process();
-
+        
+        
 		/// <summary>
 		/// Starts a new process with the specified executable file path.
 		/// </summary>
@@ -49,6 +50,7 @@ namespace ZS
 		public static void StartProcess(Primitive filePath)
 		{
 			Process.Start((string)filePath);
+			
 		}
 
 		/// <summary>

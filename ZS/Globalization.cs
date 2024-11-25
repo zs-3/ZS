@@ -18,8 +18,6 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Threading;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.FileIO;
-using Microsoft.VisualBasic.Devices;
 using System.Net;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -30,7 +28,7 @@ using Microsoft.VisualBasic;
 
 
 namespace ZS
-{	
+{
 	/// <summary>
 	/// Provides methods and properties for working with globalization, including culture information, date and time formatting, number formatting, and text information.
 	/// This class also includes support for various calendars such as Gregorian, Hijri, Chinese, and Korean.
@@ -217,6 +215,21 @@ namespace ZS
 				DateTime dateTime = DateTime.Now;
 				return koreanCalendar.GetYear(dateTime) + "/" + koreanCalendar.GetMonth(dateTime) + "/" + koreanCalendar.GetDayOfMonth(dateTime);
 			}
+		}
+		
+		/// <summary>
+		/// Get All Cultures.
+		/// </summary>
+		/// <returns>The Array of Cultures Name.</returns>
+		public static Primitive GetCultures()
+		{
+			Primitive cultures = new Primitive();
+			Primitive i = 0;
+			foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.AllCultures)) {
+				++i;
+				cultures[i] = culture.Name;
+			}
+			return cultures;
 		}
 	}
 	

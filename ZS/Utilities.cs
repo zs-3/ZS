@@ -46,7 +46,33 @@ namespace ZS
 		private const uint MOUSEEVENTF_LEFTUP = 0x0004;
 		private const uint MOUSEEVENTF_RIGHTDOWN = 0x0008;
 		private const uint MOUSEEVENTF_RIGHTUP = 0x0010;
+		
+		[HideFromIntellisense]
+		public static void OnError(Exception ex)
+		{
+			TextWindow.WriteLine("Method Name : " + ex.TargetSite.Name);
+			TextWindow.WriteLine("Error Message : " + ex.Message);
+			TextWindow.WriteLine("Stack Trace : " + ex.StackTrace);
+			TextWindow.WriteLine("/n" + "Exception to string : " + ex.ToString());
+		}
 
+		/// <summary>
+		/// Init zs utilities for any exception in program.
+		/// </summary>
+		public static void Init()
+		{
+			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+			System.Windows.Application app = (System.Windows.Application)ZSReflection.GetFieldValue(typeof(Microsoft.SmallBasic.Library.Internal.SmallBasicApplication),"_application");
+		}
+		
+		
+		private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+		{
+			// Handle non-UI thread exceptions
+			Exception ex = (Exception)e.ExceptionObject;
+			ZSUtilities.OnError(ex);
+		}
+		
 		/// <summary>
 		/// Sends a left mouse click at the specified screen coordinates.
 		/// </summary>

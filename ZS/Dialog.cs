@@ -20,7 +20,6 @@ using System.Threading;
 using System.Net;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using Microsoft.Win32;
 using Microsoft.VisualBasic;
 
 

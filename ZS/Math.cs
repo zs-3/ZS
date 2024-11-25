@@ -31,7 +31,7 @@ namespace ZS
 	
 	
 	/// <summary>
-	/// Provides System.Math Functions For Small Basic.
+	/// Provides Powerful Math Functions For Small Basic.
 	/// </summary>
 	[SmallBasicType]
 	public static class ZSMath
@@ -291,10 +291,6 @@ namespace ZS
                      
 		}
         
-        
-        
-        
-        
 		/// <summary>
 		/// Represents the ratio of the circumference of a circle to its diameter, specified by the constant, PI.
 		/// </summary>
@@ -304,6 +300,62 @@ namespace ZS
         	  
 			}
                      
+		}
+		
+
+		/// <summary>
+		/// Converts a decimal number (fractional) to its fractional string representation.
+		/// </summary>
+		/// <param name="decimalValue">A decimal value to convert to a fraction.</param>
+		/// <returns>A string representing the fraction (e.g., "1/2").</returns>
+		public static Primitive DecimalToFraction(Primitive decimalValue)
+		{
+			double value = (double)decimalValue;
+			int sign = System.Math.Sign(value);
+			value = System.Math.Abs(value);
+			int whole = (int)value;
+			double fractional = value - whole;
+
+			int precision = 1000000; // Define precision for fractional part
+			int gcd = GCD((int)(fractional * precision), precision);
+
+			int numerator = (int)(fractional * precision) / gcd;
+			int denominator = precision / gcd;
+
+			return whole + " " + (numerator + "/" + denominator);
+		}
+
+		/// <summary>
+		/// Converts a fraction string (e.g., "3/4") to its decimal representation.
+		/// </summary>
+		/// <param name="fraction">A fraction string to convert to decimal.</param>
+		/// <returns>The decimal value of the fraction.</returns>
+		public static Primitive FractionToDecimal(Primitive fraction)
+		{
+			string[] parts = fraction.ToString().Split('/');
+			if (parts.Length != 2) {
+				throw new FormatException("Invalid fraction format.");
+			}
+			int numerator = int.Parse(parts[0]);
+			int denominator = int.Parse(parts[1]);
+			return (double)numerator / denominator;
+		}
+
+		/// <summary>
+		/// Finds the greatest common divisor (GCD) of two numbers.
+		/// Used for simplifying fractions.
+		/// </summary>
+		/// <param name="a">The first number.</param>
+		/// <param name="b">The second number.</param>
+		/// <returns>The greatest common divisor of the two numbers.</returns>
+		private static int GCD(int a, int b)
+		{
+			while (b != 0) {
+				int t = b;
+				b = a % b;
+				a = t;
+			}
+			return a;
 		}
 	}
 }
