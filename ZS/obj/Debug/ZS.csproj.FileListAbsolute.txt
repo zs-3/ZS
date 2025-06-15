@@ -1,6 +1,0 @@
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\ZS.dll
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\SmallBasicLibrary.dll
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\SmallBasicLibrary.xml
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Debug\ZS.csprojResolveAssemblyReference.cache
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\obj\Debug\ZS.dll
-C:\Users\user\Documents\SharpDevelop Projects\ZS\ZS\bin\Debug\ZS.xml
