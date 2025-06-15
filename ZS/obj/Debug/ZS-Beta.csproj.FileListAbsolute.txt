@@ -1,0 +1,2 @@
+C:\Users\user\Documents\SharpDevelop Projects\ZS-Beta\ZS\ZS\bin\Debug\ZS.xml
+C:\Users\user\Documents\SharpDevelop Projects\ZS-Beta\ZS\ZS\obj\Debug\ZS-Beta.csprojResolveAssemblyReference.cache
