@@ -3,7 +3,7 @@ A Extension For Small Basic Written In CSharp
 
 This Is A Extension For Microsoft Small Basic Written In CSahrp Using SharpDevelop.
 
-For full documenatation refer to [Docs](docs/zs,html)
+For full documenatation refer to [Docs](docs/zs.html)
 
 List Of All Objects Currently Present In Extension:
 
