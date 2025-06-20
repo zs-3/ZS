@@ -1,0 +1,89 @@
+body {
+    font-family: Segoe UI;
+    font-size: 14px;
+    text-align: center;
+    background-color: #ddf;
+    background-repeat: repeat-y;
+    background-position: center;
+    background-image: url(images/background.png);
+}
+
+#wrapper {
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#content {
+    padding: 10px;
+    text-align: justify;
+    float: right;
+    width: 780px;
+    text-decoration: none;
+}
+
+.assembly {
+    color: #000000;
+    text-align: center;
+    font-size: x-large;
+}
+
+.group {
+    color: #008080;
+    font-size: x-large;
+}
+
+.method {
+    color: #a02020;
+    font-size: large;
+}
+
+.methodargs {
+    color: #000000;
+    font-size: large;
+}
+
+.info {
+    color: #804020;
+    font-size: medium;
+}
+
+.text {
+    color: #000000;
+    font-size: small;
+}
+
+.links {
+    line-height: 150%;
+}
+
+.table {
+    width: 100%;
+}
+
+a.tag {
+    color: #ffffff;
+    background: #fff;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+a {
+    color: #550000;
+    background: #eef;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 2px #eef;
+}
+
+    a:hover {
+        color: #000055;
+        border-radius: 4px;
+        box-shadow: 0px 0px 4px 4px #aab;
+    }
+

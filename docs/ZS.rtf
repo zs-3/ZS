@@ -1,0 +1,2961 @@
+{\rtf1\ansi
+{\fonttbl\f0\fswiss Helvetica;}
+
+\f0\pard\qc{\fs45\b ZS Extension API}\par
+
+\f0\pard\sb300\shading2000{\fs36\b ZSApi}\par
+\f0\pard{\fs20 Some api functions.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b GetCountryInfo(country) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves information about a country.}\par
+\f0\pard\sb75{\fs24\b country}\par
+\f0\pard{\fs20 The country name (e.g., "India").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Country details as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCovidStats(country) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves COVID-19 statistics for a given country.}\par
+\f0\pard\sb75{\fs24\b country}\par
+\f0\pard{\fs20 The country name (e.g., "USA").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 COVID-19 statistics as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetExchangeRate(fromCurrency,toCurrency) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the exchange rate between two currencies.}\par
+\f0\pard\sb75{\fs24\b fromCurrency}\par
+\f0\pard{\fs20 The base currency (e.g., "USD").}\par
+\f0\pard\sb75{\fs24\b toCurrency}\par
+\f0\pard{\fs20 The target currency (e.g., "EUR").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The exchange rate as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetIPDetails(ip) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves detailed information about an IP address.}\par
+\f0\pard\sb75{\fs24\b ip}\par
+\f0\pard{\fs20 The IP address to look up. Use "auto" for the current IP.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Formatted location details as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetPublicIP() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the public IP address of the user.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The public IP address as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomFact() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves a random fun fact.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A random fact as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomJoke() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves a random programming-related joke.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A joke as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomQuote() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves a random inspirational quote.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A quote as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetShortURL(longUrl) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shortens a given URL using TinyURL.}\par
+\f0\pard\sb75{\fs24\b longUrl}\par
+\f0\pard{\fs20 The long URL to shorten.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The shortened URL.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTimeByZone(timezone) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the current time for a specified timezone.}\par
+\f0\pard\sb75{\fs24\b timezone}\par
+\f0\pard{\fs20 The timezone (e.g., "Europe/London").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current time in the given timezone.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetWeather(city) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the current weather for a given city.}\par
+\f0\pard\sb75{\fs24\b city}\par
+\f0\pard{\fs20 The city name (e.g., "London").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The weather report as a string.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSArguments}\par
+\f0\pard{\fs20 The Arguments object provides operations to access the command-line arguments that were passed at the start of this program.{\line}This class has been taken from Small Basic version 0.2.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Count \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of command-line arguments passed to this program.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetArgument(index) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the specified argument.}\par
+\f0\pard\sb75{\fs24\b index}\par
+\f0\pard{\fs20 Index of the argument.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The command-line argument at the specified index.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSCall}\par
+\f0\pard{\fs20 Use For Using Small Basic Sub As A Method.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Call2(Values,Sub) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calls The Sub With Args.{\line}The Varibles decleared inside sub will be assinged with new arg value.{\line}A Varible by name Return value will be returned.}\par
+\f0\pard\sb75{\fs24\b Values}\par
+\f0\pard{\fs20 The Values Of Args Seperated By ;.}\par
+\f0\pard\sb75{\fs24\b Sub}\par
+\f0\pard{\fs20 The Sub Name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Output Send Through Return.}\par
+\f0\pard\sb180\shading1000{\fs30\b Call3(Values) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calls The Sub With Args.{\line}The Varibles decleared inside sub will be assinged with new arg value.{\line}A Varible by name Return_SubName value will be returned.}\par
+\f0\pard\sb75{\fs24\b Values}\par
+\f0\pard{\fs20 The Values Of Args Seperated By ;.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Output Send Through Return.}\par
+\f0\pard\sb180\shading1000{\fs30\b CallSub(Sub,Values) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calls The Sub With Args.}\par
+\f0\pard\sb75{\fs24\b Sub}\par
+\f0\pard{\fs20 The Sub Name}\par
+\f0\pard\sb75{\fs24\b Values}\par
+\f0\pard{\fs20 The Values Of Args Seperated By ;.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Output Send Through Return.}\par
+\f0\pard\sb180\shading1000{\fs30\b CallSubWithEvent(Values) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calls The Sub That Is Suscribed To Function Event With Args.}\par
+\f0\pard\sb75{\fs24\b Values}\par
+\f0\pard{\fs20 The Values Of Args Seperated By ;.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Output Send Through Return2.}\par
+\f0\pard\sb180\shading1000{\fs30\b Function \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 The Event Of Sub}\par
+\f0\pard\sb180\shading1000{\fs30\b GetValue(Name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets The Value Sent To Stack}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The name of stack}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Value sent }\par
+\f0\pard\sb180\shading1000{\fs30\b Return(Value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Return The Value to CallSub.}\par
+\f0\pard\sb75{\fs24\b Value}\par
+\f0\pard{\fs20 The Value To Return.}\par
+\f0\pard\sb180\shading1000{\fs30\b Return2(Value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Return The Value to CallSubWithEvent}\par
+\f0\pard\sb75{\fs24\b Value}\par
+\f0\pard{\fs20 The Value To Return}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSClipboard}\par
+\f0\pard{\fs20 Clipboard Functions In Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Clear() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Clears the clipboard.}\par
+\f0\pard\sb180\shading1000{\fs30\b ContainsAudio() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb180\shading1000{\fs30\b ContainsFileDropList() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb180\shading1000{\fs30\b ContainsImage() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb180\shading1000{\fs30\b ContainsText() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True or False}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileDropList() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get file drop list.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 the list}\par
+\f0\pard\sb180\shading1000{\fs30\b GetImage(Path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get the image in clipboard.}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 the path to save the image}\par
+\f0\pard\sb180\shading1000{\fs30\b GetText() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets The Text in clipboard.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The text}\par
+\f0\pard\sb180\shading1000{\fs30\b SetImage(Path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Set clipboard image}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 The image path}\par
+\f0\pard\sb180\shading1000{\fs30\b SetText(Text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Set the text to clipboard.}\par
+\f0\pard\sb75{\fs24\b Text}\par
+\f0\pard{\fs20 the text to set}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSCmd}\par
+\f0\pard{\fs20 Provides methods to execute command line instructions from Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b ChangeDirectory(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Changes current directory using command line.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 Directory path to change to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b CopyFile(source,destination) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Copies a file from source to destination using command line.}\par
+\f0\pard\sb75{\fs24\b source}\par
+\f0\pard{\fs20 Source file path.}\par
+\f0\pard\sb75{\fs24\b destination}\par
+\f0\pard{\fs20 Destination file path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateDirectory(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Creates a directory using command line.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 Directory path to create.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b DeleteFile(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes a file using command line.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 File path to delete.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b Execute(command) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a command in the command line and returns the output.}\par
+\f0\pard\sb75{\fs24\b command}\par
+\f0\pard{\fs20 The command to execute.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b ExecuteCommand(command) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a command using the command line and captures the output.}\par
+\f0\pard\sb75{\fs24\b command}\par
+\f0\pard{\fs20 The command to execute.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b ListDirectoryContents(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Lists contents of a directory using command line.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 Directory path to list.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b MoveFile(source,destination) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Moves a file from source to destination using command line.}\par
+\f0\pard\sb75{\fs24\b source}\par
+\f0\pard{\fs20 Source file path.}\par
+\f0\pard\sb75{\fs24\b destination}\par
+\f0\pard{\fs20 Destination file path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b PingHost(host) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Pings a host using command line.}\par
+\f0\pard\sb75{\fs24\b host}\par
+\f0\pard{\fs20 Host to ping.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RemoveDirectory(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Removes a directory using command line.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 Directory path to remove.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b Rename(oldPath,newPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Renames a file or directory using command line.}\par
+\f0\pard\sb75{\fs24\b oldPath}\par
+\f0\pard{\fs20 Current path of the file or directory.}\par
+\f0\pard\sb75{\fs24\b newPath}\par
+\f0\pard{\fs20 New path to rename to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Output of the command execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunBatchScript(script) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a batch script directly from a single string.}\par
+\f0\pard\sb75{\fs24\b script}\par
+\f0\pard{\fs20 The batch script to execute.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the batch script execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunBatchScriptFromArray(scriptLines) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a batch script provided as an array of strings.{\line}Saves the script in a temporary file, runs it, returns the output, and deletes the script file.}\par
+\f0\pard\sb75{\fs24\b scriptLines}\par
+\f0\pard{\fs20 Array of strings, each representing a line of the batch script.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the batch script execution.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSControl}\par
+\f0\pard{\fs20 Extended Controls For Graphics Window.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b KeyDown(Shape,Sub) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Add Key Down Event To Shape.}\par
+\f0\pard\sb75{\fs24\b Shape}\par
+\f0\pard{\fs20 The Shape Name}\par
+\f0\pard\sb75{\fs24\b Sub}\par
+\f0\pard{\fs20 The Sub Name.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSDialog}\par
+\f0\pard{\fs20 Provides various dialog utilities such as message boxes, input dialogs, file dialogs, and color dialogs.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b ShowColorDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a color dialog and returns the selected color as a string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected color in hexadecimal format (e.g., #FF0000 for red).}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowConfirmationDialog(text,title) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a confirmation dialog with specified text and title.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to display in the confirmation dialog.}\par
+\f0\pard\sb75{\fs24\b title}\par
+\f0\pard{\fs20 The title of the confirmation dialog.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Returns true if Yes is clicked, otherwise returns false.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowCustomColorDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a color dialog and returns the selected color as a string in the format "R,G,B".}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected color or an empty string if canceled.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowCustomMessageBox(text,title,buttons) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a custom message box with specified text, title, and buttons.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to display in the message box.}\par
+\f0\pard\sb75{\fs24\b title}\par
+\f0\pard{\fs20 The title of the message box.}\par
+\f0\pard\sb75{\fs24\b buttons}\par
+\f0\pard{\fs20 The buttons to display in the message box (OK, OKCancel, YesNo).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The text of the button that was clicked.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowDatePickerDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a date picker dialog and returns the selected date.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected date in the format "yyyy-MM-dd".}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowErrorDialog(errorMessage) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows an error dialog with the specified error message.}\par
+\f0\pard\sb75{\fs24\b errorMessage}\par
+\f0\pard{\fs20 The error message to display in the dialog.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowFolderBrowserDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a folder browser dialog and returns the selected folder path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the selected folder.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowFontDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a font dialog and returns the selected font as a string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected font in the format "FontName, Size, Style".}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowImageFileDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a file dialog to select an image file and returns the selected file path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the selected image file or an empty string if canceled.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowInformationDialog(informationMessage) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows an information dialog with the specified information message.}\par
+\f0\pard\sb75{\fs24\b informationMessage}\par
+\f0\pard{\fs20 The information message to display in the dialog.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowInputDialog(prompt) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a custom input dialog with the specified prompt text.}\par
+\f0\pard\sb75{\fs24\b prompt}\par
+\f0\pard{\fs20 The prompt text to display in the input dialog.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The text entered by the user.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowInputDialogWithOptions(prompt,title,options) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows an input dialog with options and returns the selected option.}\par
+\f0\pard\sb75{\fs24\b prompt}\par
+\f0\pard{\fs20 The prompt to display in the input dialog.}\par
+\f0\pard\sb75{\fs24\b title}\par
+\f0\pard{\fs20 The title of the input dialog.}\par
+\f0\pard\sb75{\fs24\b options}\par
+\f0\pard{\fs20 The list of options to choose from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected option or an empty string if canceled.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowMessageBox(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a message box with the specified text.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to display in the message box.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowMultiLineInputBox(prompt,title) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows an input box with a multi-line text box for larger input.}\par
+\f0\pard\sb75{\fs24\b prompt}\par
+\f0\pard{\fs20 The prompt to display in the input box.}\par
+\f0\pard\sb75{\fs24\b title}\par
+\f0\pard{\fs20 The title of the input box.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The user input or an empty string if canceled.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowMultiSelectOpenFileDialog(filter) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows an open file dialog with multi-select enabled and returns the selected file paths.}\par
+\f0\pard\sb75{\fs24\b filter}\par
+\f0\pard{\fs20 The file types filter in the format "Display Name1|Pattern1|Display Name2|Pattern2|...".}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A semicolon-separated list of selected file paths or an empty string if canceled.}\par
+\f0\pard\sb75{\fs24\b remarks}\par
+\f0\pard{\fs20 Filters should be specified in pairs where:{\line}- Display Name: The name shown in the dialog's filter dropdown.{\line}- Pattern: The file pattern to filter files by extension (e.g., "*.txt", "*.jpg").{\line}Multiple filters can be separated by vertical bars ('|'). For example:{\line}"Text Files|*.txt|All Files|*.*"}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowOpenFileDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a file open dialog and returns the selected file path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the selected file.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowPasswordInputDialog(prompt,title) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a password input dialog and returns the entered password.}\par
+\f0\pard\sb75{\fs24\b prompt}\par
+\f0\pard{\fs20 The prompt to display in the input dialog.}\par
+\f0\pard\sb75{\fs24\b title}\par
+\f0\pard{\fs20 The title of the input dialog.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The entered password or an empty string if canceled.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowProgressDialog(message,durationInSeconds) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a progress dialog with a specified message and duration.}\par
+\f0\pard\sb75{\fs24\b message}\par
+\f0\pard{\fs20 The message to display in the progress dialog.}\par
+\f0\pard\sb75{\fs24\b durationInSeconds}\par
+\f0\pard{\fs20 The duration in seconds for which the progress dialog should be displayed.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowSaveFileDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a file save dialog and returns the selected file path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the file to save.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowTimePickerDialog() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a time picker dialog and returns the selected time.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The selected time in the format "HH:mm:ss".}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowWarningDialog(warningMessage) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a warning dialog with the specified warning message.}\par
+\f0\pard\sb75{\fs24\b warningMessage}\par
+\f0\pard{\fs20 The warning message to display in the dialog.}\par
+\f0\pard\sb180\shading1000{\fs30\b ShowYesNoDialog(question) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shows a Yes/No dialog with the specified question text.}\par
+\f0\pard\sb75{\fs24\b question}\par
+\f0\pard{\fs20 The question text to display in the dialog.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Returns "Yes" if Yes is clicked, otherwise returns "No".}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSEnvironment}\par
+\f0\pard{\fs20 Provides System.Environment Functions For Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CommandLine \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the command line for the application.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The command line arguments for the application.}\par
+\f0\pard\sb180\shading1000{\fs30\b CurrentDirectory \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the fully qualified path of the current working directory.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The path of the current working directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b Exit(exitCode) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Terminates the process and gives the exit code to the operating system.}\par
+\f0\pard\sb75{\fs24\b exitCode}\par
+\f0\pard{\fs20 The exit code to pass to the operating system.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCommandLineArgs() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the command-line arguments for the process as a single string with arguments separated by a delimiter.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string representing the command-line arguments, separated by commas.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetEnvironmentVariable(variable) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the value of an environment variable.}\par
+\f0\pard\sb75{\fs24\b variable}\par
+\f0\pard{\fs20 The name of the environment variable.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value of the environment variable.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetEnvironmentVariable(variable,target) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the value of an environment variable, using the specified target.}\par
+\f0\pard\sb75{\fs24\b variable}\par
+\f0\pard{\fs20 The name of the environment variable.}\par
+\f0\pard\sb75{\fs24\b target}\par
+\f0\pard{\fs20 The target for the environment variable.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value of the environment variable.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLogicalDrives() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the names of the logical drives on the current machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of strings representing the names of the logical drives.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetResourceString(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the value of a resource string by its key.Currently WILL Give Nothing}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key of the resource string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value of the resource string.}\par
+\f0\pard\sb180\shading1000{\fs30\b MachineName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the name of the machine on which the application is running.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The name of the machine.}\par
+\f0\pard\sb180\shading1000{\fs30\b NewLine \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a string representing the newline character(s) used by the current environment.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The newline characters used by the current environment.}\par
+\f0\pard\sb180\shading1000{\fs30\b OSVersion \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets an OperatingSystem object that describes the current platform.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The current platform as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b ProcessorCount \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of processors on the current machine.}\par
+\f0\pard\sb75{\fs24\b return}\par
+\f0\pard{\fs20 The number of processors.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetEnvironmentVariable(variable,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the value of an environment variable.}\par
+\f0\pard\sb75{\fs24\b variable}\par
+\f0\pard{\fs20 The name of the environment variable.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to set for the environment variable.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetEnvironmentVariable(variable,value,target) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the value of an environment variable, using the specified target.}\par
+\f0\pard\sb75{\fs24\b variable}\par
+\f0\pard{\fs20 The name of the environment variable.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to set for the environment variable.}\par
+\f0\pard\sb75{\fs24\b target}\par
+\f0\pard{\fs20 The target for the environment variable.}\par
+\f0\pard\sb180\shading1000{\fs30\b StackTrace \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a string representation of the current call stack.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The current call stack as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b SystemDirectory \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the full path of the system directory.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The path to the system directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b TickCount \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of milliseconds elapsed since the system started.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The number of milliseconds since the system started.}\par
+\f0\pard\sb180\shading1000{\fs30\b UserDomainName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the domain name of the current user.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The domain name of the current user.}\par
+\f0\pard\sb180\shading1000{\fs30\b UserName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the user name of the current thread.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The user name of the current thread.}\par
+\f0\pard\sb180\shading1000{\fs30\b Version \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the version of the common language runtime (CLR) that is installed on the operating system.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The version of the CLR.}\par
+\f0\pard\sb180\shading1000{\fs30\b WorkingSet \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the amount of physical memory allocated for the process.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The amount of physical memory allocated for the process, in bytes.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSEvent}\par
+\f0\pard{\fs20 some function related to events.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CallSub() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Invokes a Small Basic subroutine using reflection.}\par
+\f0\pard\sb180\shading1000{\fs30\b HookEventToSBSub() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Hooks a .NET event to a Small Basic subroutine.}\par
+\f0\pard\sb180\shading1000{\fs30\b Lasteventargs \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Last event args to string.}\par
+\f0\pard\sb180\shading1000{\fs30\b sender \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Last event sender to string.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSFile}\par
+\f0\pard{\fs20 Provides File Functions For Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b AppendToFile(filePath,content) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Appends content to an existing file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to append to.}\par
+\f0\pard\sb75{\fs24\b content}\par
+\f0\pard{\fs20 The content to append.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b CopyFile(sourcePath,destinationPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Copies a file to a new location.}\par
+\f0\pard\sb75{\fs24\b sourcePath}\par
+\f0\pard{\fs20 The path of the file to copy.}\par
+\f0\pard\sb75{\fs24\b destinationPath}\par
+\f0\pard{\fs20 The path where the file will be copied to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateDirectory(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Creates a directory.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 The path of the directory to create.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateTextFile(filePath,content) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Creates a text file with specified content.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to create.}\par
+\f0\pard\sb75{\fs24\b content}\par
+\f0\pard{\fs20 The content to write to the file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b DeleteDirectory(directoryPath,recursive) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes a directory and optionally all its contents.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 The path of the directory to delete.}\par
+\f0\pard\sb75{\fs24\b recursive}\par
+\f0\pard{\fs20 True to delete the directory, its subdirectories, and all files; otherwise, false.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b DeleteDirectory(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes a directory.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 The path of the directory to delete.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b DeleteFile(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to delete.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b DirectoryExists(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a directory exists.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 The path of the directory to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the directory exists; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b FileExists(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a file exists.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the file exists; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileAttributes(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the attributes of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to get the attributes of.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The attributes of the file, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileCreationTime(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the creation time of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to retrieve the creation time from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string representation of the creation time, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileExtension(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the extension of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to get the extension of.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The extension of the file, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileLastAccessTime(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the last access time of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to retrieve the last access time from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string representation of the last access time, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileName(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the file name and extension of a file path.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to retrieve the name from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The file name and extension, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileSize(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the size of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to get the size of.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The size of the file in bytes, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLastWriteTime(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the last write time of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to retrieve the last write time from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string representation of the last write time; or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b ListFiles(directoryPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Lists all files in a directory.}\par
+\f0\pard\sb75{\fs24\b directoryPath}\par
+\f0\pard{\fs20 The path of the directory to list files from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated string of file paths.}\par
+\f0\pard\sb180\shading1000{\fs30\b MoveDirectory(sourcePath,destinationPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Moves a directory to a new location.}\par
+\f0\pard\sb75{\fs24\b sourcePath}\par
+\f0\pard{\fs20 The current path of the directory to move.}\par
+\f0\pard\sb75{\fs24\b destinationPath}\par
+\f0\pard{\fs20 The new path for the directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b MoveFile(sourcePath,destinationPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Moves a file to a new location.}\par
+\f0\pard\sb75{\fs24\b sourcePath}\par
+\f0\pard{\fs20 The path of the file to move.}\par
+\f0\pard\sb75{\fs24\b destinationPath}\par
+\f0\pard{\fs20 The path where the file will be moved to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b ReadAllLines(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Reads all lines from a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to read from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A list of all lines in the file, or an error message if an exception occurs.}\par
+\f0\pard\sb180\shading1000{\fs30\b ReadFile(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Reads the content of a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to read.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The content of the file.}\par
+\f0\pard\sb180\shading1000{\fs30\b RenameFile(currentFilePath,newFilePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Renames a file.}\par
+\f0\pard\sb75{\fs24\b currentFilePath}\par
+\f0\pard{\fs20 The current path of the file to rename.}\par
+\f0\pard\sb75{\fs24\b newFilePath}\par
+\f0\pard{\fs20 The new path and name for the file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b WriteFile(filePath,content) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Writes content to a file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file to write to.}\par
+\f0\pard\sb75{\fs24\b content}\par
+\f0\pard{\fs20 The content to write.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 "Success" if the operation was successful; otherwise, an error message.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSGlobalization}\par
+\f0\pard{\fs20 Provides methods and properties for working with globalization, including culture information, date and time formatting, number formatting, and text information.{\line}This class also includes support for various calendars such as Gregorian, Hijri, Chinese, and Korean.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Calendar \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the name of the calendar used by the current culture. Example: "GregorianCalendar"}\par
+\f0\pard\sb180\shading1000{\fs30\b ChineseDate \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current date in the Chinese calendar.}\par
+\f0\pard\sb180\shading1000{\fs30\b CurrencySymbol \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the currency symbol. Example: "$"}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the currency symbol: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 currencySymbol = ZSGlobalization.CurrencySymbol}\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 Set the currency symbol to Euro: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 ZSGlobalization.CurrencySymbol = "?"}\par
+\f0\pard\sb180\shading1000{\fs30\b CurrentCulture \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the current culture. Example: "en-US"}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the current culture: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 currentCulture = ZSGlobalization.CurrentCulture}\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 Set the current culture to French (France): }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 ZSGlobalization.CurrentCulture = "fr-FR"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCultures() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get All Cultures.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Array of Cultures Name.}\par
+\f0\pard\sb180\shading1000{\fs30\b GregorianDate \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current date in the Gregorian calendar.}\par
+\f0\pard\sb180\shading1000{\fs30\b HijriDate \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current date in the Hijri calendar.}\par
+\f0\pard\sb180\shading1000{\fs30\b KoreanDate \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current date in the Korean calendar.}\par
+\f0\pard\sb180\shading1000{\fs30\b LongDatePattern \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the date and time pattern for long dates. Example: "dddd, MMMM dd, yyyy"}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the long date pattern: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 longDatePattern = ZSGlobalization.LongDatePattern}\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 Set the long date pattern to day of week, day month year: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 ZSGlobalization.LongDatePattern = "dddd, dd MMMM yyyy"}\par
+\f0\pard\sb180\shading1000{\fs30\b NativeName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the native name of the language of the current culture. Example: "English"}\par
+\f0\pard\sb180\shading1000{\fs30\b NumberDecimalSeparator \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the number decimal separator. Example: "."}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the number decimal separator: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 decimalSeparator = ZSGlobalization.NumberDecimalSeparator}\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 Set the number decimal separator to a comma: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 ZSGlobalization.NumberDecimalSeparator = ","}\par
+\f0\pard\sb180\shading1000{\fs30\b ShortDatePattern \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the date and time pattern for short dates. Example: "MM/dd/yyyy"}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the short date pattern: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 shortDatePattern = ZSGlobalization.ShortDatePattern}\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 Set the short date pattern to day/month/year: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 ZSGlobalization.ShortDatePattern = "dd/MM/yyyy"}\par
+\f0\pard\sb180\shading1000{\fs30\b TextInfo \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the text information (casing) of the current culture. Example: "Invariant"}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 Get the text info: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb75{\fs24\b code}\par
+\f0\pard{\fs20 textInfo = ZSGlobalization.TextInfo}\par
+\f0\pard\sb180\shading1000{\fs30\b ThreeLetterISOLanguageName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the ISO 639-2 three-letter code for the language of the current culture. Example: "eng"}\par
+\f0\pard\sb180\shading1000{\fs30\b ThreeLetterWindowsLanguageName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the Windows three-letter code for the language of the current culture. Example: "ENU"}\par
+\f0\pard\sb180\shading1000{\fs30\b TwoLetterISOLanguageName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the ISO 639-1 two-letter code for the language of the current culture. Example: "en"}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSImage}\par
+\f0\pard{\fs20 Provides Image Functions For Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CaptureScreen(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Captures the entire screen and saves it as a PNG file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The file path where the screenshot will be saved.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the screen capture was successful; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetImageHeight(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the height of an image.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The file path of the image.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The height of the image.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetImageWidth(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the width of an image.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The file path of the image.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The width of the image.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsImageInImage(mainImagePath,subImagePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Determines if a sub-image is present within a main image.}\par
+\f0\pard\sb75{\fs24\b mainImagePath}\par
+\f0\pard{\fs20 The file path of the main image.}\par
+\f0\pard\sb75{\fs24\b subImagePath}\par
+\f0\pard{\fs20 The file path of the sub-image.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the sub-image is found within the main image, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b ResizeImage(inputFilePath,outputFilePath,width,height) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Resizes an image to the specified width and height.}\par
+\f0\pard\sb75{\fs24\b inputFilePath}\par
+\f0\pard{\fs20 The file path of the input image.}\par
+\f0\pard\sb75{\fs24\b outputFilePath}\par
+\f0\pard{\fs20 The file path where the resized image will be saved.}\par
+\f0\pard\sb75{\fs24\b width}\par
+\f0\pard{\fs20 The width of the resized image.}\par
+\f0\pard\sb75{\fs24\b height}\par
+\f0\pard{\fs20 The height of the resized image.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the image resizing was successful; otherwise, false.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSKeyboard}\par
+\f0\pard{\fs20 Provides functions for simulating key presses and reading keyboard state.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b GetActiveKeyboardLayoutId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the handle ID of the active keyboard layout.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Handle as integer.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetActiveKeyboardLayoutLanguage() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the layout name of the current input language.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The layout name.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentKeyboardLayoutId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the handle of the current keyboard layout.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The layout handle as IntPtr.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentKeyboardLayoutLanguageCode() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the LCID (language code) of the active keyboard layout.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The LCID of the layout.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetKeyboardLayout() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the full name of the current keyboard layout's culture.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The display name of the current layout.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetKeyboardLayoutsCount() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of installed keyboard layouts.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Number of installed input languages.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetKeyboardState() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the state of all 256 keys.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of booleans indicating each key's state.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetKeyState(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets whether a specific key is currently pressed.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key code (integer or string).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the key is down, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsAltDown() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Alt key is currently held down.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Alt is down, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsCapsLockOn() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Caps Lock key is on.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Caps Lock is on, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsCtrlDown() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Ctrl key is currently held down.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Ctrl is down, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsNumLockOn() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Num Lock key is on.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Num Lock is on, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsScrollLockOn() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Scroll Lock key is on.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Scroll Lock is on, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsShiftDown() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Shift key is currently held down.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Shift is down, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsWindowsKeyDown() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the Windows key is currently held down.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if Windows key is down, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b PressAndReleaseKey(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing and releasing a key.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key to press and release.}\par
+\f0\pard\sb180\shading1000{\fs30\b PressKeyMultipleTimes(key,times) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing a key multiple times.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key to press.}\par
+\f0\pard\sb75{\fs24\b times}\par
+\f0\pard{\fs20 The number of times to press.}\par
+\f0\pard\sb180\shading1000{\fs30\b SendKey(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a single key press to the system.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key to send.}\par
+\f0\pard\sb180\shading1000{\fs30\b SendKeyCombination(combo) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a key combination to the system using SendKeys syntax.{\line}{\line}Supported combinations:{\line}^ = Ctrl (e.g., "^C" = Ctrl+C){\line}% = Alt (e.g., "%F4" = Alt+F4){\line}+ = Shift (e.g., "+A" = Shift+A){\line}{\line}Special keys:{\line}{ENTER}, {TAB}, {ESC}, {BACKSPACE}, {DEL},{\line}{F1} to {F12}, {LEFT}, {RIGHT}, {UP}, {DOWN}{\line}{\line}You can also combine keys, for example:{\line}"^+{ESC}" = Ctrl + Shift + Escape}\par
+\f0\pard\sb75{\fs24\b combo}\par
+\f0\pard{\fs20 The key combination string to send.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetKeyboardLayout(layout) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the keyboard layout.}\par
+\f0\pard\sb75{\fs24\b layout}\par
+\f0\pard{\fs20 The keyboard layout (e.g., "00000409" for US layout).}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateBackspaceKeyPress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing the Backspace key.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateDeleteKeyPress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing the Delete key.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateEnterKeyPress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing the Enter key.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateEscapeKeyPress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing the Escape key.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateKeyDown(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing down a key.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key to press down.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateKeyUp(key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates releasing a key.}\par
+\f0\pard\sb75{\fs24\b key}\par
+\f0\pard{\fs20 The key to release.}\par
+\f0\pard\sb180\shading1000{\fs30\b SimulateTabKeyPress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Simulates pressing the Tab key.}\par
+\f0\pard\sb180\shading1000{\fs30\b ToggleCapsLock() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Toggles the Caps Lock key.}\par
+\f0\pard\sb180\shading1000{\fs30\b TypeText(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Types a string as keyboard input.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to type.}\par
+\f0\pard\sb180\shading1000{\fs30\b Wait(ms) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Waits for a specified number of milliseconds.}\par
+\f0\pard\sb75{\fs24\b ms}\par
+\f0\pard{\fs20 Time to wait in milliseconds.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSMath}\par
+\f0\pard{\fs20 Provides Powerful Math Functions For Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Abs(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the absolute value of a specified number.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 A number whose absolute value is to be found.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The absolute value of the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Acos(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the angle whose cosine is the specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number representing a cosine, where d must be greater than or equal to -1, but less than or equal to 1.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The angle, measured in radians, whose cosine is the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Asin(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the angle whose sine is the specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number representing a sine, where d must be greater than or equal to -1, but less than or equal to 1.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The angle, measured in radians, whose sine is the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Atan(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the angle whose tangent is the specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number representing a tangent.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The angle, measured in radians, whose tangent is the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Atan2(y,x) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the angle whose tangent is the quotient of two specified numbers.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 The y-coordinate of a point.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 The x-coordinate of a point.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The angle, measured in radians, whose tangent is the quotient of two specified numbers.}\par
+\f0\pard\sb180\shading1000{\fs30\b Ceiling(a) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the smallest integer greater than or equal to the specified number.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 A number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The smallest integer greater than or equal to the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Cos(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the cosine of the specified angle.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The cosine of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b Cosh(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the hyperbolic cosine of the specified angle.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The hyperbolic cosine of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b DecimalToFraction(decimalValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a decimal number (fractional) to its fractional string representation.}\par
+\f0\pard\sb75{\fs24\b decimalValue}\par
+\f0\pard{\fs20 A decimal value to convert to a fraction.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string representing the fraction (e.g., "1/2").}\par
+\f0\pard\sb180\shading1000{\fs30\b E \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Represents the natural logarithmic base, specified by the constant, e.}\par
+\f0\pard\sb180\shading1000{\fs30\b Exp(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns e raised to the specified power.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number specifying a power.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number e raised to the specified power.}\par
+\f0\pard\sb180\shading1000{\fs30\b Floor(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the largest integer less than or equal to the specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The largest integer less than or equal to the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b FractionToDecimal(fraction) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a fraction string (e.g., "3/4") to its decimal representation.}\par
+\f0\pard\sb75{\fs24\b fraction}\par
+\f0\pard{\fs20 A fraction string to convert to decimal.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The decimal value of the fraction.}\par
+\f0\pard\sb180\shading1000{\fs30\b GCD(a,b) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds the greatest common divisor (GCD) of two numbers.{\line}Used for simplifying fractions.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 The first number.}\par
+\f0\pard\sb75{\fs24\b b}\par
+\f0\pard{\fs20 The second number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The greatest common divisor of the two numbers.}\par
+\f0\pard\sb180\shading1000{\fs30\b IEEERemainder(x,y) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the remainder resulting from the division of a specified number by another specified number.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 A dividend.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 A divisor.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A number equal to x - (y * Q), where Q is the quotient of x / y rounded to the nearest integer.}\par
+\f0\pard\sb180\shading1000{\fs30\b Log(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the natural (base e) logarithm of a specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number whose logarithm is to be found.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The natural (base e) logarithm of the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Log10(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the base 10 logarithm of a specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number whose logarithm is to be found.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The base 10 logarithm of the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Max(val1,val2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the larger of two specified numbers.}\par
+\f0\pard\sb75{\fs24\b val1}\par
+\f0\pard{\fs20 The first of two numbers to compare.}\par
+\f0\pard\sb75{\fs24\b val2}\par
+\f0\pard{\fs20 The second of two numbers to compare.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The larger of the two numbers.}\par
+\f0\pard\sb180\shading1000{\fs30\b Min(val1,val2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the smaller of two specified numbers.}\par
+\f0\pard\sb75{\fs24\b val1}\par
+\f0\pard{\fs20 The first of two numbers to compare.}\par
+\f0\pard\sb75{\fs24\b val2}\par
+\f0\pard{\fs20 The second of two numbers to compare.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The smaller of the two numbers.}\par
+\f0\pard\sb180\shading1000{\fs30\b PI \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Represents the ratio of the circumference of a circle to its diameter, specified by the constant, PI.}\par
+\f0\pard\sb180\shading1000{\fs30\b Pow(x,y) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns a specified number raised to the specified power.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 A double-precision floating-point number to be raised to a power.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 A double-precision floating-point number that specifies a power.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number x raised to the power y.}\par
+\f0\pard\sb180\shading1000{\fs30\b Round(a) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Rounds a specified number to the nearest integer.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 A number to be rounded.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The integer nearest to the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Sign(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns a value indicating the sign of a number.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 A signed number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A number indicating the sign of the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Sin(a) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the sine of the specified angle.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The sine of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b Sinh(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the hyperbolic sine of the specified angle.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The hyperbolic sine of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b Sqrt(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the square root of a specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The square root of the specified number.}\par
+\f0\pard\sb180\shading1000{\fs30\b Tan(a) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the tangent of the specified angle.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The tangent of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b Tanh(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the hyperbolic tangent of the specified angle.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 An angle, measured in radians.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The hyperbolic tangent of the specified angle.}\par
+\f0\pard\sb180\shading1000{\fs30\b Truncate(d) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the integral part of a specified number.}\par
+\f0\pard\sb75{\fs24\b d}\par
+\f0\pard{\fs20 A number to truncate.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The integral part of the specified number.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSNET}\par
+\f0\pard{\fs20 Some Powerful Net Function In Small Basic.{\line}Keywords And Operators.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Add(num,addValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Adds a value to a number.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b addValue}\par
+\f0\pard{\fs20 Value to add}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Sum of num and addValue}\par
+\f0\pard\sb180\shading1000{\fs30\b And(bool1,bool2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs logical AND on two booleans.}\par
+\f0\pard\sb75{\fs24\b bool1}\par
+\f0\pard{\fs20 First boolean}\par
+\f0\pard\sb75{\fs24\b bool2}\par
+\f0\pard{\fs20 Second boolean}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if both are true, otherwise false}\par
+\f0\pard\sb180\shading1000{\fs30\b Apply(list,operation) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Applies an operation or function to each element in a comma-separated list of values.}\par
+\f0\pard\sb75{\fs24\b list}\par
+\f0\pard{\fs20 A comma-separated list of values}\par
+\f0\pard\sb75{\fs24\b operation}\par
+\f0\pard{\fs20 The operation to apply (e.g., "+1" to increment all values)}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A new list of results with the operation applied}\par
+\f0\pard\sb180\shading1000{\fs30\b BitwiseAnd(int1,int2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs bitwise AND on two integers.}\par
+\f0\pard\sb75{\fs24\b int1}\par
+\f0\pard{\fs20 First integer}\par
+\f0\pard\sb75{\fs24\b int2}\par
+\f0\pard{\fs20 Second integer}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Result of bitwise AND}\par
+\f0\pard\sb180\shading1000{\fs30\b BitwiseNot(intVal) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs bitwise NOT on an integer.}\par
+\f0\pard\sb75{\fs24\b intVal}\par
+\f0\pard{\fs20 Integer to negate}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Bitwise negation of the integer}\par
+\f0\pard\sb180\shading1000{\fs30\b BitwiseOr(int1,int2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs bitwise OR on two integers.}\par
+\f0\pard\sb75{\fs24\b int1}\par
+\f0\pard{\fs20 First integer}\par
+\f0\pard\sb75{\fs24\b int2}\par
+\f0\pard{\fs20 Second integer}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Result of bitwise OR}\par
+\f0\pard\sb180\shading1000{\fs30\b BitwiseXor(int1,int2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs bitwise XOR on two integers.}\par
+\f0\pard\sb75{\fs24\b int1}\par
+\f0\pard{\fs20 First integer}\par
+\f0\pard\sb75{\fs24\b int2}\par
+\f0\pard{\fs20 Second integer}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Result of bitwise XOR}\par
+\f0\pard\sb180\shading1000{\fs30\b Chain(value,operations) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Chains multiple operations to apply to a single value.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The starting value}\par
+\f0\pard\sb75{\fs24\b operations}\par
+\f0\pard{\fs20 A comma-separated list of operations to chain}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The result after all operations are applied}\par
+\f0\pard\sb180\shading1000{\fs30\b Clamp(num,min,max) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Clamps a number between a minimum and maximum value.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 The number to clamp}\par
+\f0\pard\sb75{\fs24\b min}\par
+\f0\pard{\fs20 The minimum allowed value}\par
+\f0\pard\sb75{\fs24\b max}\par
+\f0\pard{\fs20 The maximum allowed value}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The clamped value}\par
+\f0\pard\sb180\shading1000{\fs30\b Coalesce(value1,value2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the first non-null value.}\par
+\f0\pard\sb75{\fs24\b value1}\par
+\f0\pard{\fs20 First value}\par
+\f0\pard\sb75{\fs24\b value2}\par
+\f0\pard{\fs20 Second value}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 First non-null value}\par
+\f0\pard\sb180\shading1000{\fs30\b Divide(num,divValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Divides a number by another value.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b divValue}\par
+\f0\pard{\fs20 Value to divide by}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Quotient of num and divValue}\par
+\f0\pard\sb180\shading1000{\fs30\b Equal(val1,val2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if two values are equal.}\par
+\f0\pard\sb75{\fs24\b val1}\par
+\f0\pard{\fs20 First value}\par
+\f0\pard\sb75{\fs24\b val2}\par
+\f0\pard{\fs20 Second value}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if equal, otherwise false}\par
+\f0\pard\sb180\shading1000{\fs30\b Eval(expression) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Helper method to evaluate simple arithmetic expressions.}\par
+\f0\pard\sb75{\fs24\b expression}\par
+\f0\pard{\fs20 The expression to evaluate}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The result of the evaluation}\par
+\f0\pard\sb180\shading1000{\fs30\b Filter(list,condition) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Filters a list of values based on a condition.}\par
+\f0\pard\sb75{\fs24\b list}\par
+\f0\pard{\fs20 A comma-separated list of values}\par
+\f0\pard\sb75{\fs24\b condition}\par
+\f0\pard{\fs20 The condition to apply (e.g., ">2" to filter values greater than 2)}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A new list of values that meet the condition}\par
+\f0\pard\sb180\shading1000{\fs30\b ForEach(list,operation) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Applies an operation to each item in a list (e.g., increment all items by 1).}\par
+\f0\pard\sb75{\fs24\b list}\par
+\f0\pard{\fs20 A comma-separated list of values}\par
+\f0\pard\sb75{\fs24\b operation}\par
+\f0\pard{\fs20 The operation to apply to each item (e.g., "+1")}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A new list with the operation applied}\par
+\f0\pard\sb180\shading1000{\fs30\b GreaterThan(num1,num2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the first value is greater than the second value.}\par
+\f0\pard\sb75{\fs24\b num1}\par
+\f0\pard{\fs20 First number}\par
+\f0\pard\sb75{\fs24\b num2}\par
+\f0\pard{\fs20 Second number}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if num1 is greater than num2}\par
+\f0\pard\sb180\shading1000{\fs30\b GreaterThanOrEqual(num1,num2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the first value is greater than or equal to the second value.}\par
+\f0\pard\sb75{\fs24\b num1}\par
+\f0\pard{\fs20 First number}\par
+\f0\pard\sb75{\fs24\b num2}\par
+\f0\pard{\fs20 Second number}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if num1 is greater than or equal to num2}\par
+\f0\pard\sb180\shading1000{\fs30\b InlineIf(expression,trueValue,falseValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Inline if (ternary operator) - evaluates a mathematical or boolean expression and returns one value if true, otherwise another value.}\par
+\f0\pard\sb75{\fs24\b expression}\par
+\f0\pard{\fs20 Mathematical or boolean expression to evaluate (e.g., "5 > 2")}\par
+\f0\pard\sb75{\fs24\b trueValue}\par
+\f0\pard{\fs20 Value returned if the expression is true}\par
+\f0\pard\sb75{\fs24\b falseValue}\par
+\f0\pard{\fs20 Value returned if the expression is false}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The trueValue if the expression is true, otherwise falseValue}\par
+\f0\pard\sb180\shading1000{\fs30\b Interpolate(template,args) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Interpolates values into a string template.}\par
+\f0\pard\sb75{\fs24\b template}\par
+\f0\pard{\fs20 The string template with placeholders (e.g., "Hello {0}")}\par
+\f0\pard\sb75{\fs24\b args}\par
+\f0\pard{\fs20 The values to replace the placeholders}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The interpolated string}\par
+\f0\pard\sb180\shading1000{\fs30\b IsInRange(num,min,max) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a number is within a specified range (inclusive).}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 The number to check}\par
+\f0\pard\sb75{\fs24\b min}\par
+\f0\pard{\fs20 The lower bound of the range}\par
+\f0\pard\sb75{\fs24\b max}\par
+\f0\pard{\fs20 The upper bound of the range}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the number is within the range, otherwise false}\par
+\f0\pard\sb180\shading1000{\fs30\b LeftShift(num,shiftAmount) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shifts the bits of a number to the left by the specified amount.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b shiftAmount}\par
+\f0\pard{\fs20 Amount to shift}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Number shifted to the left}\par
+\f0\pard\sb180\shading1000{\fs30\b LessThan(num1,num2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the first value is less than the second value.}\par
+\f0\pard\sb75{\fs24\b num1}\par
+\f0\pard{\fs20 First number}\par
+\f0\pard\sb75{\fs24\b num2}\par
+\f0\pard{\fs20 Second number}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if num1 is less than num2}\par
+\f0\pard\sb180\shading1000{\fs30\b LessThanOrEqual(num1,num2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the first value is less than or equal to the second value.}\par
+\f0\pard\sb75{\fs24\b num1}\par
+\f0\pard{\fs20 First number}\par
+\f0\pard\sb75{\fs24\b num2}\par
+\f0\pard{\fs20 Second number}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if num1 is less than or equal to num2}\par
+\f0\pard\sb180\shading1000{\fs30\b Modulus(num,divisor) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the remainder of the division between two numbers.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 The number to divide}\par
+\f0\pard\sb75{\fs24\b divisor}\par
+\f0\pard{\fs20 The number to divide by}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The remainder of the division}\par
+\f0\pard\sb180\shading1000{\fs30\b Multiply(num,mulValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Multiplies a number by another value.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b mulValue}\par
+\f0\pard{\fs20 Value to multiply by}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Product of num and mulValue}\par
+\f0\pard\sb180\shading1000{\fs30\b Negate(num) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Negates the number (changes the sign).}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 The number to negate}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The negated number}\par
+\f0\pard\sb180\shading1000{\fs30\b Not(Bool) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts True To False And Vice-Versa.}\par
+\f0\pard\sb75{\fs24\b Bool}\par
+\f0\pard{\fs20 The Bool True Or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Negated Bool as True or False}\par
+\f0\pard\sb180\shading1000{\fs30\b NotEqual(val1,val2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if two values are not equal.}\par
+\f0\pard\sb75{\fs24\b val1}\par
+\f0\pard{\fs20 First value}\par
+\f0\pard\sb75{\fs24\b val2}\par
+\f0\pard{\fs20 Second value}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if not equal, otherwise false}\par
+\f0\pard\sb180\shading1000{\fs30\b Or(bool1,bool2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs logical OR on two booleans.}\par
+\f0\pard\sb75{\fs24\b bool1}\par
+\f0\pard{\fs20 First boolean}\par
+\f0\pard\sb75{\fs24\b bool2}\par
+\f0\pard{\fs20 Second boolean}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if either or both are true, otherwise false}\par
+\f0\pard\sb180\shading1000{\fs30\b Reduce(list,operation) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Reduces a list of values to a single value by applying an operation (e.g., summing all values).}\par
+\f0\pard\sb75{\fs24\b list}\par
+\f0\pard{\fs20 A comma-separated list of values}\par
+\f0\pard\sb75{\fs24\b operation}\par
+\f0\pard{\fs20 The operation to apply (e.g., "+" to sum values)}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The reduced result (e.g., sum of the list)}\par
+\f0\pard\sb180\shading1000{\fs30\b Repeat(iterations,Sub) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Repeats an action for the specified number of iterations.}\par
+\f0\pard\sb75{\fs24\b iterations}\par
+\f0\pard{\fs20 Number of times to repeat}\par
+\f0\pard\sb75{\fs24\b Sub}\par
+\f0\pard{\fs20 The action to repeat}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True after completion}\par
+\f0\pard\sb180\shading1000{\fs30\b RightShift(num,shiftAmount) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Shifts the bits of a number to the right by the specified amount.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b shiftAmount}\par
+\f0\pard{\fs20 Amount to shift}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Number shifted to the right}\par
+\f0\pard\sb180\shading1000{\fs30\b Subtract(num,subValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Subtracts a value from a number.}\par
+\f0\pard\sb75{\fs24\b num}\par
+\f0\pard{\fs20 Number}\par
+\f0\pard\sb75{\fs24\b subValue}\par
+\f0\pard{\fs20 Value to subtract}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Difference of num and subValue}\par
+\f0\pard\sb180\shading1000{\fs30\b Xor(bool1,bool2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs logical XOR on two booleans.}\par
+\f0\pard\sb75{\fs24\b bool1}\par
+\f0\pard{\fs20 First boolean}\par
+\f0\pard\sb75{\fs24\b bool2}\par
+\f0\pard{\fs20 Second boolean}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if one is true and the other is false}\par
+\f0\pard\sb180\shading1000{\fs30\b ZipWith(list1,list2,operation) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Combines two lists element-wise using a specified operation.}\par
+\f0\pard\sb75{\fs24\b list1}\par
+\f0\pard{\fs20 First comma-separated list}\par
+\f0\pard\sb75{\fs24\b list2}\par
+\f0\pard{\fs20 Second comma-separated list}\par
+\f0\pard\sb75{\fs24\b operation}\par
+\f0\pard{\fs20 Operation to apply, e.g., "+" to add elements}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A new list with the operation applied to each pair of elements}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSNetwork}\par
+\f0\pard{\fs20 Network related functions.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CheckUrlExists(url) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a URL exists and is reachable.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the URL exists, false otherwise.}\par
+\f0\pard\sb180\shading1000{\fs30\b DnsResolve(domain) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Resolves a domain name to its IP address.}\par
+\f0\pard\sb75{\fs24\b domain}\par
+\f0\pard{\fs20 The domain name to resolve.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The IP address of the domain.}\par
+\f0\pard\sb180\shading1000{\fs30\b DownloadFile(url,filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Downloads a file from a given URL to the specified local path.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The file URL.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The local file path to save to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Success or error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b ExtractMetaTags(url) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Extracts meta tags from a webpage.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL of the webpage.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A formatted string containing meta tag details.}\par
+\f0\pard\sb180\shading1000{\fs30\b Get(url) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a GET request to the specified URL.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL to send the GET request to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The response content as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetHeaders(url) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the headers from a given URL.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL to fetch headers from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The headers as a formatted string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetHostName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the hostname of the local machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The local machine's hostname.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLocalIP() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the local IP address of the machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The local IP address.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMacAddress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the MAC address of the local machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The MAC address as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetPublicIP() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the public IP address of the current machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The public IP address as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsInternetAvailable() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the internet connection is available.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if connected, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b PingHost(host) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a ping request to a host and returns the response time.}\par
+\f0\pard\sb75{\fs24\b host}\par
+\f0\pard{\fs20 The host to ping (IP or domain).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The response time in milliseconds or an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b PortCheck(host,port) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a specific port is open on a given IP address or domain.}\par
+\f0\pard\sb75{\fs24\b host}\par
+\f0\pard{\fs20 The IP or domain to check.}\par
+\f0\pard\sb75{\fs24\b port}\par
+\f0\pard{\fs20 The port number to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the port is open, false otherwise.}\par
+\f0\pard\sb180\shading1000{\fs30\b Post(url,data) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a POST request to the specified URL with the given data.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL to send the POST request to.}\par
+\f0\pard\sb75{\fs24\b data}\par
+\f0\pard{\fs20 The data to send in the body of the request.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The response content as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b TraceRoute(host) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Performs a traceroute to a given host and returns the route details.}\par
+\f0\pard\sb75{\fs24\b host}\par
+\f0\pard{\fs20 The destination host (IP or domain).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The traceroute results as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b UploadFile(url,filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Uploads a file to a specified server URL.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The server URL to upload the file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The local file path to upload.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The server response or an error message.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSPath}\par
+\f0\pard{\fs20 Provides System.IO.Path Functions in small basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b ChangeExtension(path,extension) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Changes the extension of a path string.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path information to modify.}\par
+\f0\pard\sb75{\fs24\b extension}\par
+\f0\pard{\fs20 The new extension. Specify null to remove an existing extension from path.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The modified path information.}\par
+\f0\pard\sb180\shading1000{\fs30\b Combine(path1,path2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Combines two strings into a path.}\par
+\f0\pard\sb75{\fs24\b path1}\par
+\f0\pard{\fs20 The first path to combine.}\par
+\f0\pard\sb75{\fs24\b path2}\par
+\f0\pard{\fs20 The second path to combine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The combined paths.}\par
+\f0\pard\sb180\shading1000{\fs30\b Combine3(path1,path2,path3) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Combines three strings into a path.}\par
+\f0\pard\sb75{\fs24\b path1}\par
+\f0\pard{\fs20 The first path to combine.}\par
+\f0\pard\sb75{\fs24\b path2}\par
+\f0\pard{\fs20 The second path to combine.}\par
+\f0\pard\sb75{\fs24\b path3}\par
+\f0\pard{\fs20 The third path to combine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The combined paths.}\par
+\f0\pard\sb180\shading1000{\fs30\b Combine4(path1,path2,path3,path4) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Combines four strings into a path.}\par
+\f0\pard\sb75{\fs24\b path1}\par
+\f0\pard{\fs20 The first path to combine.}\par
+\f0\pard\sb75{\fs24\b path2}\par
+\f0\pard{\fs20 The second path to combine.}\par
+\f0\pard\sb75{\fs24\b path3}\par
+\f0\pard{\fs20 The third path to combine.}\par
+\f0\pard\sb75{\fs24\b path4}\par
+\f0\pard{\fs20 The fourth path to combine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The combined paths.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetDirectoryName(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the directory information for the specified path string.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path of a file or directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The directory information.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetExtension(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the extension of the specified path string.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path string from which to get the extension.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The extension of the specified path.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileName(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the file name and extension of the specified path string.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path string from which to obtain the file name and extension.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The characters after the last directory character in path.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFileNameWithoutExtension(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the file name of the specified path string without the extension.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path of the file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The string returned by GetFileName, minus the last period and all characters following it.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFullPath(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the absolute path for the specified path string.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The file or directory for which to obtain absolute path information.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The fully qualified location of path.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetInvalidFileNameChars() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns an array containing the characters that are not allowed in file names.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array containing the characters that are not allowed in file names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetInvalidPathChars() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns an array containing the characters that are not allowed in path names.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array containing the characters that are not allowed in path names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetPathRoot(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the root directory information of the specified path.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path from which to obtain root directory information.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the root directory of path.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomFileName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns a random file name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A random file name.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTempFileName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Creates a uniquely named, zero-byte temporary file on disk and returns the full path of that file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The full path of the temporary file.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTempPath() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the path of the current system's temporary folder.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path to the temporary folder.}\par
+\f0\pard\sb180\shading1000{\fs30\b HasExtension(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Determines whether a path includes a file name extension.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path to search for an extension.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 true if the path includes a file name extension; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsPathRooted(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a value indicating whether the specified path string contains a root.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path to test.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 true if path contains a root; otherwise, false.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSPowerShell}\par
+\f0\pard{\fs20 Provides methods for running PowerShell commands.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Run(command) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a PowerShell command and returns the result.}\par
+\f0\pard\sb75{\fs24\b command}\par
+\f0\pard{\fs20 The PowerShell command to execute.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the PowerShell command.}\par
+\f0\pard\sb75{\fs24\b remarks}\par
+\f0\pard{\fs20 This method starts a new PowerShell process to execute the specified command. {\line}Output and errors are combined into a single string.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunPowerShell(scriptLines) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a PowerShell script provided as an array of strings.{\line}Saves the script in a temporary file, runs it, returns the output, and deletes the script file.}\par
+\f0\pard\sb75{\fs24\b scriptLines}\par
+\f0\pard{\fs20 Array of strings, each representing a line of the PowerShell script.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the PowerShell script execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunPowerShellFile(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a PowerShell script file and returns the output.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path to the PowerShell script file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the PowerShell script execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunPowerShellScript(script) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a PowerShell script directly from a single string.}\par
+\f0\pard\sb75{\fs24\b script}\par
+\f0\pard{\fs20 The PowerShell script to execute.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the PowerShell script execution.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunPowerShellScriptFromArray(scriptLines) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Executes a PowerShell script provided as an array of strings.}\par
+\f0\pard\sb75{\fs24\b scriptLines}\par
+\f0\pard{\fs20 Array of strings, each representing a line of the PowerShell script.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the output and errors from the PowerShell script execution.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSProcess}\par
+\f0\pard{\fs20 Provides methods and properties for managing processes.{\line}This class allows you to start new processes, manage process information, and interact with running processes.{\line}It includes functionalities for:{\line}- Starting processes with or without arguments{\line}- Retrieving process IDs and names{\line}- Getting and setting process-related information such as file path, arguments, priority, and more}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Arguments \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the arguments to pass to the executable file.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To set arguments: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.Arguments = "/c echo Hello World"}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateNoWindow \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value that indicates whether to create a new window for the process.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To disable window creation: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.CreateNoWindow = true}\par
+\f0\pard\sb180\shading1000{\fs30\b FilePath \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the file path of the application to start.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To set the file path: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.FilePath = "C:\\\\Windows\\\\System32\\\\notepad.exe"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetExitTime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the exit time of the currently managed process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The exit time of the process. Example: "2024-07-24 15:00:00"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMainWindowTitle() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the title of the main window of the currently managed process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The main window title. Example: "Untitled - Notepad"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProcessId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the process ID of the currently managed process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The process ID. Example: 1234}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProcessIds() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of process IDs for all running processes on the local machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated string of process IDs. Example: "1234,5678"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProcessName(id) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the process name for a specified process ID.}\par
+\f0\pard\sb75{\fs24\b id}\par
+\f0\pard{\fs20 The process ID. Example: 1234}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The process name. Example: "notepad"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetStartTime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the start time of the currently managed process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The start time of the process. Example: "2024-07-24 14:30:00"}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTotalProcessorTime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the total processor time for the currently managed process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The total processor time. Example: "00:00:01.2345678"}\par
+\f0\pard\sb180\shading1000{\fs30\b HasExited() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a value indicating whether the currently managed process has exited.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 true if the process has exited; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsResponding() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a value indicating whether the currently managed process is responding.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 true if the process is responding; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b PriorityClass \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the value of the process priority.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To set priority class: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.PriorityClass = "High"}\par
+\f0\pard\sb180\shading1000{\fs30\b RedirectStandardOutput \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value that determines whether to redirect standard input, output, and error streams.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To enable redirection: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.RedirectStandardOutput = true}\par
+\f0\pard\sb180\shading1000{\fs30\b StartProcess(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts a new process with the specified executable file path.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the executable file to start. Example: "C:\\\\Windows\\\\System32\\\\notepad.exe"}\par
+\f0\pard\sb180\shading1000{\fs30\b StartProcessWithArgs(filePath,arguments) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts a new process with the specified executable file path and arguments.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the executable file to start. Example: "C:\\\\Windows\\\\System32\\\\cmd.exe"}\par
+\f0\pard\sb75{\fs24\b arguments}\par
+\f0\pard{\fs20 The arguments to pass to the executable file. Example: "/c echo Hello World"}\par
+\f0\pard\sb180\shading1000{\fs30\b StartProcessWithInfo(filePath,arguments) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts a new process with the specified ProcessStartInfo.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the executable file to start. Example: "C:\\\\Windows\\\\System32\\\\notepad.exe"}\par
+\f0\pard\sb75{\fs24\b arguments}\par
+\f0\pard{\fs20 The arguments to pass to the executable file. Example: ""}\par
+\f0\pard\sb180\shading1000{\fs30\b UseShellExecute \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value that indicates whether to use the operating system shell to start the process.}\par
+\f0\pard\sb75{\fs24\b example}\par
+\f0\pard{\fs20 To enable shell execution: }\par
+\f0\pard\sb75{\fs24\b br}\par
+\f0\pard{\fs20 ZSProcess.UseShellExecute = true}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSProcessInfo}\par
+\f0\pard{\fs20 Provides ProcessInfo Functions from Small Basic.{\line}First Set All the setting then call the method ZSProcessInfo.Start()}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Arguments \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the set of command-line arguments to use when starting the application.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateNoWindow \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether to start the process in a new window.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b Domain \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the domain to use when starting the process.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b EnvironmentVariables \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the environment variables that apply to this process and its child processes.{\line}Use a semicolon (;) to separate multiple variables.{\line}Example: "Path=C:\\Windows\\System32;TEMP=C:\\Temp"{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b ErrorDialog \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether an error dialog box is displayed to the user if the process cannot be started.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b FileName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the application or document to start.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b GetOutput(processId) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the output of the process by its ID.{\line}Returns the standard output if available, otherwise returns an error message.}\par
+\f0\pard\sb75{\fs24\b processId}\par
+\f0\pard{\fs20 The ID of the process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the process output or an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b LoadUserProfile \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether the Windows user profile should be loaded.}\par
+\f0\pard\sb180\shading1000{\fs30\b Password \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the password for the user name when starting the process.{\line}Note: For security reasons, setting passwords is not directly supported in this wrapper.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b PasswordInClearText \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the password in clear text to use when starting the process.}\par
+\f0\pard\sb180\shading1000{\fs30\b RedirectStandardError \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether the error output of an application is written to the StandardError stream.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b RedirectStandardInput \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether the input for an application is read from the StandardInput stream.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b RedirectStandardOutput \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b StandardOutputEncoding \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether the output of an application is written to the StandardOutput stream.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b Start() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts the process using the specified settings.}\par
+\f0\pard\sb180\shading1000{\fs30\b StartAndGetOutput() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts the process using the specified settings and returns the standard output.{\line}Returns the standard output if the process starts and completes successfully, otherwise returns the error message.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing the process output or an error message.}\par
+\f0\pard\sb180\shading1000{\fs30\b UserName \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the user name to use when starting the process.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b UseShellExecute \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets a value indicating whether to use the operating system shell to start the process.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b Verb \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the verb to use when opening the application or document specified by the FileName property.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b WindowStyle \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the Window style to use for the process.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb180\shading1000{\fs30\b WorkingDirectory \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets or sets the working directory for the process to be started.{\line}Setting For ZSProcess.Start()}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSReflection}\par
+\f0\pard{\fs20 The Reflection For Small Basic.{\line}Used by many extension classes.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b GetEvents(Type) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets A Array of Events in a type.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of Events.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetField(Key,FieldName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a field's value with type safety.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Type Key}\par
+\f0\pard\sb75{\fs24\b FieldName}\par
+\f0\pard{\fs20 The Field Name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Result.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFieldInfo(targetType,fieldName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the FieldInfo of a specified field.}\par
+\f0\pard\sb75{\fs24\b targetType}\par
+\f0\pard{\fs20 The type containing the field.}\par
+\f0\pard\sb75{\fs24\b fieldName}\par
+\f0\pard{\fs20 The name of the field to retrieve.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The FieldInfo if found, otherwise null.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFields(Type) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets A Array of Fields in a type.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of Fields.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetFieldValue(targetType,fieldName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the value of a field from the specified type.}\par
+\f0\pard\sb75{\fs24\b targetType}\par
+\f0\pard{\fs20 The type containing the field.}\par
+\f0\pard\sb75{\fs24\b fieldName}\par
+\f0\pard{\fs20 The name of the field to retrieve.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value of the specified field, or null if the field is not found.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMethods(Type) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets A Array of methods in a type.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of methods.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetPre(Option) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get Some Predefined Types And Assembly.}\par
+\f0\pard\sb75{\fs24\b Option}\par
+\f0\pard{\fs20 1 - Current Program.{\line}2 - Current Class of program.{\line}3 - Assembly Key Of SmallBasicLibaray.dll{\line}4 - Assembly Key Of ZS.dll}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Result}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProperties(Type) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets A Array of Properties:(getters and setters). in a type.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of Properties.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProperty(Key,PropertyName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the property value with type safety.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b PropertyName}\par
+\f0\pard{\fs20 The Property Name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Result.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetPropertyInfo(targetType,propertyName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves the PropertyInfo of a specified property.}\par
+\f0\pard\sb75{\fs24\b targetType}\par
+\f0\pard{\fs20 The type containing the property.}\par
+\f0\pard\sb75{\fs24\b propertyName}\par
+\f0\pard{\fs20 The name of the property to retrieve.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The PropertyInfo if found, otherwise null.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTypes(Key) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get All Types in a assembly.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Key}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Array of name of types.}\par
+\f0\pard\sb180\shading1000{\fs30\b InvokeMethod(targetType,methodName,methodArgs) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Invokes a method from the specified type.}\par
+\f0\pard\sb75{\fs24\b targetType}\par
+\f0\pard{\fs20 The type containing the method.}\par
+\f0\pard\sb75{\fs24\b methodName}\par
+\f0\pard{\fs20 The name of the method to invoke.}\par
+\f0\pard\sb75{\fs24\b methodArgs}\par
+\f0\pard{\fs20 The arguments to pass to the method.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The result of the method invocation, or null if the method is void or not found.}\par
+\f0\pard\sb180\shading1000{\fs30\b InvokeMethod(Type,Method,Args) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Invokes a method from type.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b Method}\par
+\f0\pard{\fs20 The Method Name.}\par
+\f0\pard\sb75{\fs24\b Args}\par
+\f0\pard{\fs20 The Array Of Parameters.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Result.}\par
+\f0\pard\sb180\shading1000{\fs30\b InvokeStaticMethod(Path,Class,Method,parameters) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Invokes A Static Method.}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 The Path to dll.}\par
+\f0\pard\sb75{\fs24\b Class}\par
+\f0\pard{\fs20 The Namespace.Class}\par
+\f0\pard\sb75{\fs24\b Method}\par
+\f0\pard{\fs20 The Method Name}\par
+\f0\pard\sb75{\fs24\b parameters}\par
+\f0\pard{\fs20 The array of Parameters}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Result}\par
+\f0\pard\sb180\shading1000{\fs30\b LoadAssembly(Path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Loads A Assembly.{\line}A exe or dll is assembly.}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 The Path Of Assembly.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Assembly Key.}\par
+\f0\pard\sb180\shading1000{\fs30\b LoadType(Key,Type) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Loads A Type.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Assembly Key.}\par
+\f0\pard\sb75{\fs24\b Type}\par
+\f0\pard{\fs20 The Type Name (e.g., 'Namespace.ClassName').}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Type Key}\par
+\f0\pard\sb180\shading1000{\fs30\b MethodDetail(Key,Method,Option) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves details about a specified method from a given type.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The key representing the type from which to retrieve the method.}\par
+\f0\pard\sb75{\fs24\b Method}\par
+\f0\pard{\fs20 The name of the method to retrieve details for.}\par
+\f0\pard\sb75{\fs24\b Option}\par
+\f0\pard{\fs20 1 - Method Name.{\line}2 - Method Description.{\line}3 - Method Attributes.{\line}4 - Parameter Types.{\line}5 - Return Type.{\line}6 - Method Handle.{\line}7 - IL Code as a byte array.{\line}8 - Maximum Stack Size.{\line}9 - Local Variables (index and type).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The requested detail about the method.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetField(Key,FieldName,Value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets a field's value with type safety.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b FieldName}\par
+\f0\pard{\fs20 The Field Name.}\par
+\f0\pard\sb75{\fs24\b Value}\par
+\f0\pard{\fs20 The Value To Set.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetFieldValue(targetType,fieldName,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the value of a field in the specified type.}\par
+\f0\pard\sb75{\fs24\b targetType}\par
+\f0\pard{\fs20 The type containing the field.}\par
+\f0\pard\sb75{\fs24\b fieldName}\par
+\f0\pard{\fs20 The name of the field to set.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The new value for the field.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetProperty(Key,PropertyName,Value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets a property value with type safety.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The Type Key.}\par
+\f0\pard\sb75{\fs24\b PropertyName}\par
+\f0\pard{\fs20 The Property Name.}\par
+\f0\pard\sb75{\fs24\b Value}\par
+\f0\pard{\fs20 The Value To Set.}\par
+\f0\pard\sb180\shading1000{\fs30\b TypeDetails(Key,Option) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Retrieves details about a type based on a specified key and option.}\par
+\f0\pard\sb75{\fs24\b Key}\par
+\f0\pard{\fs20 The key used to identify the type from a collection.}\par
+\f0\pard\sb75{\fs24\b Option}\par
+\f0\pard{\fs20 1 - Assembly qualified name: The full name of the type including its namespace and assembly.{\line}{\line}2 - Attributes: The attributes associated with the type, represented as a string.{\line}{\line}3 - Full name: The fully qualified name of the type, including its namespace.{\line}{\line}4 - GUID: The unique identifier (GUID) associated with the type.{\line}{\line}5 - Is enum: Indicates whether the type is an enumeration (true/false).{\line}{\line}6 - Is visible: Determines if the type is visible outside its assembly (true/false).{\line}{\line}7 - Name: The name of the type without its namespace.{\line}{\line}8 - Namespace: The namespace the type belongs to.{\line}{\line}9 - Type handle: The runtime handle for the type, useful for low-level type operations.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Returns the requested detail about the specified type based on the provided option.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSRegex}\par
+\f0\pard{\fs20 Regex In SB.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CountMatches() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the number of matches found for the regex pattern in the input string.}\par
+\f0\pard\sb180\shading1000{\fs30\b EndsWith() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input string ends with the regex pattern.}\par
+\f0\pard\sb180\shading1000{\fs30\b Escape() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Escapes special regex characters in the input string.}\par
+\f0\pard\sb180\shading1000{\fs30\b FindAll() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds all matches of the regex pattern in the input string and returns an array of matched values.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetGroups() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the groups captured by the regex pattern from the input string and returns an array of group values.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsExactMatch() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Validates if the entire input string matches the regex pattern.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsMatch() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Matches the regex pattern in the input string and returns true if it finds a match.}\par
+\f0\pard\sb180\shading1000{\fs30\b Match() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Searches the input string for the first occurrence of the regex pattern and returns the matched value.}\par
+\f0\pard\sb180\shading1000{\fs30\b RemoveWhitespace() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns a string that contains the input string with all whitespace removed.}\par
+\f0\pard\sb180\shading1000{\fs30\b Replace() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Replaces all occurrences of the regex pattern in the input string with the replacement string.}\par
+\f0\pard\sb180\shading1000{\fs30\b Split() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Splits the input string based on the regex pattern and returns an array of substrings.}\par
+\f0\pard\sb180\shading1000{\fs30\b StartsWith() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input string starts with the regex pattern.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSStorage}\par
+\f0\pard{\fs20 The Isolated Storage For Small Basic.{\line}You Can Store Your Varibles Here For Permenatly Even if the exe close.{\line}Default File Name Is None.{\line}Use Delete Storage For Deleting The File.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b DeleteStorageFile() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes the file.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetValue(Name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the value for a give variable.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The name of variable.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value for variable or a empty string if no variable with name.}\par
+\f0\pard\sb180\shading1000{\fs30\b ListVars() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 List the varibles stored in file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 }\par
+\f0\pard\sb180\shading1000{\fs30\b SetFileName(FileName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Set the file name for current.}\par
+\f0\pard\sb75{\fs24\b FileName}\par
+\f0\pard{\fs20 the file name}\par
+\f0\pard\sb180\shading1000{\fs30\b SetValue(Name,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets A Value for a variable. }\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The Name Of Variable.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to store.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSTask}\par
+\f0\pard{\fs20 Provides methods to use tasks in Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b IsRunning(TaskID) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a task is still running.}\par
+\f0\pard\sb75{\fs24\b TaskID}\par
+\f0\pard{\fs20 The ID of the task to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the task is running, false otherwise.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunSub(SubName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Runs a subroutine as a new task.}\par
+\f0\pard\sb75{\fs24\b SubName}\par
+\f0\pard{\fs20 The name of the subroutine to run.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The ID of the created task.}\par
+\f0\pard\sb180\shading1000{\fs30\b Status(TaskID) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Get the status of a task}\par
+\f0\pard\sb75{\fs24\b TaskID}\par
+\f0\pard{\fs20 The ID of the task.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The status of task.}\par
+\f0\pard\sb180\shading1000{\fs30\b WaitForTask(TaskID) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Waits for a task to complete.}\par
+\f0\pard\sb75{\fs24\b TaskID}\par
+\f0\pard{\fs20 The ID of the task to wait for.}\par
+\f0\pard\sb180\shading1000{\fs30\b WaitForTask(TaskID,Time) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Waits for a task to complete.}\par
+\f0\pard\sb75{\fs24\b TaskID}\par
+\f0\pard{\fs20 The ID of the task to wait for.}\par
+\f0\pard\sb75{\fs24\b Time}\par
+\f0\pard{\fs20 The time in milisecond to wait for.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSTest}\par
+\f0\pard{\fs20 Just For Testing.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Fire() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Fires The Event.}\par
+\f0\pard\sb180\shading1000{\fs30\b FireEvent \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 This Event Can Be Fired From Method ZSTest.Fire}\par
+\f0\pard\sb180\shading1000{\fs30\b FireSub(SubName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Fires A Sub.}\par
+\f0\pard\sb75{\fs24\b SubName}\par
+\f0\pard{\fs20 The Sub Name}\par
+\f0\pard\sb180\shading1000{\fs30\b Ops(Bool) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts True To False And Vice-Versa.}\par
+\f0\pard\sb75{\fs24\b Bool}\par
+\f0\pard{\fs20 The Bool True Or False}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 Ops String}\par
+\f0\pard\sb180\shading1000{\fs30\b Variables() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Return A Array Of All Variables In This App.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSText}\par
+\f0\pard{\fs20 Provides a comprehensive set of text manipulation functions, enhancing the capability of Small Basic programs to process and transform strings with ease.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b AngleBracketClose \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the angle bracket closing character '>'.}\par
+\f0\pard\sb180\shading1000{\fs30\b BraceClose \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the curly brace closing character '}'.}\par
+\f0\pard\sb180\shading1000{\fs30\b BraceOpen \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the curly brace opening character '{'.}\par
+\f0\pard\sb180\shading1000{\fs30\b BracketClose \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the square bracket closing character ']'.}\par
+\f0\pard\sb180\shading1000{\fs30\b BracketOpen \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the square bracket opening character '['.}\par
+\f0\pard\sb180\shading1000{\fs30\b Colon \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the colon character ":".}\par
+\f0\pard\sb180\shading1000{\fs30\b Comma \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the comma character ",".}\par
+\f0\pard\sb180\shading1000{\fs30\b Contains(input,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input text contains the specified value.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to search in.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to search for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the input text contains the value, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b CountOccurrences(text,substring) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Counts the occurrences of a substring within the input text.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to search within.}\par
+\f0\pard\sb75{\fs24\b substring}\par
+\f0\pard{\fs20 The substring to count.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of occurrences of the substring in the text.}\par
+\f0\pard\sb180\shading1000{\fs30\b Dash \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the dash character "-".}\par
+\f0\pard\sb180\shading1000{\fs30\b EndsWith(input,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input text ends with the specified value.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to check.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to check for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the input text ends with the value, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b EndsWithSuffix(text,suffix) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input text ends with the specified suffix.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to check.}\par
+\f0\pard\sb75{\fs24\b suffix}\par
+\f0\pard{\fs20 The suffix to check against.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the text ends with the suffix, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b ExclamationMark \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the exclamation mark character "!".}\par
+\f0\pard\sb180\shading1000{\fs30\b HtmlDecode(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Decodes the input text from HTML entities.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The HTML-encoded text to be decoded.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The decoded text.}\par
+\f0\pard\sb180\shading1000{\fs30\b HtmlEncode(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Encodes the input text into HTML entities.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be encoded.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The HTML-encoded text.}\par
+\f0\pard\sb180\shading1000{\fs30\b IndexOf(input,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds the index of the specified value in the input text.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to search in.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to find.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The index of the value in the input text, or -1 if not found.}\par
+\f0\pard\sb180\shading1000{\fs30\b Length(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the length of the input text.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to measure.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The length of the input text.}\par
+\f0\pard\sb180\shading1000{\fs30\b NewLine \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the newline character "\\n".}\par
+\f0\pard\sb180\shading1000{\fs30\b ParenthesesClose \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the parentheses closing character ')'.}\par
+\f0\pard\sb180\shading1000{\fs30\b ParenthesesOpen \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the parentheses opening character '('.}\par
+\f0\pard\sb180\shading1000{\fs30\b Period \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the period character ".".}\par
+\f0\pard\sb180\shading1000{\fs30\b QuestionMark \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the question mark character "?".}\par
+\f0\pard\sb180\shading1000{\fs30\b QuotationMark \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the quotation mark character '"'.}\par
+\f0\pard\sb180\shading1000{\fs30\b Replace(input,oldValue,newValue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Replaces occurrences of a specified value in the input text with another value.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be modified.}\par
+\f0\pard\sb75{\fs24\b oldValue}\par
+\f0\pard{\fs20 The value to be replaced.}\par
+\f0\pard\sb75{\fs24\b newValue}\par
+\f0\pard{\fs20 The value to replace with.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The modified text with replacements.}\par
+\f0\pard\sb180\shading1000{\fs30\b Reverse(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Reverses the input text.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be reversed.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The reversed text.}\par
+\f0\pard\sb180\shading1000{\fs30\b Semicolon \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the semicolon character ";".}\par
+\f0\pard\sb180\shading1000{\fs30\b SingleQuote \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the single quote character '\\''.}\par
+\f0\pard\sb180\shading1000{\fs30\b Split(input,delimiter) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Splits the input text into an array of substrings based on a delimiter.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be split.}\par
+\f0\pard\sb75{\fs24\b delimiter}\par
+\f0\pard{\fs20 The delimiter to split by.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of substrings.}\par
+\f0\pard\sb180\shading1000{\fs30\b SplitWithoutEmpty(input,delimiter) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Splits the input text into an array of substrings based on a delimiter.{\line}Removes The Empty.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be split.}\par
+\f0\pard\sb75{\fs24\b delimiter}\par
+\f0\pard{\fs20 The delimiter to split by.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of substrings.}\par
+\f0\pard\sb180\shading1000{\fs30\b StartsWith(input,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input text starts with the specified value.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to check.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to check for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the input text starts with the value, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b StartsWithPrefix(text,prefix) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the input text starts with the specified prefix.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to check.}\par
+\f0\pard\sb75{\fs24\b prefix}\par
+\f0\pard{\fs20 The prefix to check against.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the text starts with the prefix, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b Substring(input,startIndex,length) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Extracts a substring from the input text.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to extract from.}\par
+\f0\pard\sb75{\fs24\b startIndex}\par
+\f0\pard{\fs20 The starting index of the substring.}\par
+\f0\pard\sb75{\fs24\b length}\par
+\f0\pard{\fs20 The length of the substring.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The extracted substring.}\par
+\f0\pard\sb180\shading1000{\fs30\b Tab \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the tab character "\\t".}\par
+\f0\pard\sb180\shading1000{\fs30\b ToCamelCase(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a string to camelCase format.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The input text to convert.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The input text in camelCase format.}\par
+\f0\pard\sb180\shading1000{\fs30\b ToLower(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts the input text to lowercase.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be converted.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The lowercase version of the input text.}\par
+\f0\pard\sb180\shading1000{\fs30\b ToTitleCase(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts the first letter of each word in the input text to uppercase.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be converted.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The converted text with each word's first letter in uppercase.}\par
+\f0\pard\sb180\shading1000{\fs30\b ToUpper(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts the input text to uppercase.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be converted.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The uppercase version of the input text.}\par
+\f0\pard\sb180\shading1000{\fs30\b Trim(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Trims leading and trailing whitespace from the input text.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be trimmed.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The trimmed text.}\par
+\f0\pard\sb180\shading1000{\fs30\b Underscore \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the underscore character "_".}\par
+\f0\pard\sb180\shading1000{\fs30\b UrlDecode(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Decodes the input text from URL format.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The URL-encoded text to be decoded.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The decoded text.}\par
+\f0\pard\sb180\shading1000{\fs30\b UrlEncode(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Encodes the input text into URL format.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The text to be URL-encoded.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The URL-encoded text.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSThread}\par
+\f0\pard{\fs20 Provides methods to use multiple threads in Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b IsAlive(Threadid) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a value indicating the execution status of the current thread.}\par
+\f0\pard\sb75{\fs24\b Threadid}\par
+\f0\pard{\fs20 The Thread ID}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 true if this thread has been started and has not terminated normally or aborted; otherwise, false.}\par
+\f0\pard\sb180\shading1000{\fs30\b RunSub(SubName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Runs a subroutine on a new thread.}\par
+\f0\pard\sb75{\fs24\b SubName}\par
+\f0\pard{\fs20 The name of the subroutine to run.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The ID of the created thread.}\par
+\f0\pard\sb180\shading1000{\fs30\b TerminateThread(ThreadId) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Terminates a thread by its ID.}\par
+\f0\pard\sb75{\fs24\b ThreadId}\par
+\f0\pard{\fs20 The ID of the thread to terminate.}\par
+\f0\pard\sb180\shading1000{\fs30\b ThreadState(Threadid) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a value containing the states of the current thread.}\par
+\f0\pard\sb75{\fs24\b Threadid}\par
+\f0\pard{\fs20 The Thread ID}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 ne of the ThreadState values indicating the state of the current thread. The initial value is Unstarted.}\par
+\f0\pard\sb180\shading1000{\fs30\b WaitForThread(ThreadId) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Waits for a thread to complete.}\par
+\f0\pard\sb75{\fs24\b ThreadId}\par
+\f0\pard{\fs20 The ID of the thread to wait for.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSUtilities}\par
+\f0\pard{\fs20 Provides General Utilities Functions For Small Basic.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b CalculateAge(birthdate) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the age of a person given their birthdate.}\par
+\f0\pard\sb75{\fs24\b birthdate}\par
+\f0\pard{\fs20 The birthdate to calculate the age from.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The age in years.}\par
+\f0\pard\sb180\shading1000{\fs30\b CalculateCompoundInterest(principal,rate,periods,years) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates compound interest over a specified number of periods.}\par
+\f0\pard\sb75{\fs24\b principal}\par
+\f0\pard{\fs20 The principal amount.}\par
+\f0\pard\sb75{\fs24\b rate}\par
+\f0\pard{\fs20 The annual interest rate (as a decimal).}\par
+\f0\pard\sb75{\fs24\b periods}\par
+\f0\pard{\fs20 The number of periods per year.}\par
+\f0\pard\sb75{\fs24\b years}\par
+\f0\pard{\fs20 The number of years the money is invested for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The compound interest amount.}\par
+\f0\pard\sb180\shading1000{\fs30\b CalculateGCD(a,b) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the greatest common divisor (GCD) of two integers using the Euclidean algorithm.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 The first integer.}\par
+\f0\pard\sb75{\fs24\b b}\par
+\f0\pard{\fs20 The second integer.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The GCD of the two integers.}\par
+\f0\pard\sb180\shading1000{\fs30\b CalculateHypotenuse(a,b) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the length of the hypotenuse in a right triangle given the lengths of the other two sides.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 The length of one side.}\par
+\f0\pard\sb75{\fs24\b b}\par
+\f0\pard{\fs20 The length of the other side.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The length of the hypotenuse.}\par
+\f0\pard\sb180\shading1000{\fs30\b CalculateSquareRoot(a) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the square root of a number.}\par
+\f0\pard\sb75{\fs24\b a}\par
+\f0\pard{\fs20 The number.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The square root of a.}\par
+\f0\pard\sb180\shading1000{\fs30\b CaptureActiveWindow(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Captures a screenshot of the active window and saves it as an image file.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path where the image file will be saved.}\par
+\f0\pard\sb180\shading1000{\fs30\b CaptureScreenSegment(x,y,width,height,filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Captures a segment of the screen and saves it as an image file.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 The x-coordinate of the upper-left corner of the segment.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 The y-coordinate of the upper-left corner of the segment.}\par
+\f0\pard\sb75{\fs24\b width}\par
+\f0\pard{\fs20 The width of the segment.}\par
+\f0\pard\sb75{\fs24\b height}\par
+\f0\pard{\fs20 The height of the segment.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path where the image file will be saved.}\par
+\f0\pard\sb180\shading1000{\fs30\b CheckIs64BitOperatingSystem() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the current operating system is 64-bit.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the operating system is 64-bit, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b CheckIs64BitProcess() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the current process is running in 64-bit mode.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the process is 64-bit, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b ContainsOnlyLetters(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given string contains only letters.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The string to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the string contains only letters, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertBase(number,fromBase,toBase) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a number from one base to another base.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to convert.}\par
+\f0\pard\sb75{\fs24\b fromBase}\par
+\f0\pard{\fs20 The base of the input number.}\par
+\f0\pard\sb75{\fs24\b toBase}\par
+\f0\pard{\fs20 The base to convert the number to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The converted number as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertColorToHex(color) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a color from its RGB components to a hexadecimal string.}\par
+\f0\pard\sb75{\fs24\b color}\par
+\f0\pard{\fs20 The color in RGB string format.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The color in hexadecimal format.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertFromBase64(base64) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a Base64 encoded string back to its original string representation.}\par
+\f0\pard\sb75{\fs24\b base64}\par
+\f0\pard{\fs20 The Base64 encoded string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The decoded string.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertToBase64(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a given string to Base64 encoding.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The string to encode.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Base64 encoded string.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertToLowerCase(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts the given string to lowercase.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The string to convert.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The lowercase version of the input string.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertToTitleCase(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a given string to title case (each word starts with a capital letter).}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to convert.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The text in title case.}\par
+\f0\pard\sb180\shading1000{\fs30\b ConvertToUpperCase(input) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts the given string to uppercase.}\par
+\f0\pard\sb75{\fs24\b input}\par
+\f0\pard{\fs20 The string to convert.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The uppercase version of the input string.}\par
+\f0\pard\sb180\shading1000{\fs30\b CountVowels(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Counts the number of vowels in a given string.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to count vowels in.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of vowels in the text.}\par
+\f0\pard\sb180\shading1000{\fs30\b CountWords(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Counts the number of words in a given string.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to count words in.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of words in the text.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateDirectory(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Creates a directory at the specified path.}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The path of the directory to create.}\par
+\f0\pard\sb180\shading1000{\fs30\b DownloadFile(url,destinationPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Downloads a file from the specified URL to the specified destination path.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL of the file to download.}\par
+\f0\pard\sb75{\fs24\b destinationPath}\par
+\f0\pard{\fs20 The path where the file will be saved.}\par
+\f0\pard\sb180\shading1000{\fs30\b Factorial(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the factorial of a given number.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to calculate the factorial for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The factorial of the number.}\par
+\f0\pard\sb180\shading1000{\fs30\b FindMax(array) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds the maximum value in an array of numbers.}\par
+\f0\pard\sb75{\fs24\b array}\par
+\f0\pard{\fs20 The array to search.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The maximum value in the array.}\par
+\f0\pard\sb180\shading1000{\fs30\b FindMedian(array) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds the median value in a given array of numbers.}\par
+\f0\pard\sb75{\fs24\b array}\par
+\f0\pard{\fs20 The array of numbers.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The median value of the array.}\par
+\f0\pard\sb180\shading1000{\fs30\b FindMin(array) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds the minimum value in an array of numbers.}\par
+\f0\pard\sb75{\fs24\b array}\par
+\f0\pard{\fs20 The array to search.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The minimum value in the array.}\par
+\f0\pard\sb180\shading1000{\fs30\b FindSubstrings(text,length) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Finds all substrings of a specified length from a given string.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text to extract substrings from.}\par
+\f0\pard\sb75{\fs24\b length}\par
+\f0\pard{\fs20 The length of each substring.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of substrings of the specified length.}\par
+\f0\pard\sb180\shading1000{\fs30\b GenerateFibonacciSequence(length) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a Fibonacci sequence of a given length.}\par
+\f0\pard\sb75{\fs24\b length}\par
+\f0\pard{\fs20 The length of the Fibonacci sequence.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array containing the Fibonacci sequence.}\par
+\f0\pard\sb180\shading1000{\fs30\b GeneratePrimesUpTo(limit) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a list of prime numbers up to a specified number.}\par
+\f0\pard\sb75{\fs24\b limit}\par
+\f0\pard{\fs20 The upper limit to generate prime numbers up to.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of prime numbers up to the specified limit.}\par
+\f0\pard\sb180\shading1000{\fs30\b GenerateRandomNumber(min,max) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a random number between the specified minimum and maximum values.}\par
+\f0\pard\sb75{\fs24\b min}\par
+\f0\pard{\fs20 The minimum value.}\par
+\f0\pard\sb75{\fs24\b max}\par
+\f0\pard{\fs20 The maximum value.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A random number between min and max.}\par
+\f0\pard\sb180\shading1000{\fs30\b GenerateRandomPassword(length) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a random password of a specified length containing letters and digits.}\par
+\f0\pard\sb75{\fs24\b length}\par
+\f0\pard{\fs20 The length of the password.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The generated password.}\par
+\f0\pard\sb180\shading1000{\fs30\b GenerateUUID() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a unique identifier (UUID) as a string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A UUID string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetActiveWindowTitle() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the title of the currently active window.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The title of the active window.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetAllDrives() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of all drive names on the current computer.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of drive names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetAppDomainName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the name of the current application domain.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the current application domain.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetAssemblyVersion() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the version of the currently executing assembly.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The version of the current assembly.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetBatteryStatus() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the battery charge status.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The battery charge status as a percentage.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetClipboardText() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current text content from the clipboard.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The text content from the clipboard, or an empty string if the clipboard is empty or does not contain text.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetColorFromRGB(red,green,blue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a color from its RGB components.}\par
+\f0\pard\sb75{\fs24\b red}\par
+\f0\pard{\fs20 The red component (0-255).}\par
+\f0\pard\sb75{\fs24\b green}\par
+\f0\pard{\fs20 The green component (0-255).}\par
+\f0\pard\sb75{\fs24\b blue}\par
+\f0\pard{\fs20 The blue component (0-255).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The color in string format.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCpuUsage() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current CPU usage percentage.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current CPU usage percentage.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentCulture() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current culture name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the current culture.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentDate() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the current system date as a string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current system date in yyyy-MM-dd format.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentDirectory() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current working directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current working directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentDirectoryFiles() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of all files in the current directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of file names in the current directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentManagedThreadId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the ID of the current managed thread.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The ID of the current managed thread.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentProcessId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the process ID of the current process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The process ID of the current process.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentProcessMemoryUsage() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the memory usage of the current process in bytes.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The memory usage of the current process in bytes.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentThreadId() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the ID of the current thread.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The ID of the current thread.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentTime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Returns the current system time as a string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current system time in HH:mm:ss format.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentUICulture() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current UI culture of the operating system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the current UI culture.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetCurrentUser() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the name of the current user.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the current user.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetDayOfWeek(date) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the name of the day of the week for a given date.}\par
+\f0\pard\sb75{\fs24\b date}\par
+\f0\pard{\fs20 The date to get the day of the week for.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the day of the week.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetEnvironmentVariable(variable) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the value of an environment variable.}\par
+\f0\pard\sb75{\fs24\b variable}\par
+\f0\pard{\fs20 The name of the environment variable.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The value of the environment variable.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetExternalIpAddress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the external IP address of the machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The external IP address as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetInstalledFontNames() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of installed font names on the system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of installed font names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetIpAddress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the local IP address of the machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The local IP address, or an empty string if no network connection is found.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLocalTime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current local date and time.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current local date and time in yyyy-MM-dd HH:mm:ss format.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLogicalDrives() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of all logical drives on the system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of drive names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetLogicalProcessors() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of logical processors on the current machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of logical processors.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMacAddress() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the MAC address of the first operational network interface.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The MAC address as a string, or an empty string if no operational network interface is found.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMachineGuid() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the machine GUID (Globally Unique Identifier).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The machine GUID as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetMachineName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the machine name of the current computer.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The machine name.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetNetworkInterfaceNames() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of network interface names on the system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of network interface names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetOsVersion() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the version of the operating system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The version of the operating system.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetOSVersion() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the operating system version of the current computer.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The operating system version.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetProcessCount() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of currently running processes on the system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of running processes.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomGuid() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Generates a random GUID (Globally Unique Identifier).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A random GUID as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRandomItem(items) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a random item from an array of items.}\par
+\f0\pard\sb75{\fs24\b items}\par
+\f0\pard{\fs20 An array of items.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A random item from the array.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRunningProcesses() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of running process names on the system.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of running process names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetRunningServices() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets a list of running services on the machine.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A comma-separated list of running service names.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemDirectory() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the path of the system directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the system directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemDirectoryPath() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the path of the system directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the system directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemDrive() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the system drive letter (e.g., "C").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The system drive letter.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemPageSize() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the size of the system's memory page in bytes.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The size of the memory page in bytes.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemTimeZone() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current system time zone.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the current time zone.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetSystemUptime() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the system uptime in seconds.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The system uptime in seconds.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTempPath() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the path of the temporary folder.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the temporary folder.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetTickCount() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the number of milliseconds elapsed since the system started.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The number of milliseconds since the system started.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetUserDomainName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the domain name associated with the current user.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The domain name of the current user.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetUserInteractive() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the current process is running in user-interactive mode.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the process is running in user-interactive mode, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetUserName() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the user name of the currently logged-in user.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The user name.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetUserProfileDirectory() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the path of the user profile directory.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The path of the user profile directory.}\par
+\f0\pard\sb180\shading1000{\fs30\b GetUtcNow() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the current UTC date and time.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The current UTC date and time in yyyy-MM-dd HH:mm:ss format.}\par
+\f0\pard\sb180\shading1000{\fs30\b HexToRGB(hexColor) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a hexadecimal color string to an RGB color.}\par
+\f0\pard\sb75{\fs24\b hexColor}\par
+\f0\pard{\fs20 The hexadecimal color string (e.g., "#RRGGBB").}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array containing the RGB values.}\par
+\f0\pard\sb180\shading1000{\fs30\b Init() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Init zs utilities for any exception in program.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsArmstrong(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given number is an Armstrong number (Narcissistic number).}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the number is an Armstrong number, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsDebuggerAttached() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a debugger is attached to the process.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if a debugger is attached, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsEven(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given number is even.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the number is even, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsFileExists(filePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a file exists at the specified path.}\par
+\f0\pard\sb75{\fs24\b filePath}\par
+\f0\pard{\fs20 The path of the file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the file exists, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsNumeric(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given string represents a numeric value.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The string to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the string is numeric, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsOdd(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given number is odd.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the number is odd, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsPalindrome(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given string is a palindrome.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The string to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the string is a palindrome, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsPrime(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if a given number is a prime number.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the number is prime, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b IsRunningAsAdmin() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks if the application is running with administrative privileges.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if running as an administrator, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b KillProcessByName(processName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Kills a process by its name.}\par
+\f0\pard\sb75{\fs24\b processName}\par
+\f0\pard{\fs20 The name of the process to kill.}\par
+\f0\pard\sb180\shading1000{\fs30\b LevenshteinDistance(source,target) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the Levenshtein distance between two strings.}\par
+\f0\pard\sb75{\fs24\b source}\par
+\f0\pard{\fs20 The source string.}\par
+\f0\pard\sb75{\fs24\b target}\par
+\f0\pard{\fs20 The target string.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The Levenshtein distance between the two strings.}\par
+\f0\pard\sb180\shading1000{\fs30\b MergeArrays(array1,array2) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Merges two arrays into a single array.}\par
+\f0\pard\sb75{\fs24\b array1}\par
+\f0\pard{\fs20 The first array.}\par
+\f0\pard\sb75{\fs24\b array2}\par
+\f0\pard{\fs20 The second array.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The merged array.}\par
+\f0\pard\sb180\shading1000{\fs30\b OpenUrl(url) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Opens the specified URL in the default web browser.}\par
+\f0\pard\sb75{\fs24\b url}\par
+\f0\pard{\fs20 The URL to open.}\par
+\f0\pard\sb180\shading1000{\fs30\b PlayBeep() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Plays a simple beep sound.}\par
+\f0\pard\sb180\shading1000{\fs30\b RemoveDuplicates(array) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Removes duplicate values from an array.}\par
+\f0\pard\sb75{\fs24\b array}\par
+\f0\pard{\fs20 The array with possible duplicate values.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array with duplicates removed.}\par
+\f0\pard\sb180\shading1000{\fs30\b RGBToHex(red,green,blue) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts RGB color values to a hex color code.}\par
+\f0\pard\sb75{\fs24\b red}\par
+\f0\pard{\fs20 The red component (0-255).}\par
+\f0\pard\sb75{\fs24\b green}\par
+\f0\pard{\fs20 The green component (0-255).}\par
+\f0\pard\sb75{\fs24\b blue}\par
+\f0\pard{\fs20 The blue component (0-255).}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The hex color code as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b SendEmail(to,subject,body,smtpServer,smtpPort,username,password) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends an email using SMTP.}\par
+\f0\pard\sb75{\fs24\b to}\par
+\f0\pard{\fs20 The recipient email address.}\par
+\f0\pard\sb75{\fs24\b subject}\par
+\f0\pard{\fs20 The email subject.}\par
+\f0\pard\sb75{\fs24\b body}\par
+\f0\pard{\fs20 The email body.}\par
+\f0\pard\sb75{\fs24\b smtpServer}\par
+\f0\pard{\fs20 The SMTP server address.}\par
+\f0\pard\sb75{\fs24\b smtpPort}\par
+\f0\pard{\fs20 The SMTP server port.}\par
+\f0\pard\sb75{\fs24\b username}\par
+\f0\pard{\fs20 The SMTP server username.}\par
+\f0\pard\sb75{\fs24\b password}\par
+\f0\pard{\fs20 The SMTP server password.}\par
+\f0\pard\sb180\shading1000{\fs30\b SendLeftClick(x,y) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a left mouse click at the specified screen coordinates.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 The x-coordinate of the screen position.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 The y-coordinate of the screen position.}\par
+\f0\pard\sb180\shading1000{\fs30\b SendRightClick(x,y) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sends a right mouse click at the specified screen coordinates.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 The x-coordinate of the screen position.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 The y-coordinate of the screen position.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetClipboardText(text) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the specified text content to the clipboard.}\par
+\f0\pard\sb75{\fs24\b text}\par
+\f0\pard{\fs20 The text content to set to the clipboard.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetCursorPosition(x,y) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the cursor position to the specified screen coordinates.}\par
+\f0\pard\sb75{\fs24\b x}\par
+\f0\pard{\fs20 The x-coordinate of the screen position.}\par
+\f0\pard\sb75{\fs24\b y}\par
+\f0\pard{\fs20 The y-coordinate of the screen position.}\par
+\f0\pard\sb180\shading1000{\fs30\b SortDescending(array) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sorts an array of numbers in descending order.}\par
+\f0\pard\sb75{\fs24\b array}\par
+\f0\pard{\fs20 The array to sort.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The sorted array in descending order.}\par
+\f0\pard\sb180\shading1000{\fs30\b StartProcessWithArguments(processName,arguments) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Starts a process with the specified arguments.}\par
+\f0\pard\sb75{\fs24\b processName}\par
+\f0\pard{\fs20 The name of the process to start.}\par
+\f0\pard\sb75{\fs24\b arguments}\par
+\f0\pard{\fs20 The arguments to pass to the process.}\par
+\f0\pard\sb180\shading1000{\fs30\b SumOfDigits(number) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Calculates the sum of the digits of a given number.}\par
+\f0\pard\sb75{\fs24\b number}\par
+\f0\pard{\fs20 The number whose digits are to be summed.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The sum of the digits.}\par
+\f0\pard\sb180\shading1000{\fs30\b ThrowException(message) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Throws an exception with the specified message.}\par
+\f0\pard\sb75{\fs24\b message}\par
+\f0\pard{\fs20 The message for the exception.}\par
+\f0\pard\sb180\shading1000{\fs30\b ToIso8601(dateTime) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Converts a DateTime object to ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).}\par
+\f0\pard\sb75{\fs24\b dateTime}\par
+\f0\pard{\fs20 The DateTime object to convert.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The ISO 8601 formatted date string.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSVar}\par
+\f0\pard{\fs20 Store varibles and acces even after exe close.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b Delete(name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Deletes a variable from the .zsbin file.}\par
+\f0\pard\sb75{\fs24\b name}\par
+\f0\pard{\fs20 The variable name to delete.}\par
+\f0\pard\sb180\shading1000{\fs30\b Exists(name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Checks whether a variable exists in the .zsbin file.}\par
+\f0\pard\sb75{\fs24\b name}\par
+\f0\pard{\fs20 The variable name to check.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 True if the variable exists, otherwise false.}\par
+\f0\pard\sb180\shading1000{\fs30\b Get(name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Gets the value of a stored variable from the .zsbin file.}\par
+\f0\pard\sb75{\fs24\b name}\par
+\f0\pard{\fs20 The variable name.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The stored value, or empty string if not found or error.}\par
+\f0\pard\sb180\shading1000{\fs30\b ListAll() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Lists all stored variable names in the .zsbin file.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 An array of variable names.}\par
+\f0\pard\sb180\shading1000{\fs30\b ResetFile() \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Resets to use the default .zsbin file based on the EXE name.}\par
+\f0\pard\sb180\shading1000{\fs30\b Save(name,value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Saves a variable to the .zsbin file. Replaces if it already exists.}\par
+\f0\pard\sb75{\fs24\b name}\par
+\f0\pard{\fs20 The variable name.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The variable value as a string.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetFile(path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets a custom binary variable file instead of the default (exename.zsbin).}\par
+\f0\pard\sb75{\fs24\b path}\par
+\f0\pard{\fs20 The full file path to use as the .zsbin store.}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSWpf}\par
+\f0\pard{\fs20 Wpf And GW.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b GetStyleFromXaml(xamlFilePath,styleName) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Loads a style from a specified XAML file path and style name.}\par
+\f0\pard\sb75{\fs24\b xamlFilePath}\par
+\f0\pard{\fs20 The file path of the XAML file.}\par
+\f0\pard\sb75{\fs24\b styleName}\par
+\f0\pard{\fs20 The name of the style to retrieve.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The style if found, otherwise null.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetStyle(shapeName,xaml,style) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets a style from a XAML file to a shape or control.}\par
+\f0\pard\sb75{\fs24\b shapeName}\par
+\f0\pard{\fs20 The control or shape name.}\par
+\f0\pard\sb75{\fs24\b xaml}\par
+\f0\pard{\fs20 The XAML file name.}\par
+\f0\pard\sb75{\fs24\b style}\par
+\f0\pard{\fs20 The style name.}\par
+\f0\pard\sb180\shading1000{\fs30\b SetWindowVisible(value) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Changes the value of the internal static field '_windowVisible' in the GraphicsWindow class.}\par
+\f0\pard\sb75{\fs24\b value}\par
+\f0\pard{\fs20 The value to set (true or false).}\par
+\f0\pard\sb180\shading1000{\fs30\b Title(Title) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Sets the Title for the Graphic Window.}\par
+\f0\pard\sb75{\fs24\b Title}\par
+\f0\pard{\fs20 The Title}\par
+\f0\pard\sb300\shading2000{\fs36\b ZSZip}\par
+\f0\pard{\fs20 The Class for Zip and UnZip of Files.}\par
+
+\f0\pard\sb180\shading1000{\fs30\b AddFile(Name,FilePath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Add a file to the ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The name of the ZIP archive to add the file to.}\par
+\f0\pard\sb75{\fs24\b FilePath}\par
+\f0\pard{\fs20 The file path of the file to add to the ZIP archive.}\par
+\f0\pard\sb180\shading1000{\fs30\b CloseZip(Name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Close the ZIP archive and save it.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The name of the ZIP archive to close.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateFromDir(SourceDir,ZipName,Level,Includebase) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20  Make A Zip file from a directory whole content will be added.{\line} }\par
+\f0\pard\sb75{\fs24\b SourceDir}\par
+\f0\pard{\fs20 The Directory Path.}\par
+\f0\pard\sb75{\fs24\b ZipName}\par
+\f0\pard{\fs20 The Zip Name to be created.}\par
+\f0\pard\sb75{\fs24\b Level}\par
+\f0\pard{\fs20 Compression Level :{\line} 0 = Fastest.{\line} 1 = No Compression.{\line} 2 = Optimal.}\par
+\f0\pard\sb75{\fs24\b Includebase}\par
+\f0\pard{\fs20 True or False will you want they folder itself then its content into zip or the content of folder directly.}\par
+\f0\pard\sb180\shading1000{\fs30\b CreateZip(Name,Path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Create a new ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The identifier name for the ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 The path where the ZIP archive will be saved.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the ZIP archive created.}\par
+\f0\pard\sb180\shading1000{\fs30\b ExtractZip(ZipPath,ExtractPath) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Extract a ZIP archive to a specified directory.}\par
+\f0\pard\sb75{\fs24\b ZipPath}\par
+\f0\pard{\fs20 The path to the ZIP file to extract.}\par
+\f0\pard\sb75{\fs24\b ExtractPath}\par
+\f0\pard{\fs20 The directory where files should be extracted.}\par
+\f0\pard\sb180\shading1000{\fs30\b ListFiles(Name) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 List all files currently added to a ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The name of the ZIP archive.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 A string containing all file names in the ZIP archive.}\par
+\f0\pard\sb180\shading1000{\fs30\b OpenZip(Name,Path) \fs18\b0\i OPERATION}\par
+\f0\pard{\fs20 Open a ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Name}\par
+\f0\pard{\fs20 The identifier name for the ZIP archive.}\par
+\f0\pard\sb75{\fs24\b Path}\par
+\f0\pard{\fs20 The path where the ZIP archive is.}\par
+\f0\pard\sb75{\fs24\b returns}\par
+\f0\pard{\fs20 The name of the ZIP archive.}\par
+}
