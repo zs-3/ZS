@@ -1,4 +1,4 @@
-﻿using Microsoft.SmallBasic.Library;
+using Microsoft.SmallBasic.Library;
 using System;
 using System.Reflection;
 using System.Diagnostics;
@@ -7,210 +7,327 @@ using System.Collections.Generic;
 namespace ZS
 {
 	/// <summary>
-	/// Use For Using Small Basic Sub As A Method.
+	/// Advanced utility for invoking Small Basic subroutines like functions with arguments and return values.
 	/// </summary>
 	[SmallBasicType]
 	public static class ZSCall
 	{
+		private static Dictionary<string, Primitive> _arguments = new Dictionary<string, Primitive>(StringComparer.OrdinalIgnoreCase);
+		private static Primitive _lastReturnValue = "";
 
-
-		private static Dictionary<Primitive, Primitive> Vars = new Dictionary<Primitive, Primitive>();
-		
 		private static Assembly entryAssembly = Assembly.GetEntryAssembly();
-		private static Type mainModule = entryAssembly.EntryPoint.DeclaringType;
+		private static Type mainModule = entryAssembly != null && entryAssembly.EntryPoint != null ? entryAssembly.EntryPoint.DeclaringType : null;
+
 		private static void Func(string funcName)
 		{
-			MethodInfo methodInfo = mainModule.GetMethod(funcName, BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
-			methodInfo.Invoke(null, null);
+			if (mainModule == null)
+			{
+				entryAssembly = Assembly.GetEntryAssembly();
+				if (entryAssembly != null && entryAssembly.EntryPoint != null)
+				{
+					mainModule = entryAssembly.EntryPoint.DeclaringType;
+				}
+			}
+
+			if (mainModule != null)
+			{
+				MethodInfo methodInfo = mainModule.GetMethod(funcName, BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+				if (methodInfo != null)
+				{
+					methodInfo.Invoke(null, null);
+					return;
+				}
+			}
+
+			// Fallback search across loaded assemblies if entry assembly fails
+			foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
+			{
+				if (asm.IsDynamic) continue;
+				Type[] types = asm.GetTypes();
+				foreach (Type t in types)
+				{
+					MethodInfo m = t.GetMethod(funcName, BindingFlags.IgnoreCase | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+					if (m != null)
+					{
+						m.Invoke(null, null);
+						return;
+					}
+				}
+			}
 		}
 
 		private static void SetVal(string Name, string Value)
 		{
-			FieldInfo fieldInfo = mainModule.GetField(Name, BindingFlags.NonPublic | BindingFlags.Static);
-			fieldInfo.SetValue(null, Value);
-		}
-		
-		private static String GetVal(string Name)
-		{
-			FieldInfo fieldInfo = mainModule.GetField(Name, BindingFlags.NonPublic | BindingFlags.Static);
-			return fieldInfo.GetValue(null).ToString();
-		}
-
-		private static string GetCallingMethodName()
-		{
-			// Create a StackTrace object
-			StackTrace stackTrace = new StackTrace(true);
-
-			// Get the calling method from the stack trace
-			StackFrame frame = stackTrace.GetFrame(2); // 2 represents the method that called the current method
-			if (frame != null) {
-				MethodBase method = frame.GetMethod();
-				return method.Name;
+			if (mainModule != null)
+			{
+				FieldInfo fieldInfo = mainModule.GetField(Name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+				if (fieldInfo != null)
+				{
+					fieldInfo.SetValue(null, Value);
+				}
 			}
-			return "Unknown";
 		}
-		
+
+		private static string GetVal(string Name)
+		{
+			if (mainModule != null)
+			{
+				FieldInfo fieldInfo = mainModule.GetField(Name, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+				if (fieldInfo != null)
+				{
+					object val = fieldInfo.GetValue(null);
+					return val != null ? val.ToString() : "";
+				}
+			}
+			return "";
+		}
+
 		/// <summary>
-		/// The Event Of Sub
+		/// Event triggered when CallSubWithEvent is called.
 		/// </summary>
 		public static event SmallBasicCallback Function;
 
-		[HideFromIntellisense]
-		public static void AddValue(Primitive Name, Primitive Value)
+		/// <summary>
+		/// Sets a named argument before executing a subroutine.
+		/// </summary>
+		/// <param name="name">The argument name (e.g., "arg1" or variable name).</param>
+		/// <param name="value">The argument value.</param>
+		public static void SetArg(Primitive name, Primitive value)
 		{
-			Stack.PushValue(Name, Value);			
+			try
+			{
+				string key = name.ToString();
+				_arguments[key] = value;
+				SetVal(key, value.ToString());
+				Stack.PushValue(key, value);
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+			}
 		}
 
 		/// <summary>
-		/// Gets The Value Sent To Stack
+		/// Gets a passed argument value by name or index inside a subroutine.
 		/// </summary>
-		/// <param name="Name">The name of stack</param>
-		/// <returns>Value sent </returns>
+		/// <param name="name">Argument name or index (e.g. "1", "arg1").</param>
+		/// <returns>The argument value or empty string if not found.</returns>
+		public static Primitive GetArg(Primitive name)
+		{
+			try
+			{
+				string key = name.ToString();
+				if (_arguments.ContainsKey(key))
+				{
+					return _arguments[key];
+				}
+
+				Primitive valFromStack = Stack.PopValue(key);
+				if (!string.IsNullOrEmpty(valFromStack.ToString()))
+				{
+					return valFromStack;
+				}
+
+				string valFromVar = GetVal(key);
+				return new Primitive(valFromVar);
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+				return "";
+			}
+		}
+
+		/// <summary>
+		/// Sets the return value from inside a Small Basic subroutine.
+		/// </summary>
+		/// <param name="value">The return value.</param>
+		public static void Return(Primitive value)
+		{
+			try
+			{
+				_lastReturnValue = value;
+				Stack.PushValue("Return", value);
+				SetVal("Return", value.ToString());
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+			}
+		}
+
+		/// <summary>
+		/// Sets the return value for CallSubWithEvent.
+		/// </summary>
+		/// <param name="value">The return value.</param>
+		public static void Return2(Primitive value)
+		{
+			try
+			{
+				_lastReturnValue = value;
+				Stack.PushValue("ReturnValue-Event", value);
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+			}
+		}
+
+		/// <summary>
+		/// Calls a Small Basic subroutine with position-based or semicolon-separated arguments and returns the result.
+		/// </summary>
+		/// <param name="subName">The name of the Sub in Small Basic.</param>
+		/// <param name="args">Semicolon separated key=value string (e.g. "a=5;b=10") or positional values ("5;10").</param>
+		/// <returns>The return value set by ZSCall.Return() or Return variable.</returns>
+		public static Primitive Call(Primitive subName, Primitive args)
+		{
+			try
+			{
+				_arguments.Clear();
+				_lastReturnValue = "";
+
+				string argsStr = args.ToString();
+				if (!string.IsNullOrEmpty(argsStr))
+				{
+					string[] pairs = argsStr.Split(';');
+					int index = 1;
+					foreach (string pair in pairs)
+					{
+						string[] kv = pair.Split('=');
+						if (kv.Length == 2)
+						{
+							string k = kv[0].Trim();
+							string v = kv[1].Trim();
+							SetArg(k, v);
+						}
+						else
+						{
+							string val = pair.Trim();
+							SetArg("arg" + index, val);
+							SetArg(index.ToString(), val);
+							index++;
+						}
+					}
+				}
+
+				Func(subName.ToString());
+
+				if (!string.IsNullOrEmpty(_lastReturnValue.ToString()))
+				{
+					return _lastReturnValue;
+				}
+
+				Primitive retFromStack = Stack.PopValue("Return");
+				if (!string.IsNullOrEmpty(retFromStack.ToString()))
+				{
+					return retFromStack;
+				}
+
+				string retFromVar = GetVal("Return_" + subName.ToString());
+				if (string.IsNullOrEmpty(retFromVar))
+				{
+					retFromVar = GetVal("Return");
+				}
+
+				return new Primitive(retFromVar);
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+				return "";
+			}
+		}
+
+		/// <summary>
+		/// Calls a Small Basic subroutine without arguments and gets the return value.
+		/// </summary>
+		/// <param name="subName">The subroutine name.</param>
+		/// <returns>The return value.</returns>
+		public static Primitive CallSubNoArgs(Primitive subName)
+		{
+			return Call(subName, "");
+		}
+
+		/// <summary>
+		/// Calls a subroutine with semicolon-separated key=value pairs or positional arguments.
+		/// </summary>
+		public static Primitive CallSub(Primitive Sub, Primitive Values)
+		{
+			return Call(Sub, Values);
+		}
+
+		/// <summary>
+		/// Calls the Small Basic subroutine subscribed to the Function event with arguments.
+		/// </summary>
+		public static Primitive CallSubWithEvent(Primitive Values)
+		{
+			try
+			{
+				_lastReturnValue = "";
+				string valuesString = Values.ToString();
+				string[] pairs = valuesString.Split(';');
+
+				foreach (string pair in pairs)
+				{
+					string[] keyValue = pair.Split('=');
+					if (keyValue.Length == 2)
+					{
+						string VarName = keyValue[0].Trim();
+						string Value = keyValue[1].Trim();
+						SetVal(VarName, Value);
+					}
+				}
+
+				if (Function != null)
+				{
+					Function.Invoke();
+				}
+
+				if (!string.IsNullOrEmpty(_lastReturnValue.ToString()))
+				{
+					return _lastReturnValue;
+				}
+
+				return GetValue("ReturnValue-Event");
+			}
+			catch (Exception ex)
+			{
+				ZSUtilities.OnError(ex);
+				return "";
+			}
+		}
+
+		/// <summary>
+		/// Gets a value from stack by name.
+		/// </summary>
 		public static Primitive GetValue(Primitive Name)
 		{
 			return Stack.PopValue(Name);
 		}
 
 		/// <summary>
-		/// Return The Value to CallSub.
+		/// Adds a value to the stack.
 		/// </summary>
-		/// <param name="Value">The Value To Return.</param>
-		public static void Return(Primitive Value)
+		[HideFromIntellisense]
+		public static void AddValue(Primitive Name, Primitive Value)
 		{
-			Stack.PushValue("Return", Value);
-			
-		}
-		
-		/// <summary>
-		/// Return The Value to CallSubWithEvent
-		/// </summary>
-		/// <param name="Value">The Value To Return</param>
-		public static void Return2(Primitive Value)
-		{
-			Stack.PushValue("ReturnValue-Event", Value);
-			
+			Stack.PushValue(Name, Value);
 		}
 
 		/// <summary>
-		/// Calls The Sub With Args.
+		/// Legacy method for calling subroutine with variable assignment.
 		/// </summary>
-		/// <param name="Sub">The Sub Name</param>
-		/// <param name="Values">The Values Of Args Seperated By ;.</param>
-		/// <returns>The Output Send Through Return.</returns>
-		public static Primitive CallSub(Primitive Sub, Primitive Values)
+		public static Primitive Call2(Primitive Sub, Primitive Values)
 		{
-			// Convert Primitive to string
-			string valuesString = Values.ToString();
-
-			// Split the input string by semicolon to get each stack name-value pair
-			string[] pairs = valuesString.Split(';');
-
-			foreach (string pair in pairs) {
-				// Split each pair by '=' to get the stack name and value
-				string[] keyValue = pair.Split('=');
-
-				if (keyValue.Length == 2) {
-					string stackName = keyValue[0].Trim();
-					string stackValue = keyValue[1].Trim();
-
-					// Add the value to the stack
-					AddValue(stackName, stackValue);
-				}
-			}
-			Func(Sub);
-			return GetValue("Return");
+			return Call(Sub, Values);
 		}
-		
+
 		/// <summary>
-		/// Calls The Sub That Is Suscribed To Function Event With Args.
+		/// Legacy method for calling subroutine returning Return_SubName variable.
 		/// </summary>
-		/// <param name="Values">The Values Of Args Seperated By ;.</param>
-		/// <returns>The Output Send Through Return2.</returns>
-		public static Primitive CallSubWithEvent(Primitive Values)
+		public static Primitive Call3(Primitive Sub, Primitive Values)
 		{
-			// Convert Primitive to string
-			string valuesString = Values.ToString();
-
-			// Split the input string by semicolon to get each stack name-value pair
-			string[] pairs = valuesString.Split(';');
-
-			foreach (string pair in pairs) {
-				// Split each pair by '=' to get the stack name and value
-				string[] keyValue = pair.Split('=');
-
-				if (keyValue.Length == 2) {
-					string VarName = keyValue[0].Trim();
-					string Value = keyValue[1].Trim();
-
-					// Add the value to the stack
-					SetVal(VarName, Value);
-				}
-			}
-			Function.Invoke();
-			return GetValue("ReturnValue-Event");
-		}
-		
-		/// <summary>
-		/// Calls The Sub With Args.
-		/// The Varibles decleared inside sub will be assinged with new arg value.
-		/// A Varible by name Return value will be returned.
-		/// </summary>
-		/// <param name="Values">The Values Of Args Seperated By ;.</param>
-		/// <param name="Sub">The Sub Name.</param>
-		/// <returns>The Output Send Through Return.</returns>
-		public static Primitive Call2(Primitive Sub,Primitive Values)
-		{
-			// Convert Primitive to string
-			string valuesString = Values.ToString();
-
-			// Split the input string by semicolon to get each stack name-value pair
-			string[] pairs = valuesString.Split(';');
-
-			foreach (string pair in pairs) {
-				// Split each pair by '=' to get the stack name and value
-				string[] keyValue = pair.Split('=');
-
-				if (keyValue.Length == 2) {
-					string VarName = keyValue[0].Trim();
-					string Value = keyValue[1].Trim();
-
-					// Add the value to the stack
-					SetVal(VarName, Value);
-				}
-			}
-			Func(Sub);
-			return GetVal("Return");
-		}
-		
-		/// <summary>
-		/// Calls The Sub With Args.
-		/// The Varibles decleared inside sub will be assinged with new arg value.
-		/// A Varible by name Return_SubName value will be returned.
-		/// </summary>
-		/// <param name="Values">The Values Of Args Seperated By ;.</param>
-		/// <returns>The Output Send Through Return.</returns>
-		public static Primitive Call3(Primitive Sub,Primitive Values)
-		{
-			// Convert Primitive to string
-			string valuesString = Values.ToString();
-
-			// Split the input string by semicolon to get each stack name-value pair
-			string[] pairs = valuesString.Split(';');
-
-			foreach (string pair in pairs) {
-				// Split each pair by '=' to get the stack name and value
-				string[] keyValue = pair.Split('=');
-
-				if (keyValue.Length == 2) {
-					string VarName = keyValue[0].Trim();
-					string Value = keyValue[1].Trim();
-
-					// Add the value to the stack
-					SetVal(VarName, Value);
-				}
-			}
-			Func(Sub);
-			return GetVal("Return_" + Sub);
+			return Call(Sub, Values);
 		}
 	}
 }

@@ -175,6 +175,7 @@
     <Compile Include="Utilities.cs" />
     <Compile Include="Globalization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI.cs" />
     <Compile Include="Wpf.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
